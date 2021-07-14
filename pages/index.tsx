@@ -15,7 +15,7 @@ export default function Home({ posts }) {
       </Head>
 
       <main className={""}>
-        {posts.map((post) => (
+        {posts.map((post: ArticleType) => (
           <div key={post.id}>
             <Link href={`/post/${post.slug}`}>
               <a>{post.title}</a>
