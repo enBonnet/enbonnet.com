@@ -23,4 +23,5 @@ export interface ArticleType extends BaseType {
   publico: boolean;
   image: ImageType;
   categories: Array<CategoryType>;
+  slug?: string;
 }

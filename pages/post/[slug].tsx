@@ -27,7 +27,8 @@ export default function Article({ article }) {
       <h1>{article.title}</h1>
       <div>{article.content}</div>
       <div>
-        {article.categories.map((category) => category.name).join(", ")}
+        {article.categories?.map((category) => category.name).join(", ") ||
+          null}
       </div>
       <ArticleDate
         updatedAt={article.updated_at}
@@ -42,14 +43,20 @@ export async function getStaticPaths() {
   const paths = res.data
     .filter((article: ArticleType) => article.publico)
     .map((article: ArticleType) => ({
-      params: { id: `${article.id}`, slug: slugify(article.title) },
+      params: { slug: slugify(article.title) },
     }));
   return { paths, fallback: false };
 }
 
 export async function getStaticProps({ params }) {
-  const res = await axios.get(
-    `https://enbonnet-cms.herokuapp.com/articles/${params.id}`
-  );
-  return { props: { article: res.data } };
+  const res = await axios.get(POSTS_SORT_BY_CREATED_AT_DESC);
+  const [post] = res.data
+    .filter((article: ArticleType) => article.publico)
+    .map((article: ArticleType) => ({
+      ...article,
+      slug: slugify(article.title),
+    }))
+    .filter((article: ArticleType) => article.slug === params.slug);
+  console.log(post);
+  return { props: { article: post, slug: params.slug } };
 }
