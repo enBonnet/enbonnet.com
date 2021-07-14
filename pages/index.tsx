@@ -1,11 +1,11 @@
 import Head from "next/head";
 import Link from "next/link";
 import axios from "axios";
+import { ArrayOfPosts, ArticleType } from "@/types/ArticleType";
+import { POSTS_SORT_BY_CREATED_AT_DESC } from "@/lib/api";
 import slugify from "@/lib/slugify";
 
 export default function Home({ posts }) {
-  console.log(posts);
-
   return (
     <div>
       <Head>
@@ -30,13 +30,13 @@ export default function Home({ posts }) {
 }
 
 export async function getStaticProps() {
-  const res = await axios.get(
-    "https://enbonnet-cms.herokuapp.com/articles?_sort=created_at:desc"
-  );
-  const posts = res.data.map((post) => ({
-    ...post,
-    slug: slugify(post.title),
-  }));
+  const res: ArrayOfPosts = await axios.get(POSTS_SORT_BY_CREATED_AT_DESC);
+  const posts = res.data
+    .filter((article: ArticleType) => article.publico)
+    .map((post: ArticleType) => ({
+      ...post,
+      slug: slugify(post.title),
+    }));
   return {
     props: { posts },
   };

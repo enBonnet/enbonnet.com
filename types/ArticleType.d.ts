@@ -1,5 +1,5 @@
+import { AxiosResponse } from "axios";
 import { BaseType } from "./BaseType";
-
 interface CategoryType extends BaseType {
   name: string;
 }
@@ -16,6 +16,15 @@ interface ImageType extends BaseType {
   public_id: string;
 }
 
+export type ArticleDateType = {
+  updatedAt: string;
+  createdAt: string;
+};
+
+export type ArticleProps = {
+  article: ArticleType;
+};
+
 export interface ArticleType extends BaseType {
   title: string;
   content: string;
@@ -24,4 +33,8 @@ export interface ArticleType extends BaseType {
   image: ImageType;
   categories: Array<CategoryType>;
   slug?: string;
+}
+
+export interface ArrayOfPosts extends AxiosResponse {
+  data: Array<ArticleType>;
 }

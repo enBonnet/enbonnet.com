@@ -1,0 +1,44 @@
+import { ArticleType } from "@/types/ArticleType";
+import slugify from "@/lib/slugify";
+
+type PathsWithSlugs = {
+  params: {
+    slug: string;
+    id?: string;
+  };
+};
+
+export const getPathsWithSlug = (
+  articles: Array<ArticleType>
+): Array<PathsWithSlugs> => {
+  return articles
+    .filter((article: ArticleType) => article.publico)
+    .map((article: ArticleType) => ({
+      params: { slug: slugify(article.title) },
+    }));
+};
+
+export const getPathsWithSlugAndId = (
+  articles: Array<ArticleType>
+): Array<PathsWithSlugs> => {
+  return articles
+    .filter((article: ArticleType) => article.publico)
+    .map((article: ArticleType) => ({
+      params: { id: `${article.id}`, slug: slugify(article.title) },
+    }));
+};
+
+export const getPostBySlug = (
+  articles: Array<ArticleType>,
+  slug: string
+): ArticleType => {
+  const filterArticle = articles
+    .filter((article: ArticleType) => article.publico)
+    .map((article: ArticleType) => ({
+      ...article,
+      slug: slugify(article.title),
+    }))
+    .filter((article: ArticleType) => article.slug === slug);
+
+  return filterArticle[0];
+};
