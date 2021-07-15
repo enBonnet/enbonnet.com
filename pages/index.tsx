@@ -5,7 +5,11 @@ import { ArrayOfPosts, ArticleType } from "@/types/ArticleType";
 import { POSTS_SORT_BY_CREATED_AT_DESC } from "@/lib/api";
 import slugify from "@/lib/slugify";
 
-export default function Home({ posts }) {
+type HomeProps = {
+  posts: Array<ArticleType>;
+};
+
+export default function Home({ posts }: HomeProps) {
   return (
     <div>
       <Head>
@@ -14,7 +18,7 @@ export default function Home({ posts }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className={""}>
+      <main className="">
         {posts.map((post: ArticleType) => (
           <div key={post.id}>
             <Link href={`/post/${post.slug}`}>

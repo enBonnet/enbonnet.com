@@ -16,7 +16,14 @@ export async function getStaticPaths() {
   return { paths, fallback: false };
 }
 
-export async function getStaticProps({ params }) {
+type PathParams = {
+  params: {
+    slug: string;
+    id: string;
+  };
+};
+
+export async function getStaticProps({ params }: PathParams) {
   const res: ArrayOfPosts = await axios.get(`${ALL_POSTS}/${params.id}`);
   return { props: { article: res.data } };
 }
