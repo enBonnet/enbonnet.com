@@ -8,7 +8,7 @@ type PathsWithSlugs = {
   };
 };
 
-const filterPublicArticles = (
+export const filterPublicArticles = (
   articles: Array<ArticleType>
 ): Array<ArticleType> =>
   articles.filter((article: ArticleType) => article.publico);
