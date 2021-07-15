@@ -20,13 +20,30 @@ export default function Home({ posts }: HomeProps) {
       </Head>
 
       <main className="">
-        {posts.map((post: ArticleType) => (
-          <div key={post.id}>
-            <Link href={`/post/${post.slug}`}>
-              <a>{post.title}</a>
+        <div>
+          <h3>Post recientes</h3>
+          <div>
+            {posts.map((post: ArticleType) => (
+              <div key={post.id}>
+                <Link href={`/post/${post.slug}`}>
+                  <a>
+                    <h3>{post.title}</h3>
+                  </a>
+                </Link>
+                <Link href={`/post/${post.slug}`}>
+                  <a>
+                    <p>{post.description}</p>
+                  </a>
+                </Link>
+              </div>
+            ))}
+          </div>
+          <div>
+            <Link href="/blog">
+              <a>Más posts</a>
             </Link>
           </div>
-        ))}
+        </div>
       </main>
 
       <footer className="">Footer</footer>
@@ -41,6 +58,6 @@ export async function getStaticProps() {
     slug: slugify(post.title),
   }));
   return {
-    props: { posts },
+    props: { posts: posts.slice(0, 3) },
   };
 }
