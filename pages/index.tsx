@@ -1,8 +1,7 @@
 import Link from "next/link";
-import axios from "axios";
-import { ArrayOfPosts, ArticleType } from "@/types/ArticleType";
-import { POSTS_SORT_BY_CREATED_AT_DESC } from "@/lib/api";
-import { filterPublicArticles } from "@/lib/articles";
+import { ArticleType } from "@/types/ArticleType";
+import { getPublicArticles } from "@/lib/articles";
+import { saveRecords } from "@/lib/algolia";
 import slugify from "@/lib/slugify";
 import Footer from "@/components/Footer";
 import Head from "@/components/Head";
@@ -40,8 +39,9 @@ export default function Home({ posts }: HomeProps) {
 }
 
 export async function getStaticProps() {
-  const res: ArrayOfPosts = await axios.get(POSTS_SORT_BY_CREATED_AT_DESC);
-  const posts = filterPublicArticles(res.data).map((post: ArticleType) => ({
+  const articles = await getPublicArticles();
+  saveRecords(articles);
+  const posts = articles.map((post: ArticleType) => ({
     ...post,
     slug: slugify(post.title),
   }));

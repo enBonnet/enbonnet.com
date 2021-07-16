@@ -1,3 +1,4 @@
+import "dayjs/locale/es-us";
 import type { AppProps } from "next/app";
 import "normalize.css";
 

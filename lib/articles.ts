@@ -1,5 +1,7 @@
-import { ArticleType } from "@/types/ArticleType";
-import slugify from "@/lib/slugify";
+import axios from "axios";
+import { ArticleType, ArrayOfPosts } from "@/types/ArticleType";
+import { POSTS_SORT_BY_CREATED_AT_DESC, ALL_POSTS } from "./api";
+import slugify from "./slugify";
 
 type PathsWithSlugs = {
   params: {
@@ -8,7 +10,25 @@ type PathsWithSlugs = {
   };
 };
 
-export const filterPublicArticles = (
+const getArticlesSortDesc = async () => {
+  try {
+    const res: ArrayOfPosts = await axios.get(POSTS_SORT_BY_CREATED_AT_DESC);
+    return res.data;
+  } catch (err) {
+    throw new Error(err);
+  }
+};
+
+export const getArticleById = async (id: string) => {
+  try {
+    const res: ArrayOfPosts = await axios.get(`${ALL_POSTS}/${id}`);
+    return res.data;
+  } catch (err) {
+    throw new Error(err);
+  }
+};
+
+const filterPublicArticles = (
   articles: Array<ArticleType>
 ): Array<ArticleType> =>
   articles.filter((article: ArticleType) => article.publico);
@@ -41,4 +61,9 @@ export const getPostBySlug = (
     .filter((article: ArticleType) => article.slug === slug);
 
   return filterArticle[0];
+};
+
+export const getPublicArticles = async () => {
+  const articles = await getArticlesSortDesc();
+  return filterPublicArticles(articles);
 };

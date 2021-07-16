@@ -1,9 +1,7 @@
-import axios from "axios";
 import Link from "next/link";
-import { ArrayOfPosts, ArticleType } from "@/types/ArticleType";
+import { ArticleType } from "@/types/ArticleType";
 import { PaginatorType } from "@/types/PageType";
-import { POSTS_SORT_BY_CREATED_AT_DESC } from "@/lib/api";
-import { filterPublicArticles } from "@/lib/articles";
+import { getPublicArticles } from "@/lib/articles";
 import handlePages from "@/lib/pager";
 import slugify from "@/lib/slugify";
 import Footer from "@/components/Footer";
@@ -51,8 +49,8 @@ type PathParams = {
 };
 
 export async function getStaticProps({ params }: PathParams) {
-  const res: ArrayOfPosts = await axios.get(POSTS_SORT_BY_CREATED_AT_DESC);
-  const posts = filterPublicArticles(res.data).map((post: ArticleType) => ({
+  const articles = await getPublicArticles();
+  const posts = articles.map((post: ArticleType) => ({
     ...post,
     slug: slugify(post.title),
   }));
@@ -71,8 +69,7 @@ export async function getStaticProps({ params }: PathParams) {
 }
 
 export async function getStaticPaths() {
-  const res: ArrayOfPosts = await axios.get(POSTS_SORT_BY_CREATED_AT_DESC);
-  const posts = filterPublicArticles(res.data);
+  const posts = await getPublicArticles();
   const { indexOfPages } = handlePages(posts);
 
   const paths = indexOfPages.map((number) => ({
