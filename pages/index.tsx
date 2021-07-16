@@ -6,6 +6,7 @@ import { filterPublicArticles } from "@/lib/articles";
 import slugify from "@/lib/slugify";
 import Footer from "@/components/Footer";
 import Head from "@/components/Head";
+import PostCard from "@/components/PostCard";
 
 type HomeProps = {
   posts: Array<ArticleType>;
@@ -21,22 +22,11 @@ export default function Home({ posts }: HomeProps) {
           <h3>Post recientes</h3>
           <div>
             {posts.map((post: ArticleType) => (
-              <div key={post.id}>
-                <Link href={`/post/${post.slug}`}>
-                  <a>
-                    <h3>{post.title}</h3>
-                  </a>
-                </Link>
-                <Link href={`/post/${post.slug}`}>
-                  <a>
-                    <p>{post.description}</p>
-                  </a>
-                </Link>
-              </div>
+              <PostCard key={post.id} post={post} />
             ))}
           </div>
           <div>
-            <Link href="/blog">
+            <Link href="/blog/page/1">
               <a>Más posts</a>
             </Link>
           </div>
