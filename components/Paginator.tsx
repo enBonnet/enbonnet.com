@@ -11,19 +11,26 @@ export default function Paginator({ pages }: PaginatorProps) {
       <div className="paginator">
         {Number(pages.current) - 1 > 0 && (
           <Link href={`/blog/page/${Number(pages.current) - 1}`}>
-            <a className="page">{"<"}</a>
+            <a title="Pagina anterior" className="page">
+              {"<"}
+            </a>
           </Link>
         )}
         {pages.allIndex.map((number) => (
           <Link key={number} href={`/blog/page/${number}`}>
-            <a className={`page ${pages.current === number && "current"}`}>
+            <a
+              title={`Pagina ${number}`}
+              className={`page ${pages.current === number && "current"}`}
+            >
               {number}
             </a>
           </Link>
         ))}
         {Number(pages.current) !== pages.last && (
           <Link href={`/blog/page/${Number(pages.current) + 1}`}>
-            <a className="page">{">"}</a>
+            <a title="Pagina siguiente" className="page">
+              {">"}
+            </a>
           </Link>
         )}
       </div>
@@ -31,6 +38,7 @@ export default function Paginator({ pages }: PaginatorProps) {
         .paginator {
           display: flex;
           justify-content: center;
+          margin: 12px 0 24px 0;
         }
         .paginator .page {
           padding: 12px;

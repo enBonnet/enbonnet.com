@@ -2,7 +2,7 @@ import { ArticleType } from "@/types/ArticleType";
 
 type SortPagesType = { [key: string]: Array<ArticleType> };
 
-export default function handlePlages(posts: Array<ArticleType>) {
+export default function handlePages(posts: Array<ArticleType>) {
   const POST_PER_PAGES = 6;
   const PAGES_COUNT = Math.ceil(posts.length / POST_PER_PAGES);
 

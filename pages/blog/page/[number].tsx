@@ -1,4 +1,5 @@
 import axios from "axios";
+import Link from "next/link";
 import { ArrayOfPosts, ArticleType } from "@/types/ArticleType";
 import { PaginatorType } from "@/types/PageType";
 import { POSTS_SORT_BY_CREATED_AT_DESC } from "@/lib/api";
@@ -19,20 +20,26 @@ export default function BlogPage({ posts, pages }: HomeProps) {
   return (
     <div>
       <Head subtitle="Blog" />
+      <div className="container">
+        <main>
+          <nav>
+            <Link href="/">
+              <a>Inicio</a>
+            </Link>
+          </nav>
+          <section>
+            <h3>Posts</h3>
+            <div>
+              {posts.map((post: ArticleType) => (
+                <PostCard key={post.id} post={post} />
+              ))}
+            </div>
+          </section>
+          <Paginator pages={pages} />
+        </main>
 
-      <main className="">
-        <div>
-          <h3>Posts</h3>
-          <div>
-            {posts.map((post: ArticleType) => (
-              <PostCard key={post.id} post={post} />
-            ))}
-          </div>
-        </div>
-        <Paginator pages={pages} />
-      </main>
-
-      <Footer />
+        <Footer />
+      </div>
     </div>
   );
 }

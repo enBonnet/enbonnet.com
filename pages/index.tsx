@@ -16,24 +16,25 @@ export default function Home({ posts }: HomeProps) {
   return (
     <div>
       <Head />
+      <div className="container">
+        <main>
+          <section>
+            <h3>Post recientes</h3>
+            <div>
+              {posts.map((post: ArticleType) => (
+                <PostCard key={post.id} post={post} />
+              ))}
+            </div>
+            <div>
+              <Link href="/blog/page/1">
+                <a>Más posts</a>
+              </Link>
+            </div>
+          </section>
+        </main>
 
-      <main className="">
-        <section>
-          <h3>Post recientes</h3>
-          <div>
-            {posts.map((post: ArticleType) => (
-              <PostCard key={post.id} post={post} />
-            ))}
-          </div>
-          <div>
-            <Link href="/blog/page/1">
-              <a>Más posts</a>
-            </Link>
-          </div>
-        </section>
-      </main>
-
-      <Footer />
+        <Footer />
+      </div>
     </div>
   );
 }
