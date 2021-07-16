@@ -7,7 +7,7 @@ type PostProps = {
 
 export default function PostCard({ post }: PostProps) {
   return (
-    <div key={post.id}>
+    <article key={post.id}>
       <Link href={`/post/${post.slug}`}>
         <a>
           <h3>{post.title}</h3>
@@ -18,6 +18,6 @@ export default function PostCard({ post }: PostProps) {
           <p>{post.description}</p>
         </a>
       </Link>
-    </div>
+    </article>
   );
 }

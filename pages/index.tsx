@@ -18,7 +18,7 @@ export default function Home({ posts }: HomeProps) {
       <Head />
 
       <main className="">
-        <div>
+        <section>
           <h3>Post recientes</h3>
           <div>
             {posts.map((post: ArticleType) => (
@@ -30,7 +30,7 @@ export default function Home({ posts }: HomeProps) {
               <a>Más posts</a>
             </Link>
           </div>
-        </div>
+        </section>
       </main>
 
       <Footer />
