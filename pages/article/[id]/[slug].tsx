@@ -12,7 +12,6 @@ export default function ArticlePage({ article }: ArticleProps) {
 export async function getStaticPaths() {
   const res: ArrayOfPosts = await axios.get(POSTS_SORT_BY_CREATED_AT_DESC);
   const paths = getPathsWithSlugAndId(res.data);
-  console.log(paths);
   return { paths, fallback: false };
 }
 
