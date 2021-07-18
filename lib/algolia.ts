@@ -22,10 +22,6 @@ const setAttributes = (attributes: Array<string>) => {
   });
 };
 
-export const getindexName = () => {
-  return client.initIndex(indexName);
-};
-
 const uploadRecords = (records: Array<ArticleType>) => {
   return new Promise((resolve, reject) => {
     index
