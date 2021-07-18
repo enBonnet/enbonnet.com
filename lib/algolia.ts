@@ -1,64 +1,56 @@
 import algoliasearch from "algoliasearch";
-import { createNullCache } from "@algolia/cache-common";
-import { createInMemoryCache } from "@algolia/cache-in-memory";
 import { ArticleType } from "@/types/ArticleType";
-import {
-  algoliaId,
-  algoliaKey,
-  algoliaPublicId,
-  algoliaPublicKey,
-  algoliaIndex,
-  isProduction,
-} from "../config";
+import { algoliaId, algoliaKey, indexName } from "../config";
 
 const client = algoliasearch(algoliaId, algoliaKey);
-const index = client.initIndex(algoliaIndex);
+const index = client.initIndex(indexName);
 
-const uploadRecords = (records: Array<ArticleType>) => {
+const searchableAttributes = [
+  "title,description",
+  "content",
+  "categories.name",
+];
+
+const setAttributes = (attributes: Array<string>) => {
   return new Promise((resolve, reject) => {
     index
-      .saveObjects(records, { autoGenerateObjectIDIfNotExist: true })
-      .then((recordsIds) => {
-        resolve(recordsIds);
+      .setSettings({
+        searchableAttributes: attributes,
       })
+      .then((done) => resolve(done))
       .catch((err) => reject(err));
   });
 };
 
-const clearRecords = () => {
+export const getindexName = () => {
+  return client.initIndex(indexName);
+};
+
+const uploadRecords = (records: Array<ArticleType>) => {
+  return new Promise((resolve, reject) => {
+    index
+      .saveObjects(records)
+      .then((recordsIds) => resolve(recordsIds))
+      .catch((err) => reject(err));
+  });
+};
+
+export const clearRecords = () => {
   return new Promise((resolve, reject) => {
     index
       .clearObjects()
-      .then((done) => {
-        resolve(done);
-      })
+      .then((done) => resolve(done))
       .catch((err) => reject(err));
   });
 };
 
 export const saveRecords = async (records: Array<ArticleType>) => {
   try {
-    Promise.all([await clearRecords(), await uploadRecords(records)]);
+    Promise.all([
+      await uploadRecords(records),
+      await setAttributes(searchableAttributes),
+    ]);
   } catch (err) {
     throw new Error(err);
   }
 };
-
-const getAlgoliaConfig = () => {
-  if (isProduction) {
-    return {
-      responsesCache: createInMemoryCache(),
-      requestsCache: createInMemoryCache({ serializable: false }),
-    };
-  }
-
-  return {
-    responsesCache: createNullCache(),
-  };
-};
-
-export const searchClient = algoliasearch(
-  algoliaPublicId,
-  algoliaPublicKey,
-  getAlgoliaConfig()
-);

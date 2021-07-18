@@ -9,12 +9,12 @@ export default function PostCard({ post }: PostProps) {
   return (
     <>
       <article className="card" key={post.id}>
-        <Link href={`/post/${post.slug}`}>
+        <Link href={post.url || "/404"}>
           <a className="link">
             <h3 className="title">{post.title}</h3>
           </a>
         </Link>
-        <Link href={`/post/${post.slug}`}>
+        <Link href={post.url || "/404"}>
           <a className="link">
             <p className="description">{post.description}</p>
           </a>

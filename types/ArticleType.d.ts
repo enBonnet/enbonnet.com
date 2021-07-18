@@ -33,6 +33,7 @@ export interface ArticleType extends BaseType {
   image: ImageType;
   categories: Array<CategoryType>;
   slug?: string;
+  url?: string;
 }
 
 export interface ArrayOfPosts extends AxiosResponse {

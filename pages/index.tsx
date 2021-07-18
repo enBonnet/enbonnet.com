@@ -42,11 +42,16 @@ export default function Home({ posts }: HomeProps) {
 
 export async function getStaticProps() {
   const articles = await getPublicArticles();
-  saveRecords(articles);
-  const posts = articles.map((post: ArticleType) => ({
-    ...post,
-    slug: slugify(post.title),
-  }));
+  const posts = articles.map((post: ArticleType) => {
+    const slug = slugify(post.title);
+    return {
+      ...post,
+      objectID: post.id,
+      slug,
+      url: `/post/${slug}`,
+    };
+  });
+  saveRecords(posts);
   return {
     props: { posts: posts.slice(0, 3) },
   };
