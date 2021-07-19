@@ -6,7 +6,7 @@ import slugify from "@/lib/slugify";
 import Footer from "@/components/Footer";
 import Head from "@/components/Head";
 import PostCard from "@/components/PostCard";
-import Search from "@/components/Search";
+import Navbar from "@/components/Navbar";
 
 type HomeProps = {
   posts: Array<ArticleType>;
@@ -16,7 +16,8 @@ export default function Home({ posts }: HomeProps) {
   return (
     <div>
       <Head />
-      <Search />
+      <Navbar />
+
       <div className="container">
         <main>
           <section>
