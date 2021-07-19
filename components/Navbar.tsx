@@ -15,7 +15,8 @@ export default function Navbar() {
 
       <style jsx>{`
         .navbar {
-          background-color: rgba(255, 255, 255, 30%);
+          position: absolute;
+          width: 100%;
         }
         .options {
           display: flex;
