@@ -16,14 +16,14 @@ interface ImageType extends BaseType {
   public_id: string;
 }
 
-export type ArticleDateType = {
+export interface ArticleDateType {
   updatedAt: string;
   createdAt: string;
-};
+}
 
-export type ArticleProps = {
+export interface ArticleProps {
   article: ArticleType;
-};
+}
 
 export interface ArticleType extends BaseType {
   title: string;

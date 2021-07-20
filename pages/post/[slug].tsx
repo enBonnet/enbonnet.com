@@ -14,11 +14,11 @@ export async function getStaticPaths() {
   return { paths, fallback: false };
 }
 
-type PathParams = {
+interface PathParams {
   params: {
     slug: string;
   };
-};
+}
 
 export async function getStaticProps({ params }: PathParams) {
   const res: ArrayOfPosts = await axios.get(POSTS_SORT_BY_CREATED_AT_DESC);

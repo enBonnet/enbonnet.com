@@ -16,12 +16,12 @@ export async function getStaticPaths() {
   return { paths, fallback: false };
 }
 
-type PathParams = {
+interface PathParams {
   params: {
     slug: string;
     id: string;
   };
-};
+}
 
 export async function getStaticProps({ params }: PathParams) {
   const article = await getArticleById(params.id);

@@ -1,6 +1,8 @@
 import { ArticleType } from "@/types/ArticleType";
 
-type SortPagesType = { [key: string]: Array<ArticleType> };
+interface SortPagesType {
+  [key: string]: Array<ArticleType>;
+}
 
 export default function handlePages(posts: Array<ArticleType>) {
   const POST_PER_PAGES = 6;

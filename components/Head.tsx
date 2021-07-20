@@ -1,8 +1,8 @@
 import Head from "next/head";
 
-type HeadProps = {
+interface HeadProps {
   subtitle?: string;
-};
+}
 
 export default function HeadComponent({ subtitle }: HeadProps) {
   return (

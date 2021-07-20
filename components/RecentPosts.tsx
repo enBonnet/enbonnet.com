@@ -2,9 +2,9 @@ import Link from "next/link";
 import PostCard from "./PostCard";
 import { ArticleType } from "@/types/ArticleType";
 
-type RecentPostsProps = {
+interface RecentPostsProps {
   posts: Array<ArticleType>;
-};
+}
 
 export default function RecentPosts({ posts }: RecentPostsProps) {
   return (

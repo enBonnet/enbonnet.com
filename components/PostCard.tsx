@@ -1,9 +1,9 @@
 import Link from "next/link";
 import { ArticleType } from "@/types/ArticleType";
 
-type PostProps = {
+interface PostProps {
   post: ArticleType;
-};
+}
 
 export default function PostCard({ post }: PostProps) {
   return (

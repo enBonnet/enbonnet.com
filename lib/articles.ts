@@ -3,12 +3,12 @@ import { ArticleType, ArrayOfPosts } from "@/types/ArticleType";
 import { POSTS_SORT_BY_CREATED_AT_DESC, ALL_POSTS } from "./api";
 import slugify from "./slugify";
 
-type PathsWithSlugs = {
+interface PathsWithSlugs {
   params: {
     slug?: string;
     id?: string;
   };
-};
+}
 
 const getArticlesSortDesc = async () => {
   try {

@@ -9,10 +9,16 @@ import Paginator from "@/components/Paginator";
 import PostCard from "@/components/PostCard";
 import Navbar from "@/components/Navbar";
 
-type HomeProps = {
+interface HomeProps {
   posts: Array<ArticleType>;
   pages: PaginatorType;
-};
+}
+
+interface PathParams {
+  params: {
+    number: string;
+  };
+}
 
 export default function BlogPage({ posts, pages }: HomeProps) {
   return (
@@ -37,12 +43,6 @@ export default function BlogPage({ posts, pages }: HomeProps) {
     </div>
   );
 }
-
-type PathParams = {
-  params: {
-    number: string;
-  };
-};
 
 export async function getStaticProps({ params }: PathParams) {
   const articles = await getPublicArticles();

@@ -8,9 +8,9 @@ import Navbar from "@/components/Navbar";
 import RecentPosts from "@/components/RecentPosts";
 import Hero from "@/components/Hero";
 
-type HomeProps = {
+interface HomeProps {
   posts: Array<ArticleType>;
-};
+}
 
 export default function Home({ posts }: HomeProps) {
   return (

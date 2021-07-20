@@ -1,9 +1,9 @@
 import Link from "next/link";
 import { PaginatorType } from "@/types/PageType";
 
-type PaginatorProps = {
+interface PaginatorProps {
   pages: PaginatorType;
-};
+}
 
 export default function Paginator({ pages }: PaginatorProps) {
   return (
