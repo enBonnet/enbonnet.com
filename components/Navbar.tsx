@@ -6,9 +6,14 @@ export default function Navbar() {
     <nav className="navbar">
       <div className="container">
         <div className="options">
-          <Link href="/">
-            <a className="logo">Inicio</a>
-          </Link>
+          <div className="links">
+            <Link href="/">
+              <a className="option">Inicio</a>
+            </Link>
+            <Link href="/blog/page/1">
+              <a className="option">Blog</a>
+            </Link>
+          </div>
           <Search />
         </div>
       </div>
@@ -24,11 +29,14 @@ export default function Navbar() {
           align-items: center;
           padding: 10px 0;
         }
-        .options .logo {
+        .options .option {
           text-decoration: none;
           color: inherit;
           font-weight: bold;
           font-size: 18px;
+        }
+        .options .option:not(:last-child) {
+          margin-right: 16px;
         }
       `}</style>
     </nav>

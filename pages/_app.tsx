@@ -18,6 +18,9 @@ function MyApp({ Component, pageProps }: AppProps) {
         .container {
           margin: 0 16px;
         }
+        .section-title {
+          font-size: 24px;
+        }
       `}</style>
     </>
   );

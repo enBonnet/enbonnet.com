@@ -1,13 +1,13 @@
 import Link from "next/link";
 import { ArticleType } from "@/types/ArticleType";
 import { PaginatorType } from "@/types/PageType";
-import { getPublicArticles } from "@/lib/articles";
+import { getPublicArticles, formatPostsPages } from "@/lib/articles";
 import handlePages from "@/lib/pager";
-import slugify from "@/lib/slugify";
 import Footer from "@/components/Footer";
 import Head from "@/components/Head";
 import Paginator from "@/components/Paginator";
 import PostCard from "@/components/PostCard";
+import Navbar from "@/components/Navbar";
 
 type HomeProps = {
   posts: Array<ArticleType>;
@@ -18,13 +18,9 @@ export default function BlogPage({ posts, pages }: HomeProps) {
   return (
     <div>
       <Head subtitle="Blog" />
+      <Navbar />
       <div className="container">
         <main>
-          <nav>
-            <Link href="/">
-              <a>Inicio</a>
-            </Link>
-          </nav>
           <section>
             <h3>Posts</h3>
             <div>
@@ -50,10 +46,7 @@ type PathParams = {
 
 export async function getStaticProps({ params }: PathParams) {
   const articles = await getPublicArticles();
-  const posts = articles.map((post: ArticleType) => ({
-    ...post,
-    slug: slugify(post.title),
-  }));
+  const posts = formatPostsPages(articles);
   const { sortPages, indexOfPages } = handlePages(posts);
 
   return {

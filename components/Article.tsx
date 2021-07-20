@@ -1,13 +1,14 @@
 import Head from "./Head";
 import ArticleDate from "./ArticleDate";
 import { ArticleProps } from "@/types/ArticleType";
+import Navbar from "./Navbar";
 
 const Article = ({ article }: ArticleProps) => {
   return (
     <>
       <Head subtitle={article.title} />
-
-      <div>
+      <Navbar />
+      <div className="container">
         <h1>{article.title}</h1>
         <div>{article.content}</div>
         <div>

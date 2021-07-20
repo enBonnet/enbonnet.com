@@ -44,9 +44,16 @@ export const getPathsWithSlug = (
 export const getPathsWithSlugAndId = (
   articles: Array<ArticleType>
 ): Array<PathsWithSlugs> => {
-  return filterPublicArticles(articles).map((article: ArticleType) => ({
-    params: { id: `${article.id}`, slug: slugify(article.title) },
-  }));
+  return filterPublicArticles(articles).map((article: ArticleType) => {
+    const slug = slugify(article.title);
+    return {
+      params: {
+        id: `${article.id}`,
+        slug,
+        url: `/article/${article.id}/${slug}`,
+      },
+    };
+  });
 };
 
 export const getPostBySlug = (
@@ -66,4 +73,16 @@ export const getPostBySlug = (
 export const getPublicArticles = async () => {
   const articles = await getArticlesSortDesc();
   return filterPublicArticles(articles);
+};
+
+export const formatPostsPages = (articles: Array<ArticleType>) => {
+  return articles.map((post: ArticleType) => {
+    const slug = slugify(post.title);
+    return {
+      ...post,
+      objectID: post.id,
+      slug,
+      url: `/post/${slug}`,
+    };
+  });
 };

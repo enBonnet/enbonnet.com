@@ -1,5 +1,5 @@
 import { ArticleType } from "@/types/ArticleType";
-import { getPublicArticles } from "@/lib/articles";
+import { getPublicArticles, formatPostsPages } from "@/lib/articles";
 import { saveRecords } from "@/lib/algolia";
 import slugify from "@/lib/slugify";
 import Footer from "@/components/Footer";
@@ -35,15 +35,7 @@ export default function Home({ posts }: HomeProps) {
 
 export async function getStaticProps() {
   const articles = await getPublicArticles();
-  const posts = articles.map((post: ArticleType) => {
-    const slug = slugify(post.title);
-    return {
-      ...post,
-      objectID: post.id,
-      slug,
-      url: `/post/${slug}`,
-    };
-  });
+  const posts = formatPostsPages(articles);
   saveRecords(posts);
   return {
     props: { posts: posts.slice(0, 3) },
