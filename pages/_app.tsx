@@ -1,6 +1,7 @@
 import "dayjs/locale/es-us";
 import { AppProps } from "next/app";
 import "normalize.css";
+import "@/styles/base.css";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (

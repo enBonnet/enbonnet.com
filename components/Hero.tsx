@@ -52,14 +52,14 @@ export default function Hero() {
           align-items: center;
         }
         .hero .highlight {
-          background-color: #000;
+          background-color: var(--text-bg);
           padding: 8px 16px;
           width: fit-content;
         }
         .hero .title {
           font-size: 2.7em;
           margin: 0;
-          background: linear-gradient(90deg, #1cfeba, #9d8df1);
+          background: var(--text-gradient);
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
         }

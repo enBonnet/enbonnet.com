@@ -32,14 +32,15 @@ export default function PostCard({ post }: PostProps) {
         }
         .card .title {
           margin: 0;
-          font-size: 1.2em;
+          font-size: var(--actions-text-size);
+          line-height: 30px;
           margin-bottom: 16px;
         }
         .card .description {
           margin: 0;
           margin-bottom: 18px;
           line-height: 30px;
-          font-size: 1.2em;
+          font-size: var(--actions-text-size);
           font-weight: 200;
         }
       `}</style>
