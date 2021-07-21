@@ -38,13 +38,19 @@ export default function Paginator({ pages }: PaginatorProps) {
         .paginator {
           display: flex;
           justify-content: center;
-          margin: 12px 0 24px 0;
+          margin: 40px 0;
+          font-size: var(--actions-text-size);
         }
         .paginator .page {
           padding: 12px;
+          text-decoration: none;
+          color: var(--text-with-bg);
+          background: var(--text-bg);
         }
         .paginator .page.current {
           font-weight: bold;
+          background-color: inherit;
+          color: inherit;
         }
         .paginator .page:not(:last-child) {
           margin-right: 8px;

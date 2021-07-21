@@ -33,7 +33,7 @@ export default function Footer() {
           padding: 0;
         }
         .links .link {
-          color: #fff;
+          color: var(--text-with-bg);
           text-decoration: none;
           font-size: var(--actions-text-size);
         }

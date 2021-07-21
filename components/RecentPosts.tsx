@@ -33,7 +33,7 @@ export default function RecentPosts({ posts }: RecentPostsProps) {
           justify-content: flex-end;
         }
         .text {
-          color: #fff;
+          color: var(--text-with-bg);
           font-weight: bold;
           font-size: var(--actions-text-size);
           text-decoration: none;
