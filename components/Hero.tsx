@@ -1,3 +1,6 @@
+import Link from "next/link";
+import { Github, Twitter, Linkedin } from "./icons";
+
 export default function Hero() {
   return (
     <section className="hero">
@@ -7,6 +10,38 @@ export default function Hero() {
         </div>
         <div className="description">
           <p>Frontend Developer, apasionado por compartir conocimientos.</p>
+        </div>
+        <div className="rrss">
+          <div className="twitter">
+            <a
+              className="social"
+              rel="noopener noreferrer"
+              target="_blank"
+              href="https://twitter.com/enbonnet"
+            >
+              <Twitter />
+            </a>
+          </div>
+          <div className="github">
+            <a
+              className="social"
+              rel="noopener noreferrer"
+              target="_blank"
+              href="https://github.com/enbonnet"
+            >
+              <Github />
+            </a>
+          </div>
+          <div className="linkedin">
+            <a
+              className="social"
+              rel="noopener noreferrer"
+              target="_blank"
+              href="https://www.linkedin.com/in/enbonnet/"
+            >
+              <Linkedin />
+            </a>
+          </div>
         </div>
       </div>
 
@@ -33,6 +68,13 @@ export default function Hero() {
           line-height: 30px;
           font-size: 1.3em;
           font-weight: 200;
+        }
+        .rrss {
+          display: flex;
+        }
+        .rrss .social {
+          color: inherit;
+          margin-right: 16px;
         }
       `}</style>
     </section>
