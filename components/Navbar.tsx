@@ -1,9 +1,13 @@
 import Link from "next/link";
 import Search from "./Search";
 
-export default function Navbar() {
+interface NavbarProps {
+  absolute?: boolean;
+}
+
+export default function Navbar({ absolute }: NavbarProps) {
   return (
-    <nav className="navbar">
+    <nav className={`navbar ${absolute ? "absolute" : ""}`}>
       <div className="container">
         <div className="options">
           <div className="links">
@@ -20,8 +24,10 @@ export default function Navbar() {
 
       <style jsx>{`
         .navbar {
-          position: absolute;
           width: 100%;
+        }
+        .navbar.absolute {
+          position: absolute;
         }
         .options {
           display: flex;

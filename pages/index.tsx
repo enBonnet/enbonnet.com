@@ -16,7 +16,7 @@ export default function Home({ posts }: HomeProps) {
   return (
     <div>
       <Head />
-      <Navbar />
+      <Navbar absolute />
       <main>
         <div className="container">
           <Hero />
