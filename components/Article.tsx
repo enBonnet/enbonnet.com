@@ -2,6 +2,7 @@ import Head from "./Head";
 import ArticleDate from "./ArticleDate";
 import { ArticleProps } from "@/types/ArticleType";
 import Navbar from "./Navbar";
+import Footer from "./Footer";
 
 const Article = ({ article }: ArticleProps) => {
   return (
@@ -20,6 +21,7 @@ const Article = ({ article }: ArticleProps) => {
           createdAt={article.created_at}
         />
       </div>
+      <Footer />
     </>
   );
 };

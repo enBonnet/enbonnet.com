@@ -14,7 +14,7 @@ interface HomeProps {
 
 export default function Home({ posts }: HomeProps) {
   return (
-    <div>
+    <>
       <Head />
       <Navbar absolute />
       <main>
@@ -26,10 +26,8 @@ export default function Home({ posts }: HomeProps) {
           <RecentPosts posts={posts} />
         </div>
       </main>
-      <div className="container">
-        <Footer />
-      </div>
-    </div>
+      <Footer />
+    </>
   );
 }
 

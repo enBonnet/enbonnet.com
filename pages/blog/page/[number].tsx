@@ -28,7 +28,7 @@ export default function BlogPage({ posts, pages }: HomeProps) {
       <div className="container">
         <main>
           <section>
-            <h3>Posts</h3>
+            <h3 className="section-title">Posts</h3>
             <div>
               {posts.map((post: ArticleType) => (
                 <PostCard key={post.id} post={post} />
@@ -37,9 +37,8 @@ export default function BlogPage({ posts, pages }: HomeProps) {
           </section>
           <Paginator pages={pages} />
         </main>
-
-        <Footer />
       </div>
+      <Footer />
     </div>
   );
 }
