@@ -11,7 +11,7 @@ export default function PostCard({ post }: PostProps) {
       <article className="card" key={post.id}>
         <Link href={post.url || "/404"}>
           <a className="link">
-            <h3 className="title">{post.title}</h3>
+            <h3 className="post-title">{post.title}</h3>
           </a>
         </Link>
         <Link href={post.url || "/404"}>
@@ -30,7 +30,7 @@ export default function PostCard({ post }: PostProps) {
           text-decoration: none;
           color: inherit;
         }
-        .card .title {
+        .card .post-title {
           margin: 0;
           font-size: var(--actions-text-size);
           line-height: 30px;

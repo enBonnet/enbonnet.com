@@ -1,7 +1,6 @@
 import { ArticleType } from "@/types/ArticleType";
 import { getPublicArticles, formatPostsPages } from "@/lib/articles";
 import { saveRecords } from "@/lib/algolia";
-import slugify from "@/lib/slugify";
 import Footer from "@/components/Footer";
 import Head from "@/components/Head";
 import Navbar from "@/components/Navbar";

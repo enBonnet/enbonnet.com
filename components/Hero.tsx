@@ -1,13 +1,11 @@
-import Link from "next/link";
+import Highlight from "./Highlight";
 import { Github, Twitter, Linkedin } from "./icons";
 
 export default function Hero() {
   return (
     <section className="hero">
       <div className="content">
-        <div className="highlight">
-          <h1 className="title">Ender Bonnet</h1>
-        </div>
+        <Highlight title="Ender Bonnet" />
         <div className="description">
           <p>Frontend Developer, apasionado por compartir conocimientos.</p>
         </div>
@@ -50,18 +48,6 @@ export default function Hero() {
           min-height: 100vh;
           display: flex;
           align-items: center;
-        }
-        .hero .highlight {
-          background-color: var(--text-bg);
-          padding: 8px 16px;
-          width: fit-content;
-        }
-        .hero .title {
-          font-size: 2.7em;
-          margin: 0;
-          background: var(--text-gradient);
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
         }
         .hero .description {
           max-width: 300px;

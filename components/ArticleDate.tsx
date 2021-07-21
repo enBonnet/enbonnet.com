@@ -11,7 +11,16 @@ const ArticleDate = ({ updatedAt, createdAt }: ArticleDateType) => {
     createdAt !== updatedAt
       ? `Actualizado el ${dayjs(updatedAt).format(dateFormat)}`
       : `Creado el ${dayjs(createdAt).format(dateFormat)}`;
-  return <div>{lastDate}</div>;
+  return (
+    <div className="date">
+      {lastDate}
+      <style jsx>{`
+        .date {
+          margin-bottom: 32px;
+        }
+      `}</style>
+    </div>
+  );
 };
 
 export default ArticleDate;

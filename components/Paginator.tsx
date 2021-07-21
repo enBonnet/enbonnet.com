@@ -42,7 +42,7 @@ export default function Paginator({ pages }: PaginatorProps) {
           font-size: var(--actions-text-size);
         }
         .paginator .page {
-          padding: 12px;
+          padding: 8px 10px;
           text-decoration: none;
           color: var(--text-with-bg);
           background: var(--text-bg);
