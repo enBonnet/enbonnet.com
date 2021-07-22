@@ -24,9 +24,15 @@ function MyApp({ Component, pageProps }: AppProps) {
         .section-title {
           font-size: 24px;
         }
+        .content > p a {
+          background-color: var(--text-bg);
+          color: var(--text-with-bg);
+          text-decoration: none;
+          padding: 2px 4px;
+        }
         .row {
           display: grid;
-          grid-template-columns: 10% auto 10%;
+          grid-template-columns: 10% minmax(auto, 1000px) 10%;
           grid-template-areas: ". container .";
         }
         @media (max-width: 1000px) {

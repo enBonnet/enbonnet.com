@@ -1,10 +1,31 @@
+import ReactMarkdown from "react-markdown";
+import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
+import { nord } from "react-syntax-highlighter/dist/cjs/styles/prism";
+import { ArticleProps } from "@/types/ArticleType";
+import Link from "@/components/Link";
 import Head from "./Head";
 import ArticleDate from "./ArticleDate";
-import { ArticleProps } from "@/types/ArticleType";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 import Highlight from "./Highlight";
-import Link from "@/components/Link";
+
+const components = {
+  code({ inline, className, children, ...props }: any) {
+    const match = /language-(\w+)/.exec(className || "");
+    return !inline && match ? (
+      <SyntaxHighlighter
+        style={nord}
+        language={match[1]}
+        PreTag="div"
+        {...props}
+      >
+        {String(children).replace(/\n$/, "")}
+      </SyntaxHighlighter>
+    ) : (
+      <code className={className} {...props} />
+    );
+  },
+};
 
 const Article = ({ article }: ArticleProps) => {
   const categories = article.categories
@@ -18,7 +39,11 @@ const Article = ({ article }: ArticleProps) => {
       <div className="row">
         <article className="container">
           <Highlight title={article.title} />
-          <div className="content">{article.content}</div>
+          <div className="content">
+            <ReactMarkdown components={components}>
+              {article.content}
+            </ReactMarkdown>
+          </div>
           <ArticleDate
             updatedAt={article.updated_at}
             createdAt={article.created_at}
@@ -40,7 +65,9 @@ const Article = ({ article }: ArticleProps) => {
           margin-top: 40px;
         }
         .content {
-          margin: 40px 0;
+          margin: 30px 0;
+          font-size: var(--actions-text-size);
+          line-height: 30px;
         }
         .categories {
           display: flex;
