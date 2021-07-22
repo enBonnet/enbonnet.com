@@ -7,7 +7,7 @@ interface NavbarProps {
 
 export default function Navbar({ absolute }: NavbarProps) {
   return (
-    <nav className={`navbar ${absolute ? "absolute" : ""}`}>
+    <nav className={`row navbar ${absolute ? "absolute" : ""}`}>
       <div className="container">
         <div className="options">
           <div className="links">

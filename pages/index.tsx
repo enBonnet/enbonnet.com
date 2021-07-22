@@ -17,12 +17,15 @@ export default function Home({ posts }: HomeProps) {
       <Head />
       <Navbar absolute />
       <main>
-        <div className="container">
-          <Hero />
+        <div className="row">
+          <div className="container">
+            <Hero />
+          </div>
         </div>
-
-        <div className="container">
-          <RecentPosts posts={posts} />
+        <div className="row">
+          <div className="container">
+            <RecentPosts posts={posts} />
+          </div>
         </div>
       </main>
       <Footer />

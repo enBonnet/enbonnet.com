@@ -1,6 +1,6 @@
-import Link from "next/link";
 import PostCard from "./PostCard";
 import { ArticleType } from "@/types/ArticleType";
+import Link from "@/components/Link";
 
 interface RecentPostsProps {
   posts: Array<ArticleType>;
@@ -17,16 +17,10 @@ export default function RecentPosts({ posts }: RecentPostsProps) {
       </div>
       <div className="more">
         <div className="link">
-          <Link href="/blog/page/1">
-            <a className="text">Más posts</a>
-          </Link>
+          <Link url="/blog/page/1" label="Más posts" />
         </div>
       </div>
       <style jsx>{`
-        .link {
-          background-color: var(--text-bg);
-          padding: 8px 10px;
-        }
         .more {
           margin: 32px 0;
           display: flex;

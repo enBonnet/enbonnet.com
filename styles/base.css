@@ -1,6 +1,12 @@
 :root {
   --text-bg: #08001f;
   --text-with-bg: #fff;
-  --text-gradient: linear-gradient(90deg, #1cfeba, #9d8df1);
+  --purple-color: #9d8df1;
+  --green-color: #1cfeba;
+  --text-gradient: linear-gradient(
+    90deg,
+    var(--green-color),
+    var(--purple-color)
+  );
   --actions-text-size: 1.2em;
 }

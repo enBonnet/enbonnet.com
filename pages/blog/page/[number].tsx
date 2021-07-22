@@ -25,18 +25,20 @@ export default function BlogPage({ posts, pages }: HomeProps) {
     <div>
       <Head subtitle="Blog" />
       <Navbar />
-      <div className="container">
-        <main>
-          <section>
-            <h3 className="section-title">Posts</h3>
-            <div>
-              {posts.map((post: ArticleType) => (
-                <PostCard key={post.id} post={post} />
-              ))}
-            </div>
-          </section>
-          <Paginator pages={pages} />
-        </main>
+      <div className="row">
+        <div className="container">
+          <main>
+            <section>
+              <h3 className="section-title">Posts</h3>
+              <div>
+                {posts.map((post: ArticleType) => (
+                  <PostCard key={post.id} post={post} />
+                ))}
+              </div>
+            </section>
+            <Paginator pages={pages} />
+          </main>
+        </div>
       </div>
       <Footer />
     </div>

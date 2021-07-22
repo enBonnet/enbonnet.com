@@ -2,7 +2,7 @@ import rrss from "@/data/rrss";
 
 export default function Footer() {
   return (
-    <footer className="footer">
+    <footer className="row footer">
       <div className="container">
         <ul className="links">
           {rrss.map((social) => (

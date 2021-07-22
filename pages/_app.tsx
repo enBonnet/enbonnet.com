@@ -17,10 +17,22 @@ function MyApp({ Component, pageProps }: AppProps) {
           -moz-osx-font-smoothing: grayscale;
         }
         .container {
+          grid-area: container;
           margin: 0 16px;
+          max-width: 1000px;
         }
         .section-title {
           font-size: 24px;
+        }
+        .row {
+          display: grid;
+          grid-template-columns: 10% auto 10%;
+          grid-template-areas: ". container .";
+        }
+        @media (max-width: 1000px) {
+          .row {
+            display: block;
+          }
         }
       `}</style>
     </>
