@@ -26,6 +26,9 @@ export default function Navbar({ absolute }: NavbarProps) {
         .navbar {
           width: 100%;
         }
+        .icon {
+          font-size: 30px;
+        }
         .navbar.absolute {
           position: absolute;
         }
@@ -41,8 +44,10 @@ export default function Navbar({ absolute }: NavbarProps) {
           font-weight: bold;
           font-size: 18px;
         }
-        .options .option:not(:last-child) {
-          margin-right: 16px;
+        .links {
+          display: flex;
+          gap: 10px;
+          align-items: center;
         }
       `}</style>
     </nav>
