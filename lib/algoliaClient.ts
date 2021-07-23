@@ -1,4 +1,4 @@
-import algoliasearch from "algoliasearch/lite";
+import algoliaClient from "next-algolia-client";
 import { createNullCache } from "@algolia/cache-common";
 import { createInMemoryCache } from "@algolia/cache-in-memory";
 import {
@@ -32,18 +32,11 @@ const getAlgoliaConfig = () => {
   };
 };
 
-const searchClient = algoliasearch(
+const client = algoliaClient.getInstance({
   algoliaPublicId,
   algoliaPublicKey,
-  getAlgoliaConfig()
-);
+  options: getAlgoliaConfig(),
+});
+client.setIndex(indexName);
 
-export const search = (query: string) => {
-  return new Promise((resolve, reject) => {
-    const client = searchClient.initIndex(indexName);
-    client
-      .search(query)
-      .then((response) => resolve(response))
-      .catch((err) => reject(err));
-  });
-};
+export default client;

@@ -1,6 +1,6 @@
 import { useState, ChangeEvent } from "react";
 import Link from "next/link";
-import { search, QueryResults } from "@/lib/algoliaClient";
+import client, { QueryResults } from "@/lib/algoliaClient";
 import { ArticleType } from "@/types/ArticleType";
 
 interface QueryPostsResults extends QueryResults {
@@ -16,7 +16,7 @@ export default function Search() {
     const minInputLent = query.length >= 3;
     setShowResults(minInputLent);
     if (minInputLent) {
-      const results = (await search(query)) as QueryPostsResults;
+      const results = (await client.search(query)) as QueryPostsResults;
       setHitsResults(results.hits);
     }
   };

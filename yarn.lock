@@ -2268,6 +2268,13 @@ natural-compare@^1.4.0:
   resolved "https://registry.yarnpkg.com/natural-compare/-/natural-compare-1.4.0.tgz#4abebfeed7541f2c27acfb29bdbbd15c8d5ba4f7"
   integrity sha1-Sr6/7tdUHywnrPspvbvRXI1bpPc=
 
+next-algolia-client@^0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/next-algolia-client/-/next-algolia-client-0.1.0.tgz#79c9f70ab0e81788e0e348425b20ca6cd68a8f44"
+  integrity sha512-/dfs46koInD/BUI2/SaVn4+M0HWIke0PFKy3xEJJLbERBe9GjIGCMkVfhnp8VA6Z5IKVIdjjR+a7d6d1o8eptQ==
+  dependencies:
+    algoliasearch "^4.10.3"
+
 next-algolia-server@^0.2.2:
   version "0.2.2"
   resolved "https://registry.yarnpkg.com/next-algolia-server/-/next-algolia-server-0.2.2.tgz#921649ac6a3df199f1e024b2b75be5a12c559602"
