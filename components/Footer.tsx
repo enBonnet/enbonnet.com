@@ -3,21 +3,23 @@ import rrss from "@/data/rrss";
 export default function Footer() {
   return (
     <footer className="row footer">
-      <div className="container">
-        <ul className="links">
-          {rrss.map((social) => (
-            <li className="item" key={social.name}>
-              <a
-                className="link"
-                rel="noopener noreferrer"
-                target="_blank"
-                href={social.url}
-              >
-                {social.name}
-              </a>
-            </li>
-          ))}
-        </ul>
+      <div className="col">
+        <div className="container">
+          <ul className="links">
+            {rrss.map((social) => (
+              <li className="item" key={social.name}>
+                <a
+                  className="link"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                  href={social.url}
+                >
+                  {social.name}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
       <style jsx>{`
         .footer {

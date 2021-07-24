@@ -37,31 +37,33 @@ const Article = ({ article }: ArticleProps) => {
       <Head subtitle={article.title} />
       <Navbar />
       <div className="row">
-        <article className="container">
-          <Highlight title={article.title} />
-          <div className="content">
-            <ReactMarkdown components={components}>
-              {article.content}
-            </ReactMarkdown>
-          </div>
-          <ArticleDate
-            updatedAt={article.updated_at}
-            createdAt={article.created_at}
-          />
-          {article.categories.length > 0 && (
-            <div className="categories">
-              {article.categories.map(({ name }) => (
-                <div key={name}>
-                  <Link url={`/category/${name}`} label={name} />
-                </div>
-              ))}
+        <article className="col">
+          <div className="container">
+            <Highlight title={article.title} />
+            <div className="content">
+              <ReactMarkdown components={components}>
+                {article.content}
+              </ReactMarkdown>
             </div>
-          )}
+            <ArticleDate
+              updatedAt={article.updated_at}
+              createdAt={article.created_at}
+            />
+            {article.categories.length > 0 && (
+              <div className="categories">
+                {article.categories.map(({ name }) => (
+                  <div key={name}>
+                    <Link url={`/category/${name}`} label={name} />
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
         </article>
       </div>
       <Footer />
       <style jsx>{`
-        .container {
+        .col {
           margin-top: 40px;
         }
         .content {

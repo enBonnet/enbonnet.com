@@ -25,8 +25,8 @@ export default function BlogPage({ posts, pages }: HomeProps) {
       <Head subtitle="Blog" />
       <Navbar />
       <div className="row">
-        <div className="container">
-          <main>
+        <div className="col">
+          <main className="container">
             <section>
               <h3 className="section-title">Posts</h3>
               <div>

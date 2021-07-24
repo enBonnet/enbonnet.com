@@ -16,10 +16,12 @@ function MyApp({ Component, pageProps }: AppProps) {
           -webkit-font-smoothing: antialiased;
           -moz-osx-font-smoothing: grayscale;
         }
+        .col {
+          width: 1000px;
+          max-width: 100%;
+        }
         .container {
-          grid-area: container;
           margin: 0 16px;
-          max-width: 1000px;
         }
         .section-title {
           font-size: 24px;
@@ -31,13 +33,16 @@ function MyApp({ Component, pageProps }: AppProps) {
           padding: 2px 4px;
         }
         .row {
+          justify-content: center;
           display: grid;
-          grid-template-columns: 10% minmax(auto, 1000px) 10%;
-          grid-template-areas: ". container .";
+          width: 100%;
         }
         @media (max-width: 1000px) {
           .row {
             display: block;
+          }
+          .icon {
+            display: none;
           }
         }
       `}</style>

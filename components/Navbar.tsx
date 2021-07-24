@@ -8,17 +8,22 @@ interface NavbarProps {
 export default function Navbar({ absolute }: NavbarProps) {
   return (
     <nav className={`row navbar ${absolute ? "absolute" : ""}`}>
-      <div className="container">
-        <div className="options">
-          <div className="links">
-            <Link href="/">
-              <a className="option">Inicio</a>
-            </Link>
-            <Link href="/blog/page/1">
-              <a className="option">Blog</a>
-            </Link>
+      <div className="col">
+        <div className="container">
+          <div className="options">
+            <div className="links">
+              <div role="img" className="icon ">
+                🪴
+              </div>
+              <Link href="/">
+                <a className="option">Inicio</a>
+              </Link>
+              <Link href="/blog/page/1">
+                <a className="option">Blog</a>
+              </Link>
+            </div>
+            <Search />
           </div>
-          <Search />
         </div>
       </div>
 
