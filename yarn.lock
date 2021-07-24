@@ -2534,6 +2534,11 @@ p-try@^2.0.0:
   resolved "https://registry.yarnpkg.com/p-try/-/p-try-2.2.0.tgz#cb2868540e313d61de58fafbe35ce9004d5540e6"
   integrity sha512-R4nPAVTAU0B9D35/Gk3uJf/7XYbQcyohSKdvAxIRSNghFl4e71hVoGnBNQz9cWaXxO2I10KTC+3jMdvvoKw6dQ==
 
+pagination-easy@^0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/pagination-easy/-/pagination-easy-0.1.0.tgz#5b6f687b5e07a902c52df4147e1cd5c66c7fd55b"
+  integrity sha512-yCRe9yAL2adNvwJMC1dqVxN65UDCIiJ4oGAYN7t1xJM1rTaNUtZmBCvlqXWn2KSBlN9LqLqQ1msuA4/btqYnLw==
+
 pako@~1.0.5:
   version "1.0.11"
   resolved "https://registry.yarnpkg.com/pako/-/pako-1.0.11.tgz#6c9599d340d54dfd3946380252a35705a6b992bf"

@@ -1,8 +1,7 @@
-import Link from "next/link";
+import paginatorEasy from "pagination-easy";
 import { ArticleType } from "@/types/ArticleType";
 import { PaginatorType } from "@/types/PageType";
 import { getPublicArticles, formatPostsPages } from "@/lib/articles";
-import handlePages from "@/lib/pager";
 import Footer from "@/components/Footer";
 import Head from "@/components/Head";
 import Paginator from "@/components/Paginator";
@@ -48,7 +47,7 @@ export default function BlogPage({ posts, pages }: HomeProps) {
 export async function getStaticProps({ params }: PathParams) {
   const articles = await getPublicArticles();
   const posts = formatPostsPages(articles);
-  const { sortPages, indexOfPages } = handlePages(posts);
+  const { sortPages, indexOfPages } = paginatorEasy(posts, 8);
 
   return {
     props: {
@@ -64,7 +63,7 @@ export async function getStaticProps({ params }: PathParams) {
 
 export async function getStaticPaths() {
   const posts = await getPublicArticles();
-  const { indexOfPages } = handlePages(posts);
+  const { indexOfPages } = paginatorEasy(posts, 8);
 
   const paths = indexOfPages.map((number) => ({
     params: {
