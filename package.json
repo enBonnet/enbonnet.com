@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "types": "tsc {components,lib,pages,types}/**/*.{ts,tsx} --noEmit"
+    "types": "tsc {components,lib,pages,types}/**/*{.ts,.tsx,.d.ts} --noEmit",
+    "lint": "eslint {components,lib,pages,types} --fix"
   },
   "dependencies": {
     "@algolia/cache-common": "^4.10.3",
@@ -26,9 +27,16 @@
   },
   "devDependencies": {
     "@types/react": "^17.0.14",
+    "@types/react-dom": "^17.0.9",
     "@types/react-syntax-highlighter": "^13.5.2",
-    "eslint": "^7.30.0",
+    "@typescript-eslint/eslint-plugin": "^4.28.4",
+    "@typescript-eslint/parser": "^4.28.4",
+    "eslint": "^7.31.0",
     "eslint-config-next": "^11.0.1",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^3.4.0",
+    "eslint-plugin-react": "^7.24.0",
+    "prettier": "^2.3.2",
     "typescript": "^4.3.5"
   }
 }

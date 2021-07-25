@@ -10,6 +10,7 @@ import Footer from "./Footer";
 import Highlight from "./Highlight";
 
 const components = {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   code({ inline, className, children, ...props }: any) {
     const match = /language-(\w+)/.exec(className || "");
     return !inline && match ? (
@@ -28,10 +29,6 @@ const components = {
 };
 
 const Article = ({ article }: ArticleProps) => {
-  const categories = article.categories
-    ?.map((category) => category.name)
-    .join(", ");
-
   return (
     <>
       <Head subtitle={article.title} />
