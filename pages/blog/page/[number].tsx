@@ -28,7 +28,7 @@ export default function BlogPage({ posts, pages }: HomeProps) {
         <div className="col">
           <main className="container">
             <section>
-              <h3 className="section-title">Posts</h3>
+              <h2 className="section-title">Posts</h2>
               <div>
                 {posts.map((post: ArticleType) => (
                   <PostCard key={post.id} post={post} />
