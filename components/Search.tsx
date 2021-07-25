@@ -1,4 +1,4 @@
-import { useState, ChangeEvent } from "react";
+import { useState, ChangeEvent, useEffect } from "react";
 import Link from "next/link";
 import client, { QueryResults } from "@/lib/algoliaClient";
 import { ArticleType } from "@/types/ArticleType";
@@ -21,6 +21,23 @@ export default function Search() {
     }
   };
 
+  const closeResults = () => setShowResults(false);
+
+  useEffect(() => {
+    const element = document.querySelector("main");
+    element?.addEventListener("click", closeResults);
+    return () => element?.removeEventListener("click", closeResults);
+  });
+
+  useEffect(() => {
+    const element = document.querySelector("body");
+    const escape = (event: KeyboardEvent) => {
+      if (event.key === "Escape") return closeResults();
+    };
+    element?.addEventListener("keydown", escape);
+    return () => element?.removeEventListener("keydown", escape);
+  });
+
   return (
     <div className="search">
       <input
@@ -35,7 +52,7 @@ export default function Search() {
           <ul className="results-list">
             {hitsResults.map((hit) => {
               return (
-                <li className="result" key={hit.id}>
+                <li onClick={closeResults} className="result" key={hit.id}>
                   <Link href={hit.url || "/404"}>
                     <a className="link">
                       <h3 className="title">{hit.title}</h3>
@@ -69,9 +86,12 @@ export default function Search() {
           position: absolute;
           right: 0;
           top: 55px;
+          box-shadow: 2px 3px 7px rgb(165, 165, 165);
+          border-radius: 4px;
+          overflow: hidden;
         }
         .results-list {
-          background-color: rgba(255, 255, 255);
+          background-color: rgb(250, 250, 250);
           list-style: none;
           margin: 0;
           padding: 16px;
@@ -79,6 +99,9 @@ export default function Search() {
         }
         .result {
           margin-bottom: 16px;
+        }
+        .result:hover {
+          background-color: rgb(255, 255, 255);
         }
         .results .result:not(:last-child) {
           border-bottom: 1px solid rgba(0, 0, 0, 30%);
@@ -93,6 +116,12 @@ export default function Search() {
         }
         .result .description {
           margin: 0;
+        }
+        @media (min-width: 1000px) {
+          .results {
+            right: 170px;
+            max-width: 500px;
+          }
         }
       `}</style>
     </div>

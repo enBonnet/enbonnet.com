@@ -17,6 +17,7 @@ const ArticleDate = ({ updatedAt, createdAt }: ArticleDateType) => {
       <style jsx>{`
         .date {
           margin-bottom: 32px;
+          text-align: right;
         }
       `}</style>
     </div>

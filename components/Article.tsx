@@ -40,7 +40,7 @@ const Article = ({ article }: ArticleProps) => {
         <article className="col">
           <div className="container">
             <Highlight title={article.title} />
-            <div className="content">
+            <div className="content post">
               <ReactMarkdown components={components}>
                 {article.content}
               </ReactMarkdown>

@@ -9,7 +9,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       <Component {...pageProps} />
       <style global jsx>{`
         html {
-          background: #f2f2f2;
+          background: rgb(242, 242, 242);
           font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI",
             Roboto, "Helvetica Neue", Arial, sans-serif;
           text-rendering: geometricPrecision;
@@ -26,10 +26,9 @@ function MyApp({ Component, pageProps }: AppProps) {
         .section-title {
           font-size: 24px;
         }
-        .content > p a {
-          background-color: var(--text-bg);
-          color: var(--text-with-bg);
-          text-decoration: none;
+        .post a {
+          color: inherit;
+          text-decoration: underline;
           padding: 2px 4px;
         }
         .row {
