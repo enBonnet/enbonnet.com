@@ -36,6 +36,9 @@ function MyApp({ Component, pageProps }: AppProps) {
           display: grid;
           width: 100%;
         }
+        .hidden-label {
+          display: none;
+        }
         @media (max-width: 1000px) {
           .row {
             display: block;

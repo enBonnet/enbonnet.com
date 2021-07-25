@@ -17,6 +17,7 @@ export default function Hero() {
               target="_blank"
               href="https://twitter.com/enbonnet"
             >
+              <div className="hidden-label">Twitter</div>
               <Twitter />
             </a>
           </div>
@@ -27,6 +28,7 @@ export default function Hero() {
               target="_blank"
               href="https://github.com/enbonnet"
             >
+              <div className="hidden-label">Github</div>
               <Github />
             </a>
           </div>
@@ -37,6 +39,7 @@ export default function Hero() {
               target="_blank"
               href="https://www.linkedin.com/in/enbonnet/"
             >
+              <div className="hidden-label">Linkedin</div>
               <Linkedin />
             </a>
           </div>
