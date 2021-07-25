@@ -51,8 +51,13 @@ export default function Navbar({ absolute }: NavbarProps) {
         }
         .links {
           display: flex;
-          gap: 10px;
+          gap: 24px;
           align-items: center;
+        }
+        @media (max-width: 1000px) {
+          .links {
+            gap: 10px;
+          }
         }
       `}</style>
     </nav>
