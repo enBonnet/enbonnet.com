@@ -39,6 +39,11 @@ function MyApp({ Component, pageProps }: AppProps) {
         .hidden-label {
           display: none;
         }
+        .inline-code {
+          background-color: var(--text-underline);
+          color: var(--text-with-bg);
+          padding: 2px 6px;
+        }
         @media (max-width: 1000px) {
           .row {
             display: block;

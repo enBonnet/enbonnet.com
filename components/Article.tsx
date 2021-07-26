@@ -9,23 +9,33 @@ import Navbar from "./Navbar";
 import Footer from "./Footer";
 import Highlight from "./Highlight";
 
-const components = {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  code({ inline, className, children, ...props }: any) {
-    const match = /language-(\w+)/.exec(className || "");
-    return !inline && match ? (
-      <SyntaxHighlighter
-        style={nord}
-        language={match[1]}
-        PreTag="div"
-        {...props}
-      >
-        {String(children).replace(/\n$/, "")}
-      </SyntaxHighlighter>
-    ) : (
-      <code className={className} {...props} />
+const countLines = (content: string) => {
+  const lines = content.split("}");
+  return lines.length;
+};
+
+const StylesCode = (props: any) => {
+  const content = String(props.children).replace(/\n$/, "");
+  const match = /language-(\w+)/.exec(props.className || "");
+  const lines = countLines(content);
+  if (props.inline) {
+    return (
+      <span className={`inline-code ${props.className}`} {...props}>
+        {content}
+      </span>
     );
-  },
+  }
+
+  return (
+    <SyntaxHighlighter
+      style={nord}
+      PreTag="div"
+      language={match ? match[1] : undefined}
+      showLineNumbers={lines > 3}
+    >
+      {content}
+    </SyntaxHighlighter>
+  );
 };
 
 const Article = ({ article }: ArticleProps) => {
@@ -38,7 +48,7 @@ const Article = ({ article }: ArticleProps) => {
           <div className="container">
             <Highlight title={article.title} />
             <div className="content post">
-              <ReactMarkdown components={components}>
+              <ReactMarkdown components={{ code: StylesCode }}>
                 {article.content}
               </ReactMarkdown>
             </div>
