@@ -1,5 +1,5 @@
 import { useState, ChangeEvent, useEffect } from "react";
-import Link from "next/link";
+import { useRouter } from "next/router";
 import client, { QueryResults } from "@/lib/algoliaClient";
 import { ArticleType } from "@/types/ArticleType";
 
@@ -8,6 +8,7 @@ interface QueryPostsResults extends QueryResults {
 }
 
 export default function Search() {
+  const router = useRouter();
   const [hitsResults, setHitsResults] = useState<Array<ArticleType>>([]);
   const [showResults, setShowResults] = useState<boolean>(false);
 
@@ -24,12 +25,6 @@ export default function Search() {
   const closeResults = () => setShowResults(false);
 
   useEffect(() => {
-    const element = document.querySelector("main");
-    element?.addEventListener("click", closeResults);
-    return () => element?.removeEventListener("click", closeResults);
-  });
-
-  useEffect(() => {
     const element = document.querySelector("body");
     const escape = (event: KeyboardEvent) => {
       if (event.key === "Escape") return closeResults();
@@ -37,6 +32,11 @@ export default function Search() {
     element?.addEventListener("keydown", escape);
     return () => element?.removeEventListener("keydown", escape);
   });
+
+  const handleClick = (href: string) => {
+    closeResults();
+    router.push(href);
+  };
 
   return (
     <div className="search">
@@ -53,16 +53,18 @@ export default function Search() {
             {hitsResults.map((hit) => {
               return (
                 <li onClick={closeResults} className="result" key={hit.id}>
-                  <Link href={hit.url || "/404"}>
-                    <a className="link">
-                      <h3 className="title">{hit.title}</h3>
-                    </a>
-                  </Link>
-                  <Link href={hit.url || "/404"}>
-                    <a className="link">
-                      <p className="description">{hit.description}</p>
-                    </a>
-                  </Link>
+                  <a
+                    className="link"
+                    onClick={() => handleClick(hit.url || "/404")}
+                  >
+                    <h3 className="title">{hit.title}</h3>
+                  </a>
+                  <a
+                    className="link"
+                    onClick={() => handleClick(hit.url || "/404")}
+                  >
+                    <p className="description">{hit.description}</p>
+                  </a>
                 </li>
               );
             })}
@@ -108,6 +110,7 @@ export default function Search() {
           padding-bottom: 16px;
         }
         .result .link {
+          cursor: pointer;
           color: inherit;
           text-decoration: none;
         }
