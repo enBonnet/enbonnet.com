@@ -1,12 +1,15 @@
 import "dayjs/locale/es-us";
 import { AppProps } from "next/app";
+import { ThemeProvider } from "next-themes";
 import "normalize.css";
 import "@/styles/base.css";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
-      <Component {...pageProps} />
+      <ThemeProvider>
+        <Component {...pageProps} />
+      </ThemeProvider>
       <style global jsx>{`
         html {
           background: var(--app-bg);
