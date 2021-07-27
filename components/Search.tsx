@@ -80,9 +80,11 @@ export default function Search() {
           outline: none;
           padding: 8px;
           border: var(--input-border);
+          width: 80px;
         }
         .search-input:focus {
           border: var(--input-border-focus);
+          width: 90%;
         }
         .results {
           position: absolute;
@@ -125,6 +127,9 @@ export default function Search() {
           .results {
             right: 170px;
             max-width: 500px;
+          }
+          .search-input {
+            width: 300px;
           }
         }
       `}</style>
