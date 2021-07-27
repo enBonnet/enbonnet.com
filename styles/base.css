@@ -29,4 +29,5 @@
   --input-bg: rgba(255, 255, 255, 60%);
   --input-border-focus: 1px solid rgb(255, 255, 255);
   --list-bg: rgb(8, 0, 29);
+  --list-bg-hover: rgb(13, 0, 46);
 }

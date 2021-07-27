@@ -15,6 +15,7 @@ function MyApp({ Component, pageProps }: AppProps) {
           text-rendering: geometricPrecision;
           -webkit-font-smoothing: antialiased;
           -moz-osx-font-smoothing: grayscale;
+          transition: all 1s;
         }
         .col {
           width: 1000px;
