@@ -81,6 +81,7 @@ const Article = ({ article }: ArticleProps) => {
           margin: 30px 0;
           font-size: var(--actions-text-size);
           line-height: 30px;
+          color: var(--text-color);
         }
         .categories {
           display: flex;

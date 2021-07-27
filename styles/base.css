@@ -1,9 +1,10 @@
 :root {
-  --text-bg: #08001f;
-  --text-underline: #41463d;
-  --text-with-bg: #fff;
-  --purple-color: #9d8df1;
-  --green-color: #1cfeba;
+  --text-bg: rgb(8, 0, 31);
+  --text-color: rgb(8, 0, 31);
+  --text-underline: rgb(65, 70, 61);
+  --text-with-bg: rgb(255, 255, 255);
+  --purple-color: rgb(157, 141, 241);
+  --green-color: rgb(28, 254, 186);
   --app-bg: rgb(242, 242, 242);
   --input-bg: rgba(255, 255, 255, 50%);
   --input-border: 1px solid rgba(189, 189, 189, 50%);
@@ -11,11 +12,21 @@
   --box-shadow: 2px 3px 7px rgb(165, 165, 165);
   --list-bg: rgb(250, 250, 250);
   --list-bg-hover: rgb(255, 255, 255);
-  --divider-underline: 1px solid rgba(0, 0, 0, 30%);
+  --divider-underline: 1px solid rgba(0, 0, 0, 20%);
   --text-gradient: linear-gradient(
     90deg,
     var(--green-color),
     var(--purple-color)
   );
   --actions-text-size: 1.2em;
+}
+
+[data-theme="dark"] {
+  --text-bg: rgb(61, 61, 61);
+  --app-bg: rgb(7, 0, 27);
+  --text-color: rgb(231, 231, 231);
+  --divider-underline: 1px solid rgb(233, 233, 233);
+  --input-bg: rgba(255, 255, 255, 60%);
+  --input-border-focus: 1px solid rgb(255, 255, 255);
+  --list-bg: rgb(8, 0, 29);
 }

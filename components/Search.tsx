@@ -91,6 +91,7 @@ export default function Search() {
           box-shadow: var(--box-shadow);
           border-radius: 4px;
           overflow: hidden;
+          color: var(--text-color);
         }
         .results-list {
           background-color: var(--list-bg);

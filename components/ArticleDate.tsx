@@ -18,6 +18,7 @@ const ArticleDate = ({ updatedAt, createdAt }: ArticleDateType) => {
         .date {
           margin-bottom: 32px;
           text-align: right;
+          color: var(--text-color);
         }
       `}</style>
     </div>

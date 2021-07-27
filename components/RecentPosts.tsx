@@ -26,12 +26,6 @@ export default function RecentPosts({ posts }: RecentPostsProps) {
           display: flex;
           justify-content: flex-end;
         }
-        .text {
-          color: var(--text-with-bg);
-          font-weight: bold;
-          font-size: var(--actions-text-size);
-          text-decoration: none;
-        }
       `}</style>
     </section>
   );

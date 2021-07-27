@@ -54,15 +54,18 @@ export default function Hero() {
         }
         .hero .description {
           max-width: 300px;
+          padding: 0 16px;
           line-height: 30px;
           font-size: 1.3em;
           font-weight: 200;
+          color: var(--text-color);
         }
         .rrss {
           display: flex;
+          padding: 0 16px;
         }
         .rrss .social {
-          color: inherit;
+          color: var(--text-color);
           margin-right: 16px;
         }
       `}</style>

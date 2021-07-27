@@ -48,6 +48,7 @@ export default function Navbar({ absolute }: NavbarProps) {
           color: inherit;
           font-weight: bold;
           font-size: 18px;
+          color: var(--text-color);
         }
         .links {
           display: flex;
