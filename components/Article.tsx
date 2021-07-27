@@ -20,7 +20,11 @@ const StylesCode = (props: any) => {
   const lines = countLines(content);
   if (props.inline) {
     return (
-      <span className={`inline-code ${props.className}`} {...props}>
+      <span
+        className={`inline-code ${props.className}`}
+        inline={props.inline.toString()}
+        {...props}
+      >
         {content}
       </span>
     );

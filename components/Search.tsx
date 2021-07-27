@@ -74,26 +74,26 @@ export default function Search() {
 
       <style jsx>{`
         .search-input {
-          background-color: rgba(255, 255, 255, 50%);
+          background-color: var(--input-bg);
           border-radius: 4px;
           border: none;
           outline: none;
           padding: 8px;
-          border: 1px solid rgba(189, 189, 189, 50%);
+          border: var(--input-border);
         }
         .search-input:focus {
-          border: 1px solid rgb(189, 189, 189);
+          border: var(--input-border-focus);
         }
         .results {
           position: absolute;
           right: 0;
           top: 55px;
-          box-shadow: 2px 3px 7px rgb(165, 165, 165);
+          box-shadow: var(--box-shadow);
           border-radius: 4px;
           overflow: hidden;
         }
         .results-list {
-          background-color: rgb(250, 250, 250);
+          background-color: var(--list-bg);
           list-style: none;
           margin: 0;
           padding: 16px;
@@ -103,10 +103,10 @@ export default function Search() {
           margin-bottom: 16px;
         }
         .result:hover {
-          background-color: rgb(255, 255, 255);
+          background-color: var(--list-bg-hover);
         }
         .results .result:not(:last-child) {
-          border-bottom: 1px solid rgba(0, 0, 0, 30%);
+          border-bottom: var(--divider-underline);
           padding-bottom: 16px;
         }
         .result .link {

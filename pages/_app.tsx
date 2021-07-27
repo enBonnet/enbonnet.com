@@ -9,7 +9,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       <Component {...pageProps} />
       <style global jsx>{`
         html {
-          background: rgb(242, 242, 242);
+          background: var(--app-bg);
           font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI",
             Roboto, "Helvetica Neue", Arial, sans-serif;
           text-rendering: geometricPrecision;

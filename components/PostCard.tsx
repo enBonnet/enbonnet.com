@@ -22,7 +22,7 @@ export default function PostCard({ post }: PostProps) {
       </article>
       <style jsx>{`
         .card {
-          border-bottom: 1px solid rgba(0, 0, 0, 20%);
+          border-bottom: var(--divider-underline);
           margin-bottom: 16px;
           padding: 16px;
         }
