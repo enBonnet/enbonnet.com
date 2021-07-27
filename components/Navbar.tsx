@@ -14,6 +14,7 @@ export default function Navbar({ absolute }: NavbarProps) {
   function switchTheme() {
     if (typeof window !== undefined) {
       const theme = document.documentElement.getAttribute("data-theme");
+      setTheme(theme || "light");
       if (theme === "dark") {
         document.documentElement.setAttribute("data-theme", "light");
         localStorage.setItem("theme", "light");
