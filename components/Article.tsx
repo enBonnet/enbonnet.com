@@ -1,13 +1,15 @@
+import dynamic from "next/dynamic";
 import ReactMarkdown from "react-markdown";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { nord } from "react-syntax-highlighter/dist/cjs/styles/prism";
 import { ArticleProps } from "@/types/ArticleType";
 import Link from "@/components/Link";
-import Head from "./Head";
-import ArticleDate from "./ArticleDate";
-import Navbar from "./Navbar";
-import Footer from "./Footer";
-import Highlight from "./Highlight";
+
+const Head = dynamic(() => import("./Head"));
+const ArticleDate = dynamic(() => import("./ArticleDate"));
+const Navbar = dynamic(() => import("./Navbar"));
+const Footer = dynamic(() => import("./Footer"));
+const Highlight = dynamic(() => import("./Highlight"));
 
 const countLines = (content: string) => {
   const lines = content.split("}");

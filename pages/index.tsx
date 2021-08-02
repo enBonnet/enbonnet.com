@@ -1,11 +1,13 @@
+import dynamic from "next/dynamic";
 import { ArticleType } from "@/types/ArticleType";
 import { getPublicArticles, formatPostsPages } from "@/lib/articles";
-import Footer from "@/components/Footer";
-import Head from "@/components/Head";
-import Navbar from "@/components/Navbar";
-import RecentPosts from "@/components/RecentPosts";
-import Hero from "@/components/Hero";
 import algoliaServer from "@/lib/algoliaServer";
+
+const Footer = dynamic(() => import("@/components/Footer"));
+const Head = dynamic(() => import("@/components/Head"));
+const Navbar = dynamic(() => import("@/components/Navbar"));
+const RecentPosts = dynamic(() => import("@/components/RecentPosts"));
+const Hero = dynamic(() => import("@/components/Hero"));
 
 interface HomeProps {
   posts: Array<ArticleType>;
