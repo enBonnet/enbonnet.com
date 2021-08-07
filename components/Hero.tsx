@@ -16,6 +16,7 @@ export default function Hero() {
               rel="noopener noreferrer"
               target="_blank"
               href="https://twitter.com/enbonnet"
+              aria-label="Twitter"
             >
               <div className="hidden-label">Twitter</div>
               <Twitter />
@@ -27,6 +28,7 @@ export default function Hero() {
               rel="noopener noreferrer"
               target="_blank"
               href="https://github.com/enbonnet"
+              aria-label="Github"
             >
               <div className="hidden-label">Github</div>
               <Github />
@@ -38,6 +40,7 @@ export default function Hero() {
               rel="noopener noreferrer"
               target="_blank"
               href="https://www.linkedin.com/in/enbonnet/"
+              aria-label="Linkedin"
             >
               <div className="hidden-label">Linkedin</div>
               <Linkedin />
@@ -54,7 +57,6 @@ export default function Hero() {
         }
         .hero .description {
           max-width: 300px;
-          padding: 0 16px;
           line-height: 30px;
           font-size: 1.3em;
           font-weight: 200;
@@ -62,7 +64,6 @@ export default function Hero() {
         }
         .rrss {
           display: flex;
-          padding: 0 16px;
         }
         .rrss .social {
           color: var(--text-color);
