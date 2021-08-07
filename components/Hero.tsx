@@ -18,7 +18,9 @@ export default function Hero() {
               href="https://twitter.com/enbonnet"
               aria-label="Twitter"
             >
-              <div className="hidden-label">Twitter</div>
+              <div aria-hidden="true" className="hidden-label">
+                Twitter
+              </div>
               <Twitter />
             </a>
           </div>
@@ -30,7 +32,9 @@ export default function Hero() {
               href="https://github.com/enbonnet"
               aria-label="Github"
             >
-              <div className="hidden-label">Github</div>
+              <div aria-hidden="true" className="hidden-label">
+                Github
+              </div>
               <Github />
             </a>
           </div>
@@ -42,7 +46,9 @@ export default function Hero() {
               href="https://www.linkedin.com/in/enbonnet/"
               aria-label="Linkedin"
             >
-              <div className="hidden-label">Linkedin</div>
+              <div aria-hidden="true" className="hidden-label">
+                Linkedin
+              </div>
               <Linkedin />
             </a>
           </div>

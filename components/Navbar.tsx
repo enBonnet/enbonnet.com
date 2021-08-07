@@ -22,16 +22,26 @@ function ToggleDarkMode() {
   };
 
   return (
-    <button className="toggle-theme" onClick={switchTheme}>
-      <div className="hidden-label">Elegir tema</div>
+    <button
+      aria-label="Cambiar color del tema"
+      className="toggle-theme"
+      onClick={switchTheme}
+    >
+      <div aria-hidden="true" className="hidden-label">
+        Elegir tema
+      </div>
       {theme === "dark" ? (
         <div>
-          <div className="hidden-label">Tema claro</div>
+          <div aria-hidden="true" className="hidden-label">
+            Tema claro
+          </div>
           <Sun />
         </div>
       ) : (
         <div>
-          <div className="hidden-label">Tema oscuro</div>
+          <div aria-hidden="true" className="hidden-label">
+            Tema oscuro
+          </div>
           <Moon />
         </div>
       )}
