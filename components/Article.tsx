@@ -4,6 +4,7 @@ import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { nord } from "react-syntax-highlighter/dist/cjs/styles/prism";
 import { ArticleProps } from "@/types/ArticleType";
 import Link from "@/components/Link";
+import slugify from "@/lib/slugify";
 
 const Head = dynamic(() => import("./Head"));
 const ArticleDate = dynamic(() => import("./ArticleDate"));
@@ -67,7 +68,7 @@ const Article = ({ article }: ArticleProps) => {
                 {article.categories.map(({ name }) => (
                   <div key={name}>
                     <Link
-                      url={`/blog/categories/${name}/page/1`}
+                      url={`/blog/categories/${slugify(name)}/page/1`}
                       label={name}
                     />
                   </div>
