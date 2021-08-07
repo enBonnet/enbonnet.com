@@ -8,6 +8,7 @@ import Paginator from "@/components/Paginator";
 import PostCard from "@/components/PostCard";
 import Navbar from "@/components/Navbar";
 import slugify from "@/lib/slugify";
+import { filterPublicArticles, formatPostsPages } from "@/lib/articles";
 
 interface HomeProps {
   posts: Array<ArticleType>;
@@ -70,10 +71,10 @@ const serializeCategories = async () => {
 
 export async function getStaticProps({ params }: PathParams) {
   const categoriesSort = await serializeCategories();
-  const { sortPages, indexOfPages } = paginatorEasy(
-    categoriesSort[slugify(params.name)].articles,
-    postsByPage
+  const posts = formatPostsPages(
+    filterPublicArticles(categoriesSort[slugify(params.name)].articles)
   );
+  const { sortPages, indexOfPages } = paginatorEasy(posts, postsByPage);
 
   return {
     props: {
