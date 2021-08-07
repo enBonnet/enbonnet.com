@@ -3,21 +3,23 @@ import { PaginatorType } from "@/types/PageType";
 
 interface PaginatorProps {
   pages: PaginatorType;
+  base: string;
 }
 
-export default function Paginator({ pages }: PaginatorProps) {
+export default function Paginator({ pages, base }: PaginatorProps) {
+  if (pages.last <= 1) return null;
   return (
     <>
       <div className="paginator">
         {Number(pages.current) - 1 > 0 && (
-          <Link href={`/blog/page/${Number(pages.current) - 1}`}>
+          <Link href={`${base}${Number(pages.current) - 1}`}>
             <a title="Pagina anterior" className="page">
               {"<"}
             </a>
           </Link>
         )}
         {pages.allIndex.map((number) => (
-          <Link key={number} href={`/blog/page/${number}`}>
+          <Link key={number} href={`${base}${number}`}>
             <a
               title={`Pagina ${number}`}
               className={`page ${pages.current === number && "current"}`}
@@ -27,7 +29,7 @@ export default function Paginator({ pages }: PaginatorProps) {
           </Link>
         ))}
         {Number(pages.current) !== pages.last && (
-          <Link href={`/blog/page/${Number(pages.current) + 1}`}>
+          <Link href={`${base}${Number(pages.current) + 1}`}>
             <a title="Pagina siguiente" className="page">
               {">"}
             </a>

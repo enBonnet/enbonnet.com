@@ -1,27 +1,34 @@
 import paginatorEasy from "pagination-easy";
 import { ArticleType } from "@/types/ArticleType";
 import { PaginatorType } from "@/types/PageType";
-import { getPublicArticles, formatPostsPages } from "@/lib/articles";
+import { CategoriesType, getCategories } from "@/lib/categories";
 import Footer from "@/components/Footer";
 import Head from "@/components/Head";
 import Paginator from "@/components/Paginator";
 import PostCard from "@/components/PostCard";
 import Navbar from "@/components/Navbar";
+import slugify from "@/lib/slugify";
 
 interface HomeProps {
   posts: Array<ArticleType>;
   pages: PaginatorType;
+  categoryName: string;
 }
 
 interface PathParams {
   params: {
+    name: string;
     number: string;
   };
 }
 
 const postsByPage = 8;
 
-export default function BlogPage({ posts, pages }: HomeProps) {
+export default function CategoryPage({
+  posts,
+  pages,
+  categoryName,
+}: HomeProps) {
   return (
     <div>
       <Head subtitle="Blog" />
@@ -37,7 +44,10 @@ export default function BlogPage({ posts, pages }: HomeProps) {
                 ))}
               </div>
             </section>
-            <Paginator pages={pages} base="/blog/page/" />
+            <Paginator
+              pages={pages}
+              base={`/blog/categories/${categoryName}/page/`}
+            />
           </main>
         </div>
       </div>
@@ -46,13 +56,28 @@ export default function BlogPage({ posts, pages }: HomeProps) {
   );
 }
 
+const serializeCategories = async () => {
+  const categories = await getCategories();
+  const initialValue: { [key: string]: CategoriesType } = {};
+  const sortByCategory = categories.reduce((acc, cur) => {
+    return {
+      ...acc,
+      [cur.name]: cur,
+    };
+  }, initialValue);
+  return sortByCategory;
+};
+
 export async function getStaticProps({ params }: PathParams) {
-  const articles = await getPublicArticles();
-  const posts = formatPostsPages(articles);
-  const { sortPages, indexOfPages } = paginatorEasy(posts, postsByPage);
+  const categoriesSort = await serializeCategories();
+  const { sortPages, indexOfPages } = paginatorEasy(
+    categoriesSort[params.name].articles,
+    postsByPage
+  );
 
   return {
     props: {
+      categoryName: params.name,
       posts: sortPages[params.number],
       pages: {
         allIndex: indexOfPages,
@@ -64,14 +89,18 @@ export async function getStaticProps({ params }: PathParams) {
 }
 
 export async function getStaticPaths() {
-  const posts = await getPublicArticles();
-  const { indexOfPages } = paginatorEasy(posts, postsByPage);
-
-  const paths = indexOfPages.map((number) => ({
-    params: {
-      number,
-    },
-  }));
-
+  const categories = await getCategories();
+  const paths: Array<PathParams> = [];
+  categories.forEach((category) => {
+    const { indexOfPages } = paginatorEasy(category.articles, postsByPage);
+    indexOfPages.forEach((number) =>
+      paths.push({
+        params: {
+          name: slugify(category.name),
+          number,
+        },
+      })
+    );
+  });
   return { paths, fallback: false };
 }

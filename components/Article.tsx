@@ -66,7 +66,10 @@ const Article = ({ article }: ArticleProps) => {
               <div className="categories">
                 {article.categories.map(({ name }) => (
                   <div key={name}>
-                    <Link url={`/category/${name}`} label={name} />
+                    <Link
+                      url={`/blog/categories/${name}/page/1`}
+                      label={name}
+                    />
                   </div>
                 ))}
               </div>

@@ -28,7 +28,7 @@ export const getArticleById = async (id: string) => {
   }
 };
 
-const filterPublicArticles = (
+export const filterPublicArticles = (
   articles: Array<ArticleType>
 ): Array<ArticleType> =>
   articles.filter((article: ArticleType) => article.publico);
