@@ -62,7 +62,7 @@ const serializeCategories = async () => {
   const sortByCategory = categories.reduce((acc, cur) => {
     return {
       ...acc,
-      [cur.name]: cur,
+      [slugify(cur.name)]: cur,
     };
   }, initialValue);
   return sortByCategory;
@@ -71,7 +71,7 @@ const serializeCategories = async () => {
 export async function getStaticProps({ params }: PathParams) {
   const categoriesSort = await serializeCategories();
   const { sortPages, indexOfPages } = paginatorEasy(
-    categoriesSort[params.name].articles,
+    categoriesSort[slugify(params.name)].articles,
     postsByPage
   );
 
