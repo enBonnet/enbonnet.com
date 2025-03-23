@@ -114,7 +114,7 @@ export default function Home() {
               or{" "}
               <a
                 className="border-b-4 border-[#1DA1F2] font-semibold"
-                href="https://bluesky.app/@enBonnet"
+                href="https://bsky.app/profile/enbonnet.com"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Follow me on Bluesky"
