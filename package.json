@@ -1,12 +1,15 @@
 {
-  "name": "enbonnet-fw",
+  "name": "enbonnet-com",
   "private": true,
   "type": "module",
   "scripts": {
     "build": "react-router build",
     "dev": "react-router dev",
     "start": "react-router-serve ./build/server/index.js",
-    "typecheck": "react-router typegen && tsc"
+    "typecheck": "react-router typegen && tsc",
+    "biome:format": "pnpm biome format --write app/",
+    "biome:lint": "pnpm biome lint app/",
+    "biome:check": "pnpm biome check app/"
   },
   "dependencies": {
     "@react-router/node": "^7.4.0",
@@ -17,6 +20,7 @@
     "react-router": "^7.4.0"
   },
   "devDependencies": {
+    "@biomejs/biome": "1.9.4",
     "@netlify/vite-plugin-react-router": "^1.0.0",
     "@react-router/dev": "^7.4.0",
     "@tailwindcss/vite": "^4.0.0",
