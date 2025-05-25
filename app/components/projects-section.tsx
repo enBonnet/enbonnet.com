@@ -3,8 +3,67 @@ export const ProjectsSection = () => {
 		<div className="min-h-screen flex justify-center max-w-full items-center bg-[#392358]">
 			<div className="flex md:flex-row flex-col gap-8 px-4 py-8 justify-center md:justify-start w-4xl">
 				<div>
-					<div className="mb-4">
+					<div className="mb-8">
 						<h2 className="text-4xl font-extrabold">Projects</h2>
+					</div>
+					<div className="flex md:flex-row flex-col gap-9 justify-around items-center mb-12">
+						<div className="min-w-44 max-w-44 shadow-black shadow-sm rounded-lg">
+							<img
+								className="rounded-lg"
+								src="/images/routes-react-router-screenshot.png"
+								alt="Routes React Router"
+							/>
+						</div>
+						<div>
+							<div className="mb-2">
+								<a
+									href="https://github.com/enBonnet/routes-react-router"
+									target="_blank"
+									rel="noopener noreferrer"
+									className="font-bold"
+								>
+									<h3 className="text-2xl font-bold">Routes - React Router</h3>
+								</a>
+								<p className="text-lg">
+								Route Annotator for React Router Route Annotator is a VSCode extension that adds helpful annotations to your routes.ts files when working with react-router. It displays clickable CodeLens links above each route or index declaration, showing the full path derived from nested prefix() and route() structures.
+								</p>
+							</div>
+							<div>
+								<div>
+									<span className="mr-2">VSCode Extension:</span>
+									<a
+										href="https://marketplace.visualstudio.com/items?itemName=enBonnet.routes-react-router"
+										target="_blank"
+										rel="noopener noreferrer"
+										className="font-bold"
+									>
+										enBonnet.routes-react-router
+									</a>
+								</div>
+								<div>
+									<span className="mr-2">Open VSX:</span>
+									<a
+										href="https://open-vsx.org/extension/enBonnet/routes-react-router"
+										target="_blank"
+										rel="noopener noreferrer"
+										className="font-bold"
+									>
+										enBonnet/routes-react-router
+									</a>
+								</div>
+								<div>
+									<span className="mr-2">Github:</span>
+									<a
+										href="https://github.com/enBonnet/routes-react-router"
+										target="_blank"
+										rel="noopener noreferrer"
+										className="font-bold"
+									>
+										enBonnet/routes-react-router
+									</a>
+								</div>
+							</div>
+						</div>
 					</div>
 					<div className="flex flex-col md:flex-row gap-9 justify-around items-center mb-12">
 						<div>
