@@ -25,7 +25,12 @@ export const ProjectsSection = () => {
 									<h3 className="text-2xl font-bold">Routes - React Router</h3>
 								</a>
 								<p className="text-lg">
-								Route Annotator for React Router Route Annotator is a VSCode extension that adds helpful annotations to your routes.ts files when working with react-router. It displays clickable CodeLens links above each route or index declaration, showing the full path derived from nested prefix() and route() structures.
+									Route Annotator for React Router Route Annotator is a VSCode
+									extension that adds helpful annotations to your routes.ts
+									files when working with react-router. It displays clickable
+									CodeLens links above each route or index declaration, showing
+									the full path derived from nested prefix() and route()
+									structures.
 								</p>
 							</div>
 							<div>
