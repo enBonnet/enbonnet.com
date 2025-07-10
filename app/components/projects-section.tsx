@@ -1,6 +1,6 @@
 export const ProjectsSection = () => {
 	return (
-		<div className="min-h-screen flex justify-center max-w-full items-center bg-[#392358]">
+		<div className="min-h-screen flex justify-center max-w-full items-center dark:bg-[#392358] bg-[#875da9]">
 			<div className="flex md:flex-row flex-col gap-8 px-4 py-8 justify-center md:justify-start w-4xl">
 				<div>
 					<div className="mb-8">
