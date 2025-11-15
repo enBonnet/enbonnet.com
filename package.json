@@ -6,7 +6,9 @@
 		"dev": "astro dev",
 		"build": "astro build",
 		"preview": "astro preview",
-		"astro": "astro"
+		"astro": "astro",
+		"biome:check": "biome check",
+		"biome:fix": "biome fix"
 	},
 	"dependencies": {
 		"@tailwindcss/vite": "^4.1.13",
