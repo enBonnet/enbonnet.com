@@ -11,9 +11,9 @@
 		"biome:fix": "biome fix --write"
 	},
 	"dependencies": {
-		"@tailwindcss/vite": "^4.1.13",
-		"astro": "^5.15.8",
-		"tailwindcss": "^4.1.13"
+		"@tailwindcss/vite": "^4.1.17",
+		"astro": "^5.16.4",
+		"tailwindcss": "^4.1.17"
 	},
 	"devDependencies": {
 		"@biomejs/biome": "2.2.4"
