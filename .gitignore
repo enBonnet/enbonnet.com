@@ -1,9 +1,10 @@
-test-results
 node_modules
 
 # Output
 .output
 .vercel
+.netlify
+.wrangler
 /.svelte-kit
 /build
 
@@ -20,23 +21,3 @@ Thumbs.db
 # Vite
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
-
-.DS_Store
-node_modules
-
-/package
-
-/functions
-/static/tailwind.css
-.env
-.env.*
-!.env.example
-.vercel
-.output
-
-# Local Netlify folder
-.netlify
-.histoire
-
-.astro
-.react-router
