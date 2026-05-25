@@ -151,8 +151,7 @@ const smallTools = [
 
           <aside class="hero-card" aria-label="Portfolio highlights">
             <picture>
-              <source srcset="/logo-edge-less.webp" type="image/webp" />
-              <img src="/logo-edge-less.png" alt="Ender Bonnet logo" width="160" height="160" />
+              <img src="/600-green-bg.svg" alt="Ender Bonnet logo" width="160" height="160" />
             </picture>
             <div class="stat-grid">
               <div>
@@ -285,17 +284,19 @@ const smallTools = [
 
 <style>
   :root {
-    color-scheme: light;
-    --bg: #f7f3ed;
-    --surface: #fffaf2;
-    --surface-strong: #ffffff;
-    --ink: #15100d;
-    --muted: #655c53;
-    --line: #e7ddd0;
-    --accent: #5b367f;
-    --accent-strong: #3b2452;
-    --accent-soft: #efe7f5;
-    --shadow: 0 24px 80px rgba(36, 24, 12, 0.12);
+    color-scheme: dark;
+    --bg: #171c19;
+    --surface: #1d2520;
+    --surface-strong: #2d332f;
+    --ink: #fafffb;
+    --muted: #b9d6c3;
+    --line: rgba(95, 255, 192, 0.16);
+    --accent: #4bea9a;
+    --accent-strong: #6dffc9;
+    --accent-soft: rgba(75, 234, 154, 0.14);
+    --leaf: #7fc99b;
+    --bloom: #ff8db5;
+    --shadow: 0 24px 80px rgba(0, 0, 0, 0.28);
     font-family:
       Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   }
@@ -307,16 +308,38 @@ const smallTools = [
   html {
     background: var(--bg);
     color: var(--ink);
+    caret-color: var(--accent);
     scroll-behavior: smooth;
+  }
+
+  ::selection {
+    background: #2d3831;
+    color: #fafffb;
   }
 
   body {
     margin: 0;
     min-width: 320px;
     background:
-      radial-gradient(circle at top left, rgba(91, 54, 127, 0.14), transparent 34rem),
-      linear-gradient(180deg, #fbf8f2 0%, var(--bg) 48rem);
+      radial-gradient(circle at 12% 10%, rgba(75, 234, 154, 0.18), transparent 26rem),
+      radial-gradient(circle at 86% 22%, rgba(255, 141, 181, 0.1), transparent 18rem),
+      radial-gradient(ellipse at 50% -10%, rgba(127, 201, 155, 0.18), transparent 34rem),
+      repeating-linear-gradient(90deg, rgba(75, 234, 154, 0.045) 0 1px, transparent 1px 5.5rem),
+      linear-gradient(180deg, #171c19 0%, #101411 48rem, var(--bg) 100%);
     color: var(--ink);
+  }
+
+  body::before {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    content: "";
+    background:
+      radial-gradient(ellipse at 18% 72%, rgba(127, 201, 155, 0.14), transparent 15rem),
+      radial-gradient(ellipse at 80% 78%, rgba(95, 255, 192, 0.1), transparent 18rem),
+      linear-gradient(115deg, transparent 0 46%, rgba(75, 234, 154, 0.08) 46% 47%, transparent 47% 100%);
+    mask-image: linear-gradient(to bottom, transparent 0%, black 20%, black 86%, transparent 100%);
   }
 
   a {
@@ -325,7 +348,7 @@ const smallTools = [
   }
 
   a:focus-visible {
-    outline: 3px solid rgba(91, 54, 127, 0.55);
+    outline: 3px solid rgba(75, 234, 154, 0.65);
     outline-offset: 4px;
     border-radius: 0.5rem;
   }
@@ -359,7 +382,7 @@ const smallTools = [
   .small-card,
   .intro-strip .shell > div {
     border: 1px solid var(--line);
-    background: rgba(255, 250, 242, 0.82);
+    background: rgba(29, 37, 32, 0.82);
     box-shadow: var(--shadow);
     backdrop-filter: blur(18px);
   }
@@ -446,7 +469,7 @@ const smallTools = [
   .button.primary {
     border-color: var(--accent-strong);
     background: var(--accent-strong);
-    color: white;
+    color: #171c19;
   }
 
   .button:hover,
@@ -455,7 +478,7 @@ const smallTools = [
   .small-card:hover,
   .theme-row:hover {
     transform: translateY(-2px);
-    border-color: rgba(91, 54, 127, 0.45);
+    border-color: rgba(75, 234, 154, 0.55);
   }
 
   .hero-card {
@@ -465,7 +488,9 @@ const smallTools = [
     gap: 2rem;
     padding: 2rem;
     border-radius: 2rem;
-    background: linear-gradient(155deg, #ffffff 0%, #efe7f5 100%);
+    background:
+      radial-gradient(circle at 28% 18%, rgba(95, 255, 192, 0.24), transparent 11rem),
+      linear-gradient(155deg, rgba(45, 56, 49, 0.96) 0%, rgba(23, 28, 25, 0.96) 100%);
   }
 
   .hero-card img {
@@ -482,7 +507,7 @@ const smallTools = [
   .stat-grid div,
   .theme-stats div {
     padding-top: 1rem;
-    border-top: 1px solid rgba(91, 54, 127, 0.18);
+    border-top: 1px solid rgba(95, 255, 192, 0.18);
   }
 
   .stat-grid strong,
@@ -627,8 +652,8 @@ const smallTools = [
   }
 
   .themes {
-    background: #15100d;
-    color: #fff8ef;
+    background: #101411;
+    color: #fafffb;
   }
 
   .theme-panel {
@@ -639,13 +664,14 @@ const smallTools = [
     border-color: rgba(255, 255, 255, 0.12);
     border-radius: 2rem;
     background:
-      radial-gradient(circle at top left, rgba(91, 54, 127, 0.45), transparent 28rem),
-      #201827;
+      radial-gradient(circle at top left, rgba(75, 234, 154, 0.26), transparent 28rem),
+      radial-gradient(circle at bottom right, rgba(255, 141, 181, 0.12), transparent 20rem),
+      #171c19;
     box-shadow: none;
   }
 
   .theme-copy p {
-    color: #d7cbdc;
+    color: var(--muted);
   }
 
   .theme-stats {
@@ -659,7 +685,7 @@ const smallTools = [
   }
 
   .theme-stats span {
-    color: #d7cbdc;
+    color: var(--muted);
   }
 
   .theme-list {
@@ -675,12 +701,12 @@ const smallTools = [
     padding: 0.95rem;
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 1rem;
-    background: rgba(255, 255, 255, 0.055);
+    background: rgba(250, 255, 251, 0.055);
     transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
   }
 
   .theme-row:hover {
-    background: rgba(255, 255, 255, 0.08);
+    background: rgba(75, 234, 154, 0.09);
     border-color: color-mix(in srgb, var(--accent) 70%, white 20%);
   }
 
@@ -699,7 +725,7 @@ const smallTools = [
 
   .theme-detail {
     grid-column: 2 / -1;
-    color: #b7abbc;
+    color: #b9d6c3;
     font-size: 0.82rem;
   }
 
@@ -734,47 +760,6 @@ const smallTools = [
 
   .contact-card h2 {
     margin-bottom: 0;
-  }
-
-  @media (prefers-color-scheme: dark) {
-    :root {
-      color-scheme: dark;
-      --bg: #0f0b12;
-      --surface: #18121d;
-      --surface-strong: #21182a;
-      --ink: #fff8ef;
-      --muted: #c8bdc9;
-      --line: rgba(255, 255, 255, 0.12);
-      --accent: #c8a8e6;
-      --accent-strong: #e2cbf6;
-      --accent-soft: rgba(200, 168, 230, 0.14);
-      --shadow: none;
-    }
-
-    body {
-      background:
-        radial-gradient(circle at top left, rgba(91, 54, 127, 0.34), transparent 34rem),
-        linear-gradient(180deg, #15101a 0%, var(--bg) 48rem);
-    }
-
-    .hero-copy,
-    .hero-card,
-    .project-card,
-    .contact-card,
-    .small-card,
-    .intro-strip .shell > div {
-      background: rgba(24, 18, 29, 0.82);
-    }
-
-    .hero-card {
-      background: linear-gradient(155deg, #21182a 0%, #130e19 100%);
-    }
-
-    .button.primary {
-      background: #fff8ef;
-      color: #15100d;
-      border-color: #fff8ef;
-    }
   }
 
   @media (max-width: 900px) {
