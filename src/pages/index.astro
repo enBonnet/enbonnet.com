@@ -87,16 +87,20 @@ const featuredProjects = [
 ];
 
 const themes = [
-  { name: "Supabase Theme", installs: "5,391", marketplace: "492", openVsx: "4,899", href: "https://marketplace.visualstudio.com/items?itemName=enbonnet.supabase-theme", color: "#3ecf8e" },
-  { name: "Orange Flavor", installs: "2,897", marketplace: "219", openVsx: "2,678", href: "https://marketplace.visualstudio.com/items?itemName=enbonnet.orange-flavor-theme", color: "#f47c20" },
-  { name: "TanStack Theme", installs: "1,141", marketplace: "247", openVsx: "894", href: "https://marketplace.visualstudio.com/items?itemName=enbonnet.tanstack-theme", color: "#50b195" },
-  { name: "Orange Ocean", installs: "1,124", marketplace: "185", openVsx: "939", href: "https://marketplace.visualstudio.com/items?itemName=enbonnet.orange-ocean", color: "#ff8a3d" },
-  { name: "Bumble Coffee", installs: "1,098", marketplace: "156", openVsx: "942", href: "https://marketplace.visualstudio.com/items?itemName=enbonnet.bumble-coffee-theme", color: "#f4a020" },
-  { name: "Humans Theme", installs: "660", marketplace: "42", openVsx: "618", href: "https://marketplace.visualstudio.com/items?itemName=enbonnet.humans-theme", color: "#e95421" },
-  { name: "Svelte Theme", installs: "526", marketplace: "84", openVsx: "442", href: "https://marketplace.visualstudio.com/items?itemName=enbonnet.svelte-theme", color: "#ff3c00" },
-  { name: "Green Night", installs: "436", marketplace: "16", openVsx: "420", href: "https://marketplace.visualstudio.com/items?itemName=enbonnet.green-night-theme", color: "#4bea9a" },
-  { name: "Lilo Theme", installs: "344", marketplace: "26", openVsx: "318", href: "https://marketplace.visualstudio.com/items?itemName=enbonnet.lilo-theme", color: "#3de5e8" },
+  { name: "Supabase Theme", installs: "5,391", marketplace: "492", openVsx: "4,899", href: "https://supabase.enbonnet.com", color: "#3ecf8e" },
+  { name: "Orange Flavor", installs: "2,897", marketplace: "219", openVsx: "2,678", href: "https://orange.enbonnet.com", color: "#f47c20" },
+  { name: "TanStack Theme", installs: "1,141", marketplace: "247", openVsx: "894", href: "https://tanstack.enbonnet.com", color: "#50b195" },
+  { name: "Orange Ocean", installs: "1,124", marketplace: "185", openVsx: "939", href: "https://ocean.enbonnet.com", color: "#ff8a3d" },
+  { name: "Bumble Coffee", installs: "1,098", marketplace: "156", openVsx: "942", href: "https://bumble.enbonnet.com", color: "#f4a020" },
+  { name: "Humans Theme", installs: "660", marketplace: "42", openVsx: "618", href: "https://humans.enbonnet.com", color: "#e95421" },
+  { name: "Svelte Theme", installs: "526", marketplace: "84", openVsx: "442", href: "https://svelte.enbonnet.com", color: "#ff3c00" },
+  { name: "Green Night", installs: "436", marketplace: "16", openVsx: "420", href: "https://green.enbonnet.com", color: "#4bea9a" },
+  { name: "Lilo Theme", installs: "344", marketplace: "26", openVsx: "318", href: "https://lilo.enbonnet.com", color: "#3de5e8" },
 ];
+
+const themesByInstalls = [...themes].sort(
+  (a, b) => Number(b.installs.replace(/,/g, "")) - Number(a.installs.replace(/,/g, "")),
+);
 
 const smallTools = [
   { name: "Gira", description: "A Go CLI for managing Jira tasks from the terminal.", href: "https://github.com/enBonnet/gira" },
@@ -235,7 +239,7 @@ const smallTools = [
           </div>
 
           <div class="theme-list">
-            {themes.map((theme) => (
+            {themesByInstalls.map((theme) => (
               <a class="theme-row" href={theme.href} target="_blank" rel="noreferrer" style={`--accent: ${theme.color}`}>
                 <span class="theme-dot" aria-hidden="true"></span>
                 <span class="theme-name">{theme.name}</span>
