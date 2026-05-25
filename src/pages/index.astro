@@ -109,30 +109,104 @@ const smallTools = [
   { name: "img2pdf-cli", description: "A Python CLI for converting images into PDFs with batching and image processing options.", href: "https://github.com/enBonnet/img2pdf-cli" },
   { name: "Terminal theme ports", description: "Color schemes and ports for Warp, Ghostty, and other editor/terminal environments.", href: "https://github.com/enBonnet?tab=repositories&q=theme" },
 ];
+
+const siteUrl = "https://enbonnet.com";
+const pageTitle = "Ender Bonnet - Software Engineer, Developer Tools & Extensions";
+const pageDescription =
+  "Ender Bonnet is a software engineer in Santiago, Chile building developer tools, VSCode extensions, browser extensions, CLIs, editor themes, and focused web products.";
+const socialImage = `${siteUrl}/logo-edge-less.png`;
+
+const personJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "Ender Bonnet",
+  url: siteUrl,
+  image: socialImage,
+  jobTitle: "Software Engineer",
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Santiago",
+    addressCountry: "CL",
+  },
+  sameAs: socials.map((social) => social.href),
+  knowsAbout: [
+    "Software engineering",
+    "Frontend development",
+    "Developer tools",
+    "VSCode extensions",
+    "Browser extensions",
+    "CLI tools",
+    "Editor themes",
+  ],
+  worksFor: {
+    "@type": "Organization",
+    name: "Inn-Flow",
+    url: "https://www.inn-flow.com/",
+  },
+};
+
+const websiteJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: "Ender Bonnet",
+  url: siteUrl,
+  description: pageDescription,
+  inLanguage: "en",
+  publisher: {
+    "@type": "Person",
+    name: "Ender Bonnet",
+  },
+};
+
+const portfolioJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  name: "Selected software projects by Ender Bonnet",
+  itemListElement: featuredProjects.map((project, index) => ({
+    "@type": "ListItem",
+    position: index + 1,
+    item: {
+      "@type": "SoftwareSourceCode",
+      name: project.name,
+      description: project.description,
+      url: project.links[0]?.href,
+      programmingLanguage: project.tags.filter((tag) => ["TypeScript", "JavaScript", "React Router"].includes(tag)),
+    },
+  })),
+};
 ---
 
 <!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="generator" content={Astro.generator} />
     <link rel="icon" type="image/svg+xml" href="/600-green.svg" />
-    <title>Ender Bonnet - Software Engineer</title>
-    <meta
-      name="description"
-      content="Software engineer building developer tools, editor extensions, browser extensions, and focused web products."
-    />
-    <meta name="keywords" content="Ender Bonnet, Software Engineer, Frontend, Developer Tools, VSCode Extensions, Open VSX, Browser Extensions" />
-    <meta property="og:title" content="Ender Bonnet - Software Engineer" />
-    <meta property="og:description" content="Developer tools, editor extensions, browser extensions, and focused web products." />
+    <link rel="canonical" href={siteUrl} />
+    <title>{pageTitle}</title>
+    <meta name="description" content={pageDescription} />
+    <meta name="author" content="Ender Bonnet" />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <meta name="theme-color" content="#101310" />
+    <meta name="keywords" content="Ender Bonnet, Software Engineer, Frontend Engineer, Developer Tools, VSCode Extensions, Open VSX, Browser Extensions, CLI Tools, Editor Themes, Santiago Chile" />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={pageDescription} />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://enbonnet.com" />
-    <meta property="og:image" content="https://enbonnet.com/logo-edge-less.png" />
-    <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="Ender Bonnet - Software Engineer" />
-    <meta name="twitter:description" content="Developer tools, editor extensions, browser extensions, and focused web products." />
-    <meta name="twitter:image" content="https://enbonnet.com/logo-edge-less.png" />
+    <meta property="og:url" content={siteUrl} />
+    <meta property="og:site_name" content="Ender Bonnet" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:image" content={socialImage} />
+    <meta property="og:image:alt" content="Ender Bonnet logo" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:creator" content="@enbonnet" />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={pageDescription} />
+    <meta name="twitter:image" content={socialImage} />
+    <meta name="twitter:image:alt" content="Ender Bonnet logo" />
+    <script type="application/ld+json" set:html={JSON.stringify(personJsonLd)}></script>
+    <script type="application/ld+json" set:html={JSON.stringify(websiteJsonLd)}></script>
+    <script type="application/ld+json" set:html={JSON.stringify(portfolioJsonLd)}></script>
   </head>
   <body>
     <main class="newspaper-grid">
