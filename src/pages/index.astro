@@ -198,7 +198,7 @@ const websiteJsonLd = {
   name: "Ender Bonnet",
   url: siteUrl,
   description: pageDescription,
-  inLanguage: "en",
+  inLanguage: ["en", "es"],
   publisher: {
     "@type": "Person",
     name: "Ender Bonnet",
@@ -226,58 +226,66 @@ const portfolioJsonLd = {
 <!doctype html>
 <html lang="en">
   <head>
+    <script is:inline>(function(){try{var l=localStorage.getItem('enbonnet-lang');if(l)document.documentElement.lang=l}catch(e){}})();</script>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="generator" content={Astro.generator} />
     <link rel="icon" type="image/svg+xml" href="/600-green.svg" />
     <link rel="canonical" href={siteUrl} />
-    <title>{pageTitle}</title>
-    <meta name="description" content={pageDescription} />
+    <title data-i18n="pageTitle">{pageTitle}</title>
+    <meta name="description" data-i18n="pageDescription" content={pageDescription} />
     <meta name="author" content="Ender Bonnet" />
     <meta name="robots" content="index, follow, max-image-preview:large" />
+    <link rel="alternate" hreflang="en" href={siteUrl} />
+    <link rel="alternate" hreflang="es" href={`${siteUrl}?lang=es`} />
+    <link rel="alternate" hreflang="x-default" href={siteUrl} />
     <meta name="theme-color" content="#101310" />
-    <meta name="keywords" content="Ender Bonnet, Software Engineer, Frontend Engineer, Developer Tools, VSCode Extensions, Open VSX, Browser Extensions, CLI Tools, Editor Themes, Santiago Chile" />
-    <meta property="og:title" content={pageTitle} />
-    <meta property="og:description" content={pageDescription} />
+    <meta name="keywords" content="Ender Bonnet, Software Engineer, Frontend Engineer, Developer Tools, VSCode Extensions, Open VSX, Browser Extensions, CLI Tools, Editor Themes, Santiago Chile, Ingeniero de Software, Herramientas para Desarrolladores, Extensiones VSCode, Extensiones de Navegador, Temas de Editor, Santiago Chile" />
+    <meta property="og:title" data-i18n="pageTitle" content={pageTitle} />
+    <meta property="og:description" data-i18n="pageDescription" content={pageDescription} />
     <meta property="og:type" content="website" />
     <meta property="og:url" content={siteUrl} />
     <meta property="og:site_name" content="Ender Bonnet" />
-    <meta property="og:locale" content="en_US" />
+    <meta property="og:locale" data-i18n="ogLocale" content="en_US" />
+    <meta property="og:locale:alternate" content="es_CL" />
     <meta property="og:image" content={socialImage} />
-    <meta property="og:image:alt" content="Ender Bonnet logo" />
+    <meta property="og:image:alt" data-i18n="imageAlt" content="Ender Bonnet logo" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:creator" content="@enbonnet" />
-    <meta name="twitter:title" content={pageTitle} />
-    <meta name="twitter:description" content={pageDescription} />
+    <meta name="twitter:title" data-i18n="pageTitle" content={pageTitle} />
+    <meta name="twitter:description" data-i18n="pageDescription" content={pageDescription} />
     <meta name="twitter:image" content={socialImage} />
-    <meta name="twitter:image:alt" content="Ender Bonnet logo" />
+    <meta name="twitter:image:alt" data-i18n="imageAlt" content="Ender Bonnet logo" />
     <script type="application/ld+json" set:html={JSON.stringify(personJsonLd)}></script>
     <script type="application/ld+json" set:html={JSON.stringify(websiteJsonLd)}></script>
     <script type="application/ld+json" set:html={JSON.stringify(portfolioJsonLd)}></script>
   </head>
   <body>
     <main class="newspaper-grid">
-      <section class="paper-block masthead" aria-label="Site masthead">
+      <section class="paper-block masthead" data-i18n-attr="aria-label:mastAriaLabel" aria-label="Site masthead">
         <p class="edition">enbonnet.com</p>
-        <p>Software Engineering</p>
-        <p>Santiago, Chile</p>
-      </section>
-
-      <section class="paper-block lead-story" aria-labelledby="hero-title">
-        <p class="kicker">Frontend and software engineer based in Santiago, Chile</p>
-        <h1 id="hero-title">I build practical developer tools and focused web products.</h1>
-        <p class="hero-lede">
-          I am Ender Bonnet, currently working at <a class="company-link" href="https://www.inn-flow.com/" target="_blank" rel="noreferrer" aria-label="Inn-Flow"><img src="https://www.inn-flow.com/wp-content/themes/innflow/dist/images/logo-innflow-color_ae64cde077c04322a0e1.svg" alt="" width="104" height="26" loading="lazy" /></a>.
-          My work spans VSCode extensions, published editor themes, browser extensions, CLIs, and small products that solve real workflow problems.
-        </p>
-        <div class="hero-actions" aria-label="Primary links">
-          <a class="button primary" href="#work">View work</a>
-          <a class="button" href="https://github.com/enbonnet" target="_blank" rel="noreferrer">GitHub</a>
+        <p data-i18n="mastCategory">Software Engineering</p>
+        <p data-i18n="mastLocation">Santiago, Chile</p>
+        <div class="lang-switcher" aria-label="Language selector">
+          <button type="button" class="lang-btn active" data-lang="en" aria-pressed="true">EN</button>
+          <button type="button" class="lang-btn" data-lang="es" aria-pressed="false">ES</button>
         </div>
       </section>
 
-      <aside class="paper-block bureau-card" aria-label="Portfolio highlights">
-        <div class="glitch-logo" role="img" aria-label="Ender Bonnet logo">
+      <section class="paper-block lead-story" aria-labelledby="hero-title">
+        <p class="kicker" data-i18n="heroKicker">Frontend and software engineer based in Santiago, Chile</p>
+        <h1 id="hero-title" data-i18n="heroTitle">I build practical developer tools and focused web products.</h1>
+        <p class="hero-lede">
+          <span data-i18n="heroLede1">I am Ender Bonnet, currently working at</span> <a class="company-link" href="https://www.inn-flow.com/" target="_blank" rel="noreferrer" aria-label="Inn-Flow"><img src="https://www.inn-flow.com/wp-content/themes/innflow/dist/images/logo-innflow-color_ae64cde077c04322a0e1.svg" alt="" width="104" height="26" loading="lazy" /></a>. <span data-i18n="heroLede2">My work spans VSCode extensions, published editor themes, browser extensions, CLIs, and small products that solve real workflow problems.</span>
+        </p>
+        <div class="hero-actions" data-i18n-attr="aria-label:heroActionsAria" aria-label="Primary links">
+          <a class="button primary" href="#work" data-i18n="heroCtaWork">View work</a>
+          <a class="button" href="https://github.com/enbonnet" target="_blank" rel="noreferrer" data-i18n="heroCtaGithub">GitHub</a>
+        </div>
+      </section>
+
+      <aside class="paper-block bureau-card" data-i18n-attr="aria-label:bureauAriaLabel" aria-label="Portfolio highlights">
+        <div class="glitch-logo" role="img" data-i18n-attr="aria-label:logoAriaLabel" aria-label="Ender Bonnet logo">
           <img class="glitch-logo-base" src="/600-green.svg" alt="" width="320" height="320" aria-hidden="true" />
           <img class="glitch-logo-alt" src="/600-green-bg.svg" alt="" width="320" height="320" aria-hidden="true" />
           <img class="glitch-logo-slice slice-one" src="/600-green-bg.svg" alt="" width="320" height="320" aria-hidden="true" />
@@ -286,43 +294,43 @@ const portfolioJsonLd = {
         <div class="stat-grid">
           <div>
             <strong>9</strong>
-            <span>Published themes</span>
+            <span data-i18n="statPublishedThemes">Published themes</span>
           </div>
           <div>
             <strong>13.6k+</strong>
-            <span>Combined theme installs/downloads</span>
+            <span data-i18n="statThemeInstalls">Combined theme installs/downloads</span>
           </div>
           <div>
             <strong>2</strong>
-            <span>VSCode dev extensions on Open VSX</span>
+            <span data-i18n="statVscodeExts">VSCode dev extensions on Open VSX</span>
           </div>
           <div>
             <strong>52+</strong>
-            <span>Merged PRs in external open source repos</span>
+            <span data-i18n="statMergedPRs">Merged PRs in external open source repos</span>
           </div>
         </div>
       </aside>
 
-      <section class="paper-block beat-card beat-dx" aria-label="Developer experience">
-        <span>Developer experience</span>
-        <p>Extensions that make framework-specific workflows easier to navigate.</p>
+      <section class="paper-block beat-card beat-dx" data-i18n-attr="aria-label:beatDxAria" aria-label="Developer experience">
+        <span data-i18n="beatDxTitle">Developer experience</span>
+        <p data-i18n="beatDxText">Extensions that make framework-specific workflows easier to navigate.</p>
       </section>
-      <section class="paper-block beat-card beat-themes" aria-label="Editor design systems">
-        <span>Editor design systems</span>
-        <p>Published themes across VSCode Marketplace and Open VSX.</p>
+      <section class="paper-block beat-card beat-themes" data-i18n-attr="aria-label:beatThemesAria" aria-label="Editor design systems">
+        <span data-i18n="beatThemesTitle">Editor design systems</span>
+        <p data-i18n="beatThemesText">Published themes across VSCode Marketplace and Open VSX.</p>
       </section>
-      <section class="paper-block beat-card beat-tools" aria-label="Workflow utilities">
-        <span>Workflow utilities</span>
-        <p>Small browser and CLI tools built around everyday friction.</p>
+      <section class="paper-block beat-card beat-tools" data-i18n-attr="aria-label:beatToolsAria" aria-label="Workflow utilities">
+        <span data-i18n="beatToolsTitle">Workflow utilities</span>
+        <p data-i18n="beatToolsText">Small browser and CLI tools built around everyday friction.</p>
       </section>
 
       <section class="section-label" id="work" aria-labelledby="work-title">
-        <p class="kicker">Selected work</p>
-        <h2 id="work-title">Projects with shipped surfaces.</h2>
+        <p class="kicker" data-i18n="workKicker">Selected work</p>
+        <h2 id="work-title" data-i18n="workTitle">Projects with shipped surfaces.</h2>
       </section>
 
-      <section class="projects-mosaic" aria-label="Selected project cards">
-        {featuredProjects.map((project) => (
+      <section class="projects-mosaic" data-i18n-attr="aria-label:workAria" aria-label="Selected project cards">
+        {featuredProjects.map((project, index) => (
           <article class={`paper-block project-card project-${project.layout} project-${project.visual}`}>
             <div class={`project-visual visual-${project.visual}`} aria-hidden="true">
               {project.visual === "rtk" && (
@@ -374,17 +382,17 @@ const portfolioJsonLd = {
             </div>
             <div class="project-body">
               <div class="project-topline">
-                <span>{project.eyebrow}</span>
-                {project.metric && <strong>{project.metric}</strong>}
+                <span data-i18n={`p${index}Eyebrow`}>{project.eyebrow}</span>
+                {project.metric && <strong data-i18n={`p${index}Metric`}>{project.metric}</strong>}
               </div>
               <h3>{project.name}</h3>
-              <p>{project.description}</p>
-              <ul class="tags" aria-label={`${project.name} technologies`}>
+              <p data-i18n={`p${index}Desc`}>{project.description}</p>
+              <ul class="tags" data-i18n-attr={`aria-label:p${index}TagAria`} aria-label={`${project.name} technologies`}>
                 {project.tags.map((tag) => <li>{tag}</li>)}
               </ul>
               <div class="project-links">
                 {project.links.map((link) => (
-                  <a href={link.href} target="_blank" rel="noreferrer">{link.label}</a>
+                  <a href={link.href} target="_blank" rel="noreferrer">{link.label === "Site" ? <span data-i18n="linkSite">Site</span> : link.label}</a>
                 ))}
               </div>
             </div>
@@ -470,22 +478,22 @@ const portfolioJsonLd = {
 
       <section class="paper-block theme-panel" aria-labelledby="themes-title">
         <div class="theme-copy">
-          <p class="kicker">Editor theme system</p>
-          <h2 id="themes-title">9 published VSCode-compatible themes.</h2>
-          <p>
+          <p class="kicker" data-i18n="themesKicker">Editor theme system</p>
+          <h2 id="themes-title" data-i18n="themesTitle">9 published VSCode-compatible themes.</h2>
+          <p data-i18n="themesDesc">
             A family of themes distributed through VSCode Marketplace and Open VSX for VSCode, VSCodium, Cursor, Windsurf, and compatible editors.
           </p>
-          <div class="theme-stats" aria-label="Theme distribution stats">
-            <div><strong>13.6k+</strong><span>Combined installs/downloads</span></div>
+          <div class="theme-stats" data-i18n-attr="aria-label:themesStatsAria" aria-label="Theme distribution stats">
+            <div><strong>13.6k+</strong><span data-i18n="themesInstalls">Combined installs/downloads</span></div>
             <div>
               <strong class="verified-stat">
                 <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
                   <path d="M20.6 10.7l-1.4-1.6.2-2.1-2.1-.5-1.1-1.8-1.9.8-2-.8-1.1 1.8-2.1.5.2 2.1-1.4 1.6 1.4 1.7-.2 2.1 2.1.5 1.1 1.8 2-.8 1.9.8 1.1-1.8 2.1-.5-.2-2.1 1.4-1.7z" />
                   <path d="M11.3 13.3l4.1-4.1 1.1 1.1-5.2 5.2-2.8-2.8 1.1-1.1 1.7 1.7z" />
                 </svg>
-                Verified
+                <span data-i18n="themesVerified">Verified</span>
               </strong>
-              <span>Open VSX publisher</span>
+              <span data-i18n="themesVerifiedLabel">Open VSX publisher</span>
             </div>
           </div>
         </div>
@@ -503,47 +511,47 @@ const portfolioJsonLd = {
       </section>
 
       <section class="section-label oss-label" aria-labelledby="oss-title">
-        <p class="kicker">Open source dispatches</p>
-        <h2 id="oss-title">Merged contributions beyond my own repos.</h2>
+        <p class="kicker" data-i18n="ossKicker">Open source dispatches</p>
+        <h2 id="oss-title" data-i18n="ossTitle">Merged contributions beyond my own repos.</h2>
       </section>
 
-      <section class="paper-block oss-summary" aria-label="Open source contribution summary">
+      <section class="paper-block oss-summary" data-i18n-attr="aria-label:ossSummaryAria" aria-label="Open source contribution summary">
         <strong>52+</strong>
-        <p>
+        <p data-i18n="ossSummaryText">
           Public merged PRs authored on GitHub across documentation, examples, small code fixes, and community resources.
         </p>
-        <a href={githubContributionsUrl} target="_blank" rel="noreferrer">View GitHub search</a>
+        <a href={githubContributionsUrl} target="_blank" rel="noreferrer" data-i18n="ossCta">View GitHub search</a>
       </section>
 
-      <div class="oss-list" aria-label="Representative open source contributions">
-        {openSourceContributions.map((contribution) => (
+      <div class="oss-list" data-i18n-attr="aria-label:ossListAria" aria-label="Representative open source contributions">
+        {openSourceContributions.map((contribution, index) => (
           <a class="paper-block oss-card" href={contribution.href} target="_blank" rel="noreferrer">
             <div class="oss-card-topline">
               <span>{contribution.repo}</span>
               <strong>{contribution.year}</strong>
             </div>
-            <h3>{contribution.title}</h3>
-            <p>{contribution.type} contribution</p>
+            <h3 data-i18n={`ossTitle${index}`}>{contribution.title}</h3>
+            <p><span data-i18n={contribution.type === "Code" ? "ossTypeCode" : "ossTypeDocs"}>{contribution.type}</span> <span data-i18n="ossContribSuffix">contribution</span></p>
           </a>
         ))}
       </div>
 
       <section class="section-label small-label" aria-labelledby="small-tools-title">
-        <p class="kicker">Classifieds</p>
-        <h2 id="small-tools-title" class="small-tools-title">Small tools and experiments.</h2>
+        <p class="kicker" data-i18n="smallKicker">Classifieds</p>
+        <h2 id="small-tools-title" class="small-tools-title" data-i18n="smallTitle">Small tools and experiments.</h2>
       </section>
 
-      {smallTools.map((tool) => (
+      {smallTools.map((tool, index) => (
         <a class="paper-block small-card" href={tool.href} target="_blank" rel="noreferrer">
           <h3>{tool.name}</h3>
-          <p>{tool.description}</p>
+          <p data-i18n={`smallDesc${index}`}>{tool.description}</p>
         </a>
       ))}
 
       <section class="paper-block contact-card" aria-labelledby="contact-title">
         <div>
-          <p class="kicker">Contact</p>
-          <h2 id="contact-title">Reach me on the internet.</h2>
+          <p class="kicker" data-i18n="contactKicker">Contact</p>
+          <h2 id="contact-title" data-i18n="contactTitle">Reach me on the internet.</h2>
         </div>
         <div class="socials">
           {socials.map((social) => (
@@ -552,6 +560,7 @@ const portfolioJsonLd = {
         </div>
       </section>
     </main>
+    <script is:inline src="/i18n.js"></script>
   </body>
 </html>
 
@@ -696,7 +705,7 @@ const portfolioJsonLd = {
   .masthead {
     grid-column: 1 / -1;
     display: grid;
-    grid-template-columns: 1fr auto 1fr;
+    grid-template-columns: 1fr auto 1fr auto;
     gap: 1rem;
     align-items: center;
     padding: 0.75rem 1rem;
@@ -727,7 +736,7 @@ const portfolioJsonLd = {
     min-height: 31rem;
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
+    justify-content: center;
     background:
       radial-gradient(circle at 88% 18%, rgba(75, 234, 154, 0.18), transparent 18rem),
       linear-gradient(145deg, rgba(32, 47, 35, 0.98), rgba(15, 20, 16, 0.98));
@@ -1958,5 +1967,48 @@ const portfolioJsonLd = {
       align-items: flex-start;
       flex-direction: column;
     }
+  }
+
+  .lang-switcher {
+    display: flex;
+    gap: 0.3rem;
+  }
+
+  .lang-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 1.6rem;
+    padding: 0.2rem 0.5rem;
+    border: 1px solid var(--line);
+    border-radius: 0.25rem;
+    background: transparent;
+    color: var(--muted);
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    cursor: pointer;
+    transition: border-color 160ms ease, color 160ms ease, background 160ms ease;
+  }
+
+  .lang-btn:hover {
+    border-color: var(--accent-strong);
+    color: var(--accent-strong);
+  }
+
+  .lang-btn.active {
+    border-color: var(--accent-strong);
+    color: #111712;
+    background: var(--accent-strong);
+  }
+
+  .lang-btn.active:hover {
+    background: var(--accent);
+    color: #111712;
+  }
+
+  .lang-btn:focus-visible {
+    outline: 3px solid rgba(143, 255, 196, 0.7);
+    outline-offset: 4px;
   }
 </style>
