@@ -1,0 +1,317 @@
+---
+const socials = [
+  {
+    label: "GitHub",
+    href: "https://github.com/enbonnet",
+    icon: `<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>`,
+  },
+  {
+    label: "LinkedIn",
+    href: "https://linkedin.com/in/enbonnet",
+    icon: `<svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>`,
+  },
+  {
+    label: "X",
+    href: "https://x.com/enbonnet",
+    icon: `<svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.84-7.627L4.54 22.846H.856l8.6-9.83L0 1.154h7.594l5.277 6.986 5.03-6.986zm-1.29 19.516h2.04L6.91 3.23H4.72l12.892 17.44z"/></svg>`,
+  },
+  {
+    label: "Bluesky",
+    href: "https://bsky.app/profile/enbonnet.com",
+    icon: `<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 10.8c-1.087-2.114-4.046-6.053-6.798-7.995C2.566.944 1.319 1.282.709 1.692.149 2.068 0 2.905 0 3.421c0 .516.278 3.66.426 5.08.183 1.83.735 3.512 2.142 4.268 1.06.57 2.272.47 3.272.236a8.4 8.4 0 0 0 2.072-.792A8.064 8.064 0 0 0 12 10.8Zm0 0c1.087-2.114 4.046-6.053 6.798-7.995C21.434.944 22.681 1.282 23.291 1.692c.56.376.709 1.213.709 1.729 0 .516-.278 3.66-.426 5.08-.183 1.83-.735 3.512-2.142 4.268-1.06.57-2.272.47-3.272.236a8.4 8.4 0 0 1-2.072-.792A8.064 8.064 0 0 1 12 10.8Zm0 0c-2.086 2.39-4.723 5.834-5.478 9.068-.327 1.402-.192 2.548.543 3.272.544.537 1.328.708 2.072.483.65-.2 1.245-.636 1.793-1.278A18.584 18.584 0 0 0 12 10.8Zm0 0c2.086 2.39 4.723 5.834 5.478 9.068.327 1.402.192 2.548-.543 3.272-.544.537-1.328.708-2.072.483-.65-.2-1.245-.636-1.793-1.278A18.584 18.584 0 0 1 12 10.8Z"/></svg>`,
+  },
+  {
+    label: "Mastodon",
+    href: "https://mastodon.social/@enbonnet",
+    icon: `<svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.268 5.313c-.35-2.578-2.617-4.45-5.304-4.712C14.697.387 8.648.087 6.164.276c-1.937.144-4.014.63-5.393 2.082C.655 3.553.254 5.27.13 7.005-.012 9.053-.047 12.09.58 14.02c.436 1.348 1.217 2.36 2.466 3.08 1.462.848 3.19 1.035 4.807 1.13 2.067.12 4.046-.047 5.792-.568.84-.242 1.625-.6 2.316-1.103 .566-.41.98-.899 1.27-1.445.642-1.21.832-2.677.856-4.045.008-.47-.006-.935-.063-1.402-.057-.468-.161-.934-.417-1.318-.497-.745-1.398-1.036-2.255-.953-.545.06-1.098.321-1.32.832-.2.465-.092.992.194 1.4.287.408.737.655 1.21.766 .325.076.67.097 1.007.114.37.018.742.03 1.096.11.21.047.393.13.497.3.085.139.095.306.089.47-.022.564-.207 1.085-.55 1.516-.574.722-1.447 1.11-2.324 1.3-.875.19-1.793.196-2.69.13-1.447-.107-2.955-.396-4.094-1.31-.445-.358-.808-.785-1.09-1.255-.574-.957-.856-2.058-.971-3.178-.116-1.12-.07-2.25.085-3.36.155-1.107.427-2.225 1.042-3.143.348-.518.8-.962 1.359-1.22.702-.326 1.507-.378 2.264-.29.757.088 1.484.34 2.175.584.437.156.861.336 1.293.494.216.079.437.153.665.193.283.05.572.036.848-.04.358-.099.68-.335.792-.696.084-.271.037-.567-.105-.81-.143-.242-.364-.425-.607-.57-.485-.29-1.055-.396-1.603-.494-1.019-.183-2.065-.257-3.095-.136-.843.101-1.68.342-2.413.76-.69.395-1.267.943-1.73 1.555C2.5 4.062 2.128 5.03 1.88 6.022c-.497 1.99-.575 4.095-.225 6.12.158.914.395 1.822.777 2.663.382.841.924 1.622 1.654 2.17 1.012.758 2.297 1.03 3.549 1.163 1.785.19 3.597.073 5.334-.328.733-.169 1.455-.395 2.137-.703a8.332 8.332 0 0 0 2.856-2.08c.813-.866 1.397-1.916 1.79-3.03.681-1.932.779-4.022.498-6.028-.14-.995-.387-2.02-.895-2.9-.295-.51-.68-.972-1.157-1.332-.584-.44-1.293-.724-2.019-.827-.488-.069-.987-.058-1.47.04-.226.046-.447.12-.652.225-.205.104-.39.253-.484.46-.093.207-.084.454.026.652.11.198.313.335.532.378.219.043.448-.005.653-.08.3-.11.563-.298.848-.435.34-.163.714-.244 1.086-.28.682-.065 1.384.054 1.974.397a3.55 3.55 0 0 1 1.384 1.347c.35.6.534 1.286.613 1.987.16 1.425.026 2.885-.378 4.247-.403 1.363-1.065 2.662-2.053 3.61-.792.76-1.762 1.313-2.791 1.682-2.112.757-4.43.8-6.606.305-1.087-.248-2.148-.65-3.065-1.301a6.384 6.384 0 0 1-2.14-2.618c-.546-1.206-.774-2.543-.814-3.886-.04-1.344.134-2.697.506-3.975.263-.905.634-1.793 1.203-2.55.569-.757 1.354-1.372 2.268-1.65.622-.19 1.287-.25 1.933-.2.645.048 1.285.219 1.854.512.328.169.64.37.918.61a.88.88 0 0 0 .518.263.526.526 0 0 0 .463-.213c.117-.162.103-.386.017-.563-.086-.177-.237-.31-.397-.424a5.735 5.735 0 0 0-1.464-.81c-.982-.355-2.065-.45-3.098-.263-1.032.188-2.005.65-2.795 1.33-.79.68-1.38 1.57-1.743 2.558-.363.988-.5 2.068-.382 3.117z"/></svg>`,
+  },
+  {
+    label: "Email",
+    href: "mailto:ender@enbonnet.com",
+    icon: `<svg viewBox="0 0 24 24" fill="currentColor"><path d="M1.5 8.67v8.58a3 3 0 0 0 3 3h15a3 3 0 0 0 3-3V8.67l-8.928 5.493a3 3 0 0 1-3.144 0L1.5 8.67Z"/><path d="M22.5 6.908V6.75a3 3 0 0 0-3-3h-15a3 3 0 0 0-3 3v.158l9.428 5.801a3 3 0 0 0 3.144 0L22.5 6.908Z"/></svg>`,
+  },
+];
+
+const siteUrl = "https://enbonnet.com";
+const pageTitle = "Social - Ender Bonnet";
+const pageDescription = "Find Ender Bonnet across the internet. GitHub, LinkedIn, X, Bluesky, Mastodon, and email.";
+const socialImage = `${siteUrl}/logo-edge-less.png`;
+
+const personJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "Ender Bonnet",
+  url: siteUrl,
+  image: socialImage,
+  jobTitle: "Software Engineer",
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Santiago",
+    addressCountry: "CL",
+  },
+  sameAs: socials.filter((s) => s.label !== "Email").map((s) => s.href),
+  email: "ender@enbonnet.com",
+  knowsAbout: [
+    "Software engineering",
+    "Frontend development",
+    "Developer tools",
+    "VSCode extensions",
+    "Browser extensions",
+    "CLI tools",
+    "Editor themes",
+  ],
+};
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <script is:inline>(function(){try{var l=localStorage.getItem('enbonnet-lang');if(l)document.documentElement.lang=l}catch(e){}})();</script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+    <link rel="icon" type="image/svg+xml" href="/600-green.svg" />
+    <link rel="canonical" href={`${siteUrl}/social`} />
+    <title data-i18n="socialPageTitle">{pageTitle}</title>
+    <meta name="description" data-i18n="socialPageDescription" content={pageDescription} />
+    <meta name="author" content="Ender Bonnet" />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#101310" />
+    <meta property="og:title" data-i18n="socialPageTitle" content={pageTitle} />
+    <meta property="og:description" data-i18n="socialPageDescription" content={pageDescription} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={`${siteUrl}/social`} />
+    <meta property="og:image" content={socialImage} />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:creator" content="@enbonnet" />
+    <meta name="twitter:title" data-i18n="socialPageTitle" content={pageTitle} />
+    <meta name="twitter:description" data-i18n="socialPageDescription" content={pageDescription} />
+    <meta name="twitter:image" content={socialImage} />
+    <script type="application/ld+json" set:html={JSON.stringify(personJsonLd)}></script>
+  </head>
+  <body>
+    <main class="social-page">
+      <a class="back-link" href="/" data-i18n="socialBack">← Back</a>
+      <section class="social-card">
+        <p class="kicker" data-i18n="socialKicker">Connect</p>
+        <img class="social-logo" src="/600-green.svg" alt="Ender Bonnet logo" width="56" height="56" />
+        <h1 data-i18n="socialTitle">Find me across the internet.</h1>
+        <p class="social-subtitle" data-i18n="socialSubtitle">GitHub, LinkedIn, X, Bluesky, Mastodon, and email.</p>
+        <ul class="social-list">
+          {socials.map((social) => (
+            <li>
+              <a class="social-link" href={social.href} target={social.label === "Email" ? undefined : "_blank"} rel={social.label === "Email" ? undefined : "noreferrer"}>
+                <span class="social-icon" set:html={social.icon} />
+                <span class="social-label">{social.label === "Email" ? "ender@enbonnet.com" : social.label}</span>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </section>
+    </main>
+    <script is:inline src="/i18n.js"></script>
+  </body>
+</html>
+
+<style>
+  :root {
+    color-scheme: dark;
+    --bg: #101310;
+    --paper: #172018;
+    --paper-soft: #1d281f;
+    --paper-strong: #263529;
+    --ink: #f6fff7;
+    --muted: #afc8b5;
+    --faint: #71927a;
+    --line: rgba(191, 236, 200, 0.22);
+    --line-strong: rgba(191, 236, 200, 0.42);
+    --accent: #4bea9a;
+    --accent-strong: #8fffc4;
+    --accent-soft: rgba(75, 234, 154, 0.12);
+    --radius: 0.35rem;
+    --gap: 0.75rem;
+    font-family:
+      Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    background: var(--bg);
+    color: var(--ink);
+    caret-color: var(--accent);
+  }
+
+  body {
+    min-height: 100dvh;
+    margin: 0;
+    background:
+      linear-gradient(rgba(246, 255, 247, 0.025) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(246, 255, 247, 0.02) 1px, transparent 1px),
+      radial-gradient(circle at 18% 0%, rgba(75, 234, 154, 0.14), transparent 32rem),
+      linear-gradient(180deg, #121812 0%, #0b0e0c 100%);
+    background-size: 28px 28px, 28px 28px, auto, auto;
+    color: var(--ink);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  a:focus-visible {
+    outline: 3px solid rgba(143, 255, 196, 0.7);
+    outline-offset: 4px;
+  }
+
+  .back-link {
+    position: fixed;
+    top: 1.25rem;
+    left: 1.25rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.45rem 0.75rem;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    background: rgba(8, 12, 9, 0.6);
+    color: var(--muted);
+    font-size: 0.82rem;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    transition: border-color 160ms ease, color 160ms ease, background 160ms ease;
+    z-index: 10;
+  }
+
+  .back-link:hover {
+    border-color: var(--accent-strong);
+    color: var(--accent-strong);
+    background: rgba(75, 234, 154, 0.08);
+  }
+
+  .social-page {
+    width: min(520px, calc(100% - 32px));
+    padding: 2rem 0;
+  }
+
+  .social-card {
+    position: relative;
+    overflow: hidden;
+    padding: clamp(1.5rem, 4vw, 2.5rem);
+    border: 1px solid var(--line-strong);
+    border-radius: var(--radius);
+    background:
+      radial-gradient(circle at 72% 12%, rgba(75, 234, 154, 0.16), transparent 14rem),
+      linear-gradient(180deg, rgba(29, 40, 31, 0.98), rgba(15, 20, 16, 0.98));
+  }
+
+  .social-card::before {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    content: "";
+    background: repeating-linear-gradient(0deg, rgba(246, 255, 247, 0.025) 0 1px, transparent 1px 5px);
+    mix-blend-mode: screen;
+  }
+
+  .kicker {
+    margin: 0 0 0.85rem;
+    color: var(--accent);
+    font-size: 0.73rem;
+    font-weight: 900;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+  }
+
+  h1 {
+    max-width: 14ch;
+    margin: 0 0 0.65rem;
+    font-size: clamp(2.4rem, 6vw, 3.6rem);
+    line-height: 0.9;
+    letter-spacing: -0.07em;
+  }
+
+  .social-logo {
+    display: block;
+    width: 3.5rem;
+    height: 3.5rem;
+    margin: 0 0 1rem;
+  }
+
+  .social-subtitle {
+    margin: 0 0 2rem;
+    color: var(--muted);
+    font-size: 1.05rem;
+    line-height: 1.55;
+  }
+
+  .social-list {
+    display: grid;
+    gap: 0.65rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .social-link {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    padding: 0.85rem 1.1rem;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    background: rgba(8, 12, 9, 0.45);
+    transition: transform 160ms ease, border-color 160ms ease, background 160ms ease;
+  }
+
+  .social-link:hover {
+    transform: translateY(-2px);
+    border-color: var(--accent-strong);
+    background: rgba(75, 234, 154, 0.07);
+  }
+
+  .social-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.65rem;
+    height: 1.65rem;
+    flex-shrink: 0;
+    color: var(--accent-strong);
+    filter: drop-shadow(0 0 0.45rem rgba(75, 234, 154, 0.28));
+  }
+
+  .social-icon :global(svg) {
+    width: 100%;
+    height: 100%;
+  }
+
+  .social-label {
+    color: var(--ink);
+    font-size: 0.95rem;
+    font-weight: 850;
+    letter-spacing: -0.01em;
+  }
+
+  .social-link:hover .social-label {
+    color: var(--accent-strong);
+  }
+
+  @media (max-width: 520px) {
+    .back-link {
+      position: static;
+      margin-bottom: 1.25rem;
+    }
+
+    body {
+      justify-content: flex-start;
+      padding-top: 1.5rem;
+    }
+  }
+</style>

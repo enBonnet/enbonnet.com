@@ -89,7 +89,13 @@
     "contactKicker": "Contact",
     "contactTitle": "Reach me on the internet.",
     "contactAria": "Contact section",
-    "imageAlt": "Ender Bonnet logo"
+    "imageAlt": "Ender Bonnet logo",
+    "socialPageTitle": "Social - Ender Bonnet",
+    "socialPageDescription": "Find Ender Bonnet across the internet. GitHub, LinkedIn, X, Bluesky, Mastodon, and email.",
+    "socialBack": "← Back",
+    "socialKicker": "Connect",
+    "socialTitle": "Find me across the internet.",
+    "socialSubtitle": "GitHub, LinkedIn, X, Bluesky, Mastodon, and email."
   },
   "es": {
     "pageTitle": "Ender Bonnet - Ingeniero de Software, Herramientas para Desarrolladores y Extensiones",
@@ -181,6 +187,12 @@
     "contactKicker": "Contacto",
     "contactTitle": "Contáctame por internet.",
     "contactAria": "Sección de contacto",
-    "imageAlt": "Logo de Ender Bonnet"
+    "imageAlt": "Logo de Ender Bonnet",
+    "socialPageTitle": "Social - Ender Bonnet",
+    "socialPageDescription": "Encuentra a Ender Bonnet en internet. GitHub, LinkedIn, X, Bluesky, Mastodon y email.",
+    "socialBack": "← Volver",
+    "socialKicker": "Conectar",
+    "socialTitle": "Encuéntrame en internet.",
+    "socialSubtitle": "GitHub, LinkedIn, X, Bluesky, Mastodon y email."
   }
 }
