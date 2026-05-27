@@ -1,6 +1,5 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
-import { execSync } from 'child_process';
 
 // https://astro.build/config
 export default defineConfig({
@@ -9,5 +8,3 @@ export default defineConfig({
     assets: 'assets',
   },
 });
-
-execSync('node scripts/generate-qr.js', { stdio: 'inherit' });
