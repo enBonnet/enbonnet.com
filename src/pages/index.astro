@@ -287,9 +287,6 @@ const portfolioJsonLd = {
       <aside class="paper-block bureau-card" data-i18n-attr="aria-label:bureauAriaLabel" aria-label="Portfolio highlights">
         <div class="glitch-logo" role="img" data-i18n-attr="aria-label:logoAriaLabel" aria-label="Ender Bonnet logo">
           <img class="glitch-logo-base" src="/600-green.svg" alt="" width="320" height="320" aria-hidden="true" />
-          <img class="glitch-logo-alt" src="/600-green-bg.svg" alt="" width="320" height="320" aria-hidden="true" />
-          <img class="glitch-logo-slice slice-one" src="/600-green-bg.svg" alt="" width="320" height="320" aria-hidden="true" />
-          <img class="glitch-logo-slice slice-two" src="/600-green.svg" alt="" width="320" height="320" aria-hidden="true" />
         </div>
         <div class="stat-grid">
           <div>
@@ -672,9 +669,11 @@ const portfolioJsonLd = {
   .paper-block,
   .section-label,
   .paper-ascii {
-    border: 1px solid var(--line);
+    border: 1px solid transparent;
     border-radius: var(--radius);
-    background: linear-gradient(180deg, rgba(29, 40, 31, 0.96), rgba(19, 27, 21, 0.96));
+    background:
+      linear-gradient(180deg, rgba(29, 40, 31, 0.90), rgba(19, 27, 21, 0.92)) padding-box,
+      linear-gradient(145deg, rgba(75, 234, 154, 0.25), rgba(191, 236, 200, 0.05) 55%, rgba(143, 255, 196, 0.0)) border-box;
   }
 
   .paper-ascii {
@@ -686,15 +685,6 @@ const portfolioJsonLd = {
     position: relative;
     overflow: hidden;
     padding: clamp(1rem, 2.5vw, 1.65rem);
-  }
-
-  .paper-block::before {
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    content: "";
-    background: repeating-linear-gradient(0deg, rgba(246, 255, 247, 0.025) 0 1px, transparent 1px 5px);
-    mix-blend-mode: screen;
   }
 
   .paper-block > *,
@@ -709,8 +699,10 @@ const portfolioJsonLd = {
     gap: 1rem;
     align-items: center;
     padding: 0.75rem 1rem;
-    border-color: var(--line-strong);
-    background: rgba(13, 18, 14, 0.96);
+    border: 1px solid transparent;
+    background:
+      linear-gradient(180deg, rgba(13, 18, 14, 0.92), rgba(13, 18, 14, 0.88)) padding-box,
+      linear-gradient(145deg, rgba(75, 234, 154, 0.18), rgba(191, 236, 200, 0.03) 55%, rgba(143, 255, 196, 0.0)) border-box;
     color: var(--muted);
     font-size: 0.78rem;
     font-weight: 800;
@@ -738,8 +730,9 @@ const portfolioJsonLd = {
     flex-direction: column;
     justify-content: center;
     background:
-      radial-gradient(circle at 88% 18%, rgba(75, 234, 154, 0.18), transparent 18rem),
-      linear-gradient(145deg, rgba(32, 47, 35, 0.98), rgba(15, 20, 16, 0.98));
+      radial-gradient(circle at 88% 18%, rgba(75, 234, 154, 0.10), transparent 22rem),
+      linear-gradient(145deg, rgba(32, 47, 35, 0.98), rgba(15, 20, 16, 0.98)) padding-box,
+      linear-gradient(145deg, rgba(75, 234, 154, 0.22), rgba(191, 236, 200, 0.04) 55%, rgba(143, 255, 196, 0.0)) border-box;
   }
 
   .bureau-card {
@@ -759,29 +752,6 @@ const portfolioJsonLd = {
     aspect-ratio: 1;
   }
 
-  .glitch-logo::before,
-  .glitch-logo::after {
-    position: absolute;
-    inset: 0;
-    z-index: 4;
-    pointer-events: none;
-    content: "";
-  }
-
-  .glitch-logo::before {
-    background: repeating-linear-gradient(0deg, rgba(246, 255, 247, 0.12) 0 1px, transparent 1px 7px);
-    mix-blend-mode: overlay;
-    opacity: 0.22;
-    animation: glitch-scan 2.6s steps(8, end) infinite;
-  }
-
-  .glitch-logo::after {
-    background: linear-gradient(90deg, transparent, rgba(143, 255, 196, 0.3), transparent);
-    opacity: 0;
-    transform: translateX(-130%);
-    animation: glitch-flash 5.5s steps(1, end) infinite;
-  }
-
   .glitch-logo img {
     position: absolute;
     inset: 0;
@@ -794,111 +764,6 @@ const portfolioJsonLd = {
     position: relative;
     z-index: 1;
     filter: drop-shadow(0 0 1.1rem rgba(75, 234, 154, 0.14));
-  }
-
-  .glitch-logo-alt {
-    z-index: 2;
-    opacity: 0;
-    mix-blend-mode: lighten;
-    animation: glitch-alt 4.8s steps(1, end) infinite;
-  }
-
-  .glitch-logo-slice {
-    z-index: 3;
-    opacity: 0;
-    mix-blend-mode: screen;
-  }
-
-  .slice-one {
-    clip-path: inset(14% 0 67% 0);
-    filter: hue-rotate(115deg) saturate(1.8);
-    animation: glitch-slice-one 3.4s steps(1, end) infinite;
-  }
-
-  .slice-two {
-    clip-path: inset(58% 0 28% 0);
-    filter: hue-rotate(300deg) saturate(1.7);
-    animation: glitch-slice-two 4.1s steps(1, end) infinite;
-  }
-
-  @keyframes glitch-alt {
-    0%, 76%, 80%, 100% {
-      opacity: 0;
-      transform: translate(0);
-    }
-    77% {
-      opacity: 0.72;
-      transform: translate(-8px, 3px);
-    }
-    78% {
-      opacity: 0.36;
-      transform: translate(7px, -2px);
-    }
-    79% {
-      opacity: 0.62;
-      transform: translate(-3px, 0);
-    }
-  }
-
-  @keyframes glitch-slice-one {
-    0%, 63%, 66%, 100% {
-      opacity: 0;
-      transform: translate(0);
-    }
-    64% {
-      opacity: 0.82;
-      transform: translate(16px, -3px) skewX(8deg);
-    }
-    65% {
-      opacity: 0.45;
-      transform: translate(-12px, 2px) skewX(-5deg);
-    }
-  }
-
-  @keyframes glitch-slice-two {
-    0%, 42%, 45%, 100% {
-      opacity: 0;
-      transform: translate(0);
-    }
-    43% {
-      opacity: 0.75;
-      transform: translate(-18px, 3px);
-    }
-    44% {
-      opacity: 0.42;
-      transform: translate(10px, -2px);
-    }
-  }
-
-  @keyframes glitch-scan {
-    0% { transform: translateY(-12%); }
-    100% { transform: translateY(12%); }
-  }
-
-  @keyframes glitch-flash {
-    0%, 82%, 100% {
-      opacity: 0;
-      transform: translateX(-130%);
-    }
-    83% {
-      opacity: 0.34;
-      transform: translateX(120%);
-    }
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .glitch-logo::before,
-    .glitch-logo::after,
-    .glitch-logo-alt,
-    .glitch-logo-slice {
-      animation: none;
-    }
-
-    .glitch-logo::after,
-    .glitch-logo-alt,
-    .glitch-logo-slice {
-      opacity: 0;
-    }
   }
 
   .kicker {
@@ -935,38 +800,9 @@ const portfolioJsonLd = {
     border: 1px solid rgba(143, 255, 196, 0.34);
     border-radius: 0.28rem;
     background:
-      linear-gradient(90deg, rgba(143, 255, 196, 0.16) 1px, transparent 1px),
-      linear-gradient(rgba(143, 255, 196, 0.12) 1px, transparent 1px),
       linear-gradient(135deg, rgba(246, 255, 247, 0.96), rgba(210, 246, 223, 0.92));
-    background-size: 8px 8px, 8px 8px, auto;
     box-shadow: 0 0 1rem rgba(75, 234, 154, 0.14);
     vertical-align: middle;
-  }
-
-  .company-link::before,
-  .company-link::after {
-    position: absolute;
-    inset: 0;
-    z-index: 1;
-    pointer-events: none;
-    content: "";
-  }
-
-  .company-link::before {
-    background: repeating-linear-gradient(0deg, rgba(16, 19, 16, 0.12) 0 1px, transparent 1px 5px);
-    mix-blend-mode: multiply;
-    opacity: 0.32;
-    animation: company-glitch-scan 2.4s steps(6, end) infinite;
-  }
-
-  .company-link::after {
-    background:
-      linear-gradient(90deg, rgba(255, 106, 106, 0.32), transparent 38%),
-      linear-gradient(90deg, transparent 56%, rgba(143, 255, 196, 0.42));
-    clip-path: inset(42% 0 34% 0);
-    mix-blend-mode: screen;
-    opacity: 0;
-    animation: company-glitch-slice 3.1s steps(1, end) infinite;
   }
 
   .company-link img {
@@ -975,54 +811,6 @@ const portfolioJsonLd = {
     width: 5.8rem;
     height: auto;
     filter: saturate(1.08) contrast(1.04);
-    animation: company-logo-glitch 4.2s steps(1, end) infinite;
-  }
-
-  @keyframes company-logo-glitch {
-    0%, 70%, 75%, 100% {
-      transform: translate(0);
-      filter: saturate(1.08) contrast(1.04);
-    }
-    71% {
-      transform: translate(2px, -1px);
-      filter: saturate(1.5) hue-rotate(8deg) contrast(1.08);
-    }
-    73% {
-      transform: translate(-2px, 1px);
-      filter: saturate(1.25) hue-rotate(-10deg) contrast(1.1);
-    }
-  }
-
-  @keyframes company-glitch-scan {
-    0% { transform: translateY(-12%); }
-    100% { transform: translateY(12%); }
-  }
-
-  @keyframes company-glitch-slice {
-    0%, 62%, 66%, 100% {
-      opacity: 0;
-      transform: translateX(0);
-    }
-    63% {
-      opacity: 0.8;
-      transform: translateX(9px) skewX(8deg);
-    }
-    65% {
-      opacity: 0.42;
-      transform: translateX(-7px) skewX(-5deg);
-    }
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .company-link::before,
-    .company-link::after,
-    .company-link img {
-      animation: none;
-    }
-
-    .company-link::after {
-      opacity: 0;
-    }
   }
 
   .hero-actions,
@@ -1184,13 +972,14 @@ const portfolioJsonLd = {
   .project-visual {
     height: 100%;
     min-height: 11rem;
-    border: 1px solid var(--line);
+    border: 1px solid transparent;
     border-radius: calc(var(--radius) * 0.8);
     background:
-      linear-gradient(90deg, rgba(143, 255, 196, 0.08) 1px, transparent 1px),
-      linear-gradient(rgba(143, 255, 196, 0.07) 1px, transparent 1px),
-      rgba(7, 11, 8, 0.58);
-    background-size: 24px 24px;
+      linear-gradient(90deg, rgba(143, 255, 196, 0.04) 1px, transparent 1px),
+      linear-gradient(rgba(143, 255, 196, 0.03) 1px, transparent 1px),
+      linear-gradient(180deg, rgba(7, 11, 8, 0.58), rgba(7, 11, 8, 0.58)) padding-box,
+      linear-gradient(145deg, rgba(75, 234, 154, 0.15), rgba(191, 236, 200, 0.04) 55%, rgba(143, 255, 196, 0.0)) border-box;
+    background-size: 24px 24px, 24px 24px, auto, auto;
     display: grid;
     place-items: center;
     padding: 1.1rem;
@@ -1215,42 +1004,9 @@ const portfolioJsonLd = {
     display: grid;
     min-height: 0;
     place-items: center;
-    border-style: dashed;
     background:
-      linear-gradient(rgba(143, 255, 196, 0.035) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(143, 255, 196, 0.025) 1px, transparent 1px),
-      radial-gradient(circle at 50% 28%, rgba(143, 255, 196, 0.12), transparent 12rem),
+      radial-gradient(circle at 50% 28%, rgba(143, 255, 196, 0.08), transparent 12rem),
       linear-gradient(180deg, rgba(24, 43, 29, 0.86), rgba(11, 16, 12, 0.94));
-    background-size: 18px 18px, 18px 18px, auto, auto;
-  }
-
-  .portrait-filler::before,
-  .portrait-filler::after {
-    position: absolute;
-    inset: 0;
-    z-index: 1;
-    pointer-events: none;
-    content: "";
-  }
-
-  .portrait-filler::before {
-    background:
-      linear-gradient(90deg, transparent, rgba(143, 255, 196, 0.34), transparent),
-      repeating-linear-gradient(0deg, rgba(246, 255, 247, 0.08) 0 1px, transparent 1px 7px);
-    mix-blend-mode: screen;
-    opacity: 0.22;
-    transform: translateX(-130%);
-    animation: portrait-sweep 5.2s steps(1, end) infinite;
-  }
-
-  .portrait-filler::after {
-    background:
-      linear-gradient(90deg, rgba(255, 106, 106, 0.22), transparent 34%),
-      linear-gradient(90deg, transparent 62%, rgba(143, 255, 196, 0.22));
-    clip-path: polygon(0 18%, 100% 18%, 100% 24%, 0 24%, 0 54%, 100% 54%, 100% 60%, 0 60%, 0 76%, 100% 76%, 100% 81%, 0 81%);
-    opacity: 0;
-    mix-blend-mode: screen;
-    animation: portrait-slices 3.7s steps(1, end) infinite;
   }
 
   .portrait-ascii {
@@ -1268,69 +1024,6 @@ const portfolioJsonLd = {
     position: absolute;
     left: -49px;
     top: -34px;
-    animation: portrait-glitch 2.9s steps(1, end) infinite;
-  }
-
-  @keyframes portrait-glitch {
-    0%, 72%, 78%, 100% {
-      color: var(--accent-strong);
-      opacity: 0.82;
-      transform: translate(0);
-      text-shadow: 0 0 1rem rgba(75, 234, 154, 0.24);
-    }
-    73% {
-      color: #8fffc4;
-      opacity: 0.9;
-      transform: translate(5px, -2px) skewX(2deg);
-      text-shadow: -7px 0 rgba(255, 106, 106, 0.34), 6px 0 rgba(61, 229, 232, 0.28);
-    }
-    75% {
-      transform: translate(-4px, 1px) skewX(-1deg);
-      text-shadow: 5px 0 rgba(255, 106, 106, 0.22), -6px 0 rgba(143, 255, 196, 0.3);
-    }
-    77% {
-      opacity: 0.68;
-      transform: translate(2px, 0);
-    }
-  }
-
-  @keyframes portrait-slices {
-    0%, 64%, 68%, 100% {
-      opacity: 0;
-      transform: translateX(0);
-    }
-    65% {
-      opacity: 0.6;
-      transform: translateX(16px);
-    }
-    67% {
-      opacity: 0.36;
-      transform: translateX(-12px);
-    }
-  }
-
-  @keyframes portrait-sweep {
-    0%, 82%, 100% {
-      opacity: 0;
-      transform: translateX(-130%);
-    }
-    83% {
-      opacity: 0.28;
-      transform: translateX(130%);
-    }
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .portrait-ascii,
-    .portrait-filler::before,
-    .portrait-filler::after {
-      animation: none;
-    }
-
-    .portrait-filler::before,
-    .portrait-filler::after {
-      opacity: 0;
-    }
   }
 
   .project-body {
@@ -1567,8 +1260,9 @@ const portfolioJsonLd = {
     grid-template-columns: 0.8fr 1.2fr;
     gap: 1.5rem;
     background:
-      linear-gradient(90deg, rgba(75, 234, 154, 0.1), transparent 42%),
-      linear-gradient(180deg, rgba(29, 40, 31, 0.98), rgba(13, 18, 14, 0.98));
+      linear-gradient(90deg, rgba(75, 234, 154, 0.08), transparent 42%),
+      linear-gradient(180deg, rgba(29, 40, 31, 0.92), rgba(13, 18, 14, 0.92)) padding-box,
+      linear-gradient(145deg, rgba(75, 234, 154, 0.18), rgba(191, 236, 200, 0.04) 55%, rgba(143, 255, 196, 0.0)) border-box;
   }
 
   .theme-copy p {
@@ -1595,52 +1289,31 @@ const portfolioJsonLd = {
     gap: 0.75rem;
     align-items: center;
     padding: 0.75rem 0.85rem;
-    border: 1px solid var(--line);
+    border: 1px solid transparent;
     border-radius: 0.25rem;
-    background: rgba(8, 12, 9, 0.42);
-    transition: transform 160ms ease, border-color 160ms ease, background 160ms ease;
+    background:
+      rgba(8, 12, 9, 0.42) padding-box,
+      linear-gradient(145deg, rgba(75, 234, 154, 0.12), rgba(191, 236, 200, 0.03) 55%, rgba(143, 255, 196, 0.0)) border-box;
+    transition: transform 160ms ease, background 160ms ease;
   }
 
   .theme-row-featured {
-    border-color: rgba(143, 255, 196, 0.58);
+    border: 1px solid transparent;
     background:
-      linear-gradient(90deg, rgba(75, 234, 154, 0.14), transparent 54%),
-      rgba(8, 12, 9, 0.52);
-    box-shadow: inset 0 0 0 1px rgba(75, 234, 154, 0.14), 0 0 1.2rem rgba(75, 234, 154, 0.08);
-  }
-
-  .theme-row-featured::before,
-  .theme-row-featured::after {
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    content: "";
-  }
-
-  .theme-row-featured::before {
-    background: repeating-linear-gradient(0deg, rgba(143, 255, 196, 0.08) 0 1px, transparent 1px 6px);
-    opacity: 0.3;
-    animation: green-night-scan 2.8s steps(7, end) infinite;
-  }
-
-  .theme-row-featured::after {
-    background:
-      linear-gradient(90deg, rgba(255, 106, 106, 0.18), transparent 30%),
-      linear-gradient(90deg, transparent 62%, rgba(143, 255, 196, 0.28));
-    clip-path: inset(38% 0 42% 0);
-    opacity: 0;
-    mix-blend-mode: screen;
-    animation: green-night-slice 3.6s steps(1, end) infinite;
+      linear-gradient(90deg, rgba(75, 234, 154, 0.10), transparent 54%) padding-box,
+      linear-gradient(145deg, rgba(75, 234, 154, 0.28), rgba(191, 236, 200, 0.06) 55%, rgba(143, 255, 196, 0.0)) border-box;
   }
 
   .theme-row:hover {
-    background: rgba(75, 234, 154, 0.07);
+    background:
+      rgba(75, 234, 154, 0.07) padding-box,
+      linear-gradient(145deg, rgba(75, 234, 154, 0.22), rgba(191, 236, 200, 0.05) 55%, rgba(143, 255, 196, 0.0)) border-box;
   }
 
   .theme-row-featured:hover {
     background:
-      linear-gradient(90deg, rgba(75, 234, 154, 0.2), transparent 58%),
-      rgba(8, 12, 9, 0.56);
+      linear-gradient(90deg, rgba(75, 234, 154, 0.16), transparent 58%) padding-box,
+      linear-gradient(145deg, rgba(75, 234, 154, 0.32), rgba(191, 236, 200, 0.08) 55%, rgba(143, 255, 196, 0.0)) border-box;
   }
 
   .theme-dot {
@@ -1657,55 +1330,6 @@ const portfolioJsonLd = {
 
   .theme-row-featured .theme-name {
     color: var(--accent-strong);
-    text-shadow: 0 0 0.8rem rgba(75, 234, 154, 0.3);
-    animation: green-night-name-glitch 4.4s steps(1, end) infinite;
-  }
-
-  @keyframes green-night-name-glitch {
-    0%, 76%, 81%, 100% {
-      transform: translate(0);
-      text-shadow: 0 0 0.8rem rgba(75, 234, 154, 0.3);
-    }
-    77% {
-      transform: translate(2px, -1px);
-      text-shadow: -3px 0 rgba(255, 106, 106, 0.36), 3px 0 rgba(143, 255, 196, 0.36);
-    }
-    79% {
-      transform: translate(-2px, 1px);
-      text-shadow: 3px 0 rgba(255, 106, 106, 0.24), -3px 0 rgba(143, 255, 196, 0.34);
-    }
-  }
-
-  @keyframes green-night-scan {
-    0% { transform: translateY(-12%); }
-    100% { transform: translateY(12%); }
-  }
-
-  @keyframes green-night-slice {
-    0%, 58%, 62%, 100% {
-      opacity: 0;
-      transform: translateX(0);
-    }
-    59% {
-      opacity: 0.75;
-      transform: translateX(12px) skewX(7deg);
-    }
-    61% {
-      opacity: 0.38;
-      transform: translateX(-8px) skewX(-5deg);
-    }
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .theme-row-featured::before,
-    .theme-row-featured::after,
-    .theme-row-featured .theme-name {
-      animation: none;
-    }
-
-    .theme-row-featured::after {
-      opacity: 0;
-    }
   }
 
   .theme-detail {
@@ -1755,15 +1379,19 @@ const portfolioJsonLd = {
 
   .oss-card {
     min-height: 8.625rem;
-    transition: transform 160ms ease, border-color 160ms ease, background 160ms ease;
+    border: 1px solid transparent;
+    background:
+      linear-gradient(180deg, rgba(29, 40, 31, 0.96), rgba(19, 27, 21, 0.96)) padding-box,
+      linear-gradient(145deg, rgba(75, 234, 154, 0.12), rgba(191, 236, 200, 0.03) 55%, rgba(143, 255, 196, 0.0)) border-box;
+    transition: transform 160ms ease, background 160ms ease;
   }
 
   .oss-card:hover {
     transform: translateY(-2px);
-    border-color: var(--accent-strong);
     background:
-      linear-gradient(90deg, rgba(75, 234, 154, 0.08), transparent 58%),
-      linear-gradient(180deg, rgba(29, 40, 31, 0.96), rgba(19, 27, 21, 0.96));
+      linear-gradient(90deg, rgba(75, 234, 154, 0.08), transparent 58%) padding-box,
+      linear-gradient(180deg, rgba(29, 40, 31, 0.96), rgba(19, 27, 21, 0.96)) padding-box,
+      linear-gradient(145deg, rgba(75, 234, 154, 0.22), rgba(191, 236, 200, 0.05) 55%, rgba(143, 255, 196, 0.0)) border-box;
   }
 
   .oss-card h3 {
@@ -1805,7 +1433,17 @@ const portfolioJsonLd = {
   .small-card {
     grid-column: span 3;
     min-height: 12rem;
-    transition: transform 160ms ease, border-color 160ms ease;
+    border: 1px solid transparent;
+    background:
+      linear-gradient(180deg, rgba(29, 40, 31, 0.96), rgba(19, 27, 21, 0.96)) padding-box,
+      linear-gradient(145deg, rgba(75, 234, 154, 0.12), rgba(191, 236, 200, 0.03) 55%, rgba(143, 255, 196, 0.0)) border-box;
+    transition: transform 160ms ease, background 160ms ease;
+  }
+
+  .small-card:hover {
+    background:
+      linear-gradient(180deg, rgba(29, 40, 31, 0.96), rgba(19, 27, 21, 0.96)) padding-box,
+      linear-gradient(145deg, rgba(75, 234, 154, 0.22), rgba(191, 236, 200, 0.05) 55%, rgba(143, 255, 196, 0.0)) border-box;
   }
 
   .small-card h3 {

@@ -22,7 +22,7 @@ const pageDescription = "This page doesn't exist. Find Ender Bonnet elsewhere on
       <a class="back-link" href="/" data-i18n="socialBack">← Back</a>
       <section class="error-card">
         <p class="kicker" data-i18n="error404Kicker">Error 404</p>
-        <pre class="error-ascii glitch-text" aria-hidden="true">
+        <pre class="error-ascii" aria-hidden="true">
     ╔════════════════════════╗
     ║   ░░░ LOADING █░░░░░  ║
     ║   ██████████░░░░░░░░  ║
@@ -35,7 +35,7 @@ const pageDescription = "This page doesn't exist. Find Ender Bonnet elsewhere on
       │ ┌─────┐ │
       └─────────┘
         </pre>
-        <h1 class="glitch-title" data-i18n="error404Title">Page not found.</h1>
+        <h1 data-i18n="error404Title">Page not found.</h1>
         <p class="error-subtitle" data-i18n="error404Subtitle">This page vanished into the void. Maybe it never existed, or maybe it's hiding somewhere else.</p>
         <a class="error-link" href="/" data-i18n="error404Cta">Go home</a>
       </section>
@@ -79,11 +79,8 @@ const pageDescription = "This page doesn't exist. Find Ender Bonnet elsewhere on
     min-height: 100dvh;
     margin: 0;
     background:
-      linear-gradient(rgba(246, 255, 247, 0.025) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(246, 255, 247, 0.02) 1px, transparent 1px),
-      radial-gradient(circle at 18% 0%, rgba(75, 234, 154, 0.14), transparent 32rem),
+      radial-gradient(circle at 18% 0%, rgba(75, 234, 154, 0.10), transparent 32rem),
       linear-gradient(180deg, #121812 0%, #0b0e0c 100%);
-    background-size: 28px 28px, 28px 28px, auto, auto;
     color: var(--ink);
     display: flex;
     flex-direction: column;
@@ -109,9 +106,11 @@ const pageDescription = "This page doesn't exist. Find Ender Bonnet elsewhere on
     align-items: center;
     gap: 0.35rem;
     padding: 0.45rem 0.75rem;
-    border: 1px solid var(--line);
+    border: 1px solid transparent;
     border-radius: 999px;
-    background: rgba(8, 12, 9, 0.6);
+    background:
+      rgba(8, 12, 9, 0.6) padding-box,
+      linear-gradient(145deg, rgba(75, 234, 154, 0.12), rgba(191, 236, 200, 0.03) 55%, rgba(143, 255, 196, 0.0)) border-box;
     color: var(--muted);
     font-size: 0.82rem;
     font-weight: 800;
@@ -121,9 +120,10 @@ const pageDescription = "This page doesn't exist. Find Ender Bonnet elsewhere on
   }
 
   .back-link:hover {
-    border-color: var(--accent-strong);
     color: var(--accent-strong);
-    background: rgba(75, 234, 154, 0.08);
+    background:
+      rgba(75, 234, 154, 0.08) padding-box,
+      linear-gradient(145deg, rgba(75, 234, 154, 0.20), rgba(191, 236, 200, 0.05) 55%, rgba(143, 255, 196, 0.0)) border-box;
   }
 
   .error-page {
@@ -135,20 +135,12 @@ const pageDescription = "This page doesn't exist. Find Ender Bonnet elsewhere on
     position: relative;
     overflow: hidden;
     padding: clamp(1.5rem, 4vw, 2.5rem);
-    border: 1px solid var(--line-strong);
+    border: 1px solid transparent;
     border-radius: var(--radius);
     background:
-      radial-gradient(circle at 72% 12%, rgba(75, 234, 154, 0.16), transparent 14rem),
-      linear-gradient(180deg, rgba(29, 40, 31, 0.98), rgba(15, 20, 16, 0.98));
-  }
-
-  .error-card::before {
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    content: "";
-    background: repeating-linear-gradient(0deg, rgba(246, 255, 247, 0.025) 0 1px, transparent 1px 5px);
-    mix-blend-mode: screen;
+      radial-gradient(circle at 72% 12%, rgba(75, 234, 154, 0.10), transparent 14rem) padding-box,
+      linear-gradient(180deg, rgba(29, 40, 31, 0.92), rgba(15, 20, 16, 0.92)) padding-box,
+      linear-gradient(145deg, rgba(75, 234, 154, 0.18), rgba(191, 236, 200, 0.04) 55%, rgba(143, 255, 196, 0.0)) border-box;
   }
 
   .kicker {
@@ -178,30 +170,6 @@ const pageDescription = "This page doesn't exist. Find Ender Bonnet elsewhere on
     letter-spacing: 0.02em;
     white-space: pre;
     font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
-    animation: glitch-flicker 3.5s steps(1, end) infinite;
-  }
-
-  .error-ascii::before,
-  .error-ascii::after {
-    position: absolute;
-    top: 0;
-    left: 0;
-    pointer-events: none;
-    content: attr(data-content);
-  }
-
-  .error-ascii::before {
-    color: rgba(143, 255, 196, 0.7);
-    animation: glitch-shift-red 2.8s steps(1, end) infinite;
-    clip-path: inset(20% 0 60% 0);
-    transform: translateX(0);
-  }
-
-  .error-ascii::after {
-    color: rgba(255, 106, 106, 0.5);
-    animation: glitch-shift-blue 3.2s steps(1, end) infinite;
-    clip-path: inset(60% 0 10% 0);
-    transform: translateX(0);
   }
 
   .error-subtitle {
@@ -215,103 +183,29 @@ const pageDescription = "This page doesn't exist. Find Ender Bonnet elsewhere on
     margin-top: 0;
   }
 
-  .glitch-title {
-    position: relative;
-  }
-
-  .glitch-title::before,
-  .glitch-title::after {
-    position: absolute;
-    top: 0;
-    left: 0;
-    pointer-events: none;
-    content: attr(data-text);
-  }
-
-  .glitch-title::before {
-    color: rgba(143, 255, 196, 0.7);
-    animation: glitch-text-shift 2.6s steps(1, end) infinite;
-    clip-path: inset(0 0 65% 0);
-  }
-
-  .glitch-title::after {
-    color: rgba(255, 106, 106, 0.5);
-    animation: glitch-text-shift-alt 3.1s steps(1, end) infinite;
-    clip-path: inset(55% 0 0 0);
-  }
-
   .error-link {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
     padding: 0.65rem 1.3rem;
-    border: 1px solid var(--accent);
+    border: 1px solid transparent;
     border-radius: var(--radius);
-    background: rgba(75, 234, 154, 0.08);
+    background:
+      rgba(75, 234, 154, 0.08) padding-box,
+      linear-gradient(145deg, rgba(75, 234, 154, 0.14), rgba(191, 236, 200, 0.03) 55%, rgba(143, 255, 196, 0.0)) border-box;
     color: var(--accent-strong);
     font-size: 0.95rem;
     font-weight: 850;
     letter-spacing: -0.01em;
-    transition: transform 160ms ease, border-color 160ms ease, background 160ms ease;
+    transition: transform 160ms ease, background 160ms ease;
     position: relative;
   }
 
   .error-link:hover {
     transform: translateY(-2px);
-    border-color: var(--accent-strong);
-    background: rgba(75, 234, 154, 0.14);
-  }
-
-  @keyframes glitch-flicker {
-    0%, 88%, 91%, 93%, 95%, 100% { opacity: 1; }
-    89% { opacity: 0.72; }
-    92% { opacity: 0.85; }
-    94% { opacity: 0.65; }
-  }
-
-  @keyframes glitch-shift-red {
-    0%, 74%, 78%, 100% { transform: translateX(0); }
-    75% { transform: translate(6px, -1px) skewX(-3deg); }
-    76% { transform: translate(-4px, 1px) skewX(2deg); }
-    77% { transform: translateX(2px) skewX(-1deg); }
-  }
-
-  @keyframes glitch-shift-blue {
-    0%, 60%, 64%, 100% { transform: translateX(0); }
-    61% { transform: translate(-8px, 2px) skewX(4deg); }
-    62% { transform: translate(5px, -1px) skewX(-2deg); }
-    63% { transform: translateX(-3px) skewX(1deg); }
-  }
-
-  @keyframes glitch-text-shift {
-    0%, 70%, 74%, 100% { transform: translateX(0); }
-    71% { transform: translate(5px, -2px) skewX(-4deg); }
-    72% { transform: translate(-3px, 1px) skewX(2deg); }
-    73% { transform: translateX(2px) skewX(-1deg); }
-  }
-
-  @keyframes glitch-text-shift-alt {
-    0%, 55%, 59%, 100% { transform: translateX(0); }
-    56% { transform: translate(-7px, 2px) skewX(3deg); }
-    57% { transform: translate(4px, -1px) skewX(-2deg); }
-    58% { transform: translateX(-2px) skewX(1deg); }
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .error-ascii,
-    .error-ascii::before,
-    .error-ascii::after,
-    .glitch-title::before,
-    .glitch-title::after {
-      animation: none;
-    }
-
-    .error-ascii::before,
-    .error-ascii::after,
-    .glitch-title::before,
-    .glitch-title::after {
-      opacity: 0;
-    }
+    background:
+      rgba(75, 234, 154, 0.14) padding-box,
+      linear-gradient(145deg, rgba(75, 234, 154, 0.22), rgba(191, 236, 200, 0.05) 55%, rgba(143, 255, 196, 0.0)) border-box;
   }
 
   @media (max-width: 520px) {
@@ -326,16 +220,3 @@ const pageDescription = "This page doesn't exist. Find Ender Bonnet elsewhere on
     }
   }
 </style>
-
-<script is:inline>
-  (function() {
-    var ascii = document.querySelector('.error-ascii');
-    if (ascii) {
-      ascii.setAttribute('data-content', ascii.textContent);
-    }
-    var title = document.querySelector('.glitch-title');
-    if (title) {
-      title.setAttribute('data-text', title.textContent);
-    }
-  })();
-</script>
