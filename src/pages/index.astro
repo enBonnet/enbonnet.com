@@ -828,15 +828,18 @@ const portfolioJsonLd = {
     align-items: center;
     min-height: 2.5rem;
     padding: 0.68rem 0.9rem;
-    border: 1px solid var(--line-strong);
+    border: 1px solid transparent;
     border-radius: 999px;
-    background: rgba(8, 12, 9, 0.5);
-    transition: background 160ms ease, border-color 160ms ease, transform 160ms ease;
+    background:
+      rgba(8, 12, 9, 0.5) padding-box,
+      linear-gradient(145deg, rgba(75, 234, 154, 0.14), rgba(191, 236, 200, 0.04) 55%, rgba(143, 255, 196, 0.0)) border-box;
+    transition: background 160ms ease, transform 160ms ease;
   }
 
   .button.primary {
-    border-color: var(--accent-strong);
-    background: var(--accent-strong);
+    background:
+      var(--accent-strong) padding-box,
+      linear-gradient(145deg, rgba(75, 234, 154, 0.25), rgba(191, 236, 200, 0.06) 55%, rgba(143, 255, 196, 0.0)) border-box;
     color: #111712;
   }
 
@@ -846,7 +849,9 @@ const portfolioJsonLd = {
   .theme-row:hover,
   .small-card:hover {
     transform: translateY(-2px);
-    border-color: var(--accent-strong);
+    background:
+      rgba(75, 234, 154, 0.08) padding-box,
+      linear-gradient(145deg, rgba(75, 234, 154, 0.22), rgba(191, 236, 200, 0.05) 55%, rgba(143, 255, 196, 0.0)) border-box;
   }
 
   .stat-grid {
@@ -1086,9 +1091,11 @@ const portfolioJsonLd = {
   .mini-window {
     width: min(18rem, 100%);
     padding: 1rem;
-    border: 1px solid var(--line-strong);
+    border: 1px solid transparent;
     border-radius: 0.4rem;
-    background: #101611;
+    background:
+      #101611 padding-box,
+      linear-gradient(145deg, rgba(75, 234, 154, 0.15), rgba(191, 236, 200, 0.04) 55%, rgba(143, 255, 196, 0.0)) border-box;
   }
 
   .mini-window span {
@@ -1173,9 +1180,11 @@ const portfolioJsonLd = {
     display: grid;
     gap: 0.7rem;
     padding: 1rem;
-    border: 1px solid var(--line-strong);
+    border: 1px solid transparent;
     border-radius: 0.4rem;
-    background: #090d0a;
+    background:
+      #090d0a padding-box,
+      linear-gradient(145deg, rgba(75, 234, 154, 0.15), rgba(191, 236, 200, 0.04) 55%, rgba(143, 255, 196, 0.0)) border-box;
     color: var(--muted);
     font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
     font-size: 0.86rem;
@@ -1194,13 +1203,17 @@ const portfolioJsonLd = {
   .mail-row {
     display: block;
     height: 2.5rem;
-    border: 1px solid var(--line);
+    border: 1px solid transparent;
     border-radius: 0.35rem;
-    background: linear-gradient(90deg, var(--line-strong) 0 18%, rgba(143, 255, 196, 0.05) 18%);
+    background:
+      linear-gradient(90deg, var(--line-strong) 0 18%, rgba(143, 255, 196, 0.05) 18%) padding-box,
+      linear-gradient(145deg, rgba(75, 234, 154, 0.12), rgba(191, 236, 200, 0.03) 55%, rgba(143, 255, 196, 0.0)) border-box;
   }
 
   .mail-row.checked {
-    border-color: var(--accent-strong);
+    background:
+      linear-gradient(90deg, var(--accent-strong) 0 18%, rgba(143, 255, 196, 0.08) 18%) padding-box,
+      linear-gradient(145deg, rgba(75, 234, 154, 0.22), rgba(191, 236, 200, 0.05) 55%, rgba(143, 255, 196, 0.0)) border-box;
   }
 
   .mail-row.delete {
@@ -1221,8 +1234,10 @@ const portfolioJsonLd = {
     display: grid;
     min-height: 3rem;
     place-items: center;
-    border: 1px solid var(--line);
-    background: rgba(143, 255, 196, 0.07);
+    border: 1px solid transparent;
+    background:
+      rgba(143, 255, 196, 0.07) padding-box,
+      linear-gradient(145deg, rgba(75, 234, 154, 0.12), rgba(191, 236, 200, 0.03) 55%, rgba(143, 255, 196, 0.0)) border-box;
     color: var(--accent-strong);
     font-weight: 900;
   }
@@ -1232,8 +1247,10 @@ const portfolioJsonLd = {
     gap: 0.4rem;
     place-items: center;
     padding: 1.5rem;
-    border: 1px solid var(--line-strong);
-    background: rgba(240, 166, 74, 0.1);
+    border: 1px solid transparent;
+    background:
+      rgba(240, 166, 74, 0.1) padding-box,
+      linear-gradient(145deg, rgba(240, 166, 74, 0.22), rgba(191, 236, 200, 0.04) 55%, rgba(143, 255, 196, 0.0)) border-box;
     text-align: center;
   }
 
@@ -1617,30 +1634,37 @@ const portfolioJsonLd = {
     justify-content: center;
     min-height: 1.6rem;
     padding: 0.2rem 0.5rem;
-    border: 1px solid var(--line);
+    border: 1px solid transparent;
     border-radius: 0.25rem;
-    background: transparent;
+    background:
+      transparent padding-box,
+      linear-gradient(145deg, rgba(75, 234, 154, 0.10), rgba(191, 236, 200, 0.03) 55%, rgba(143, 255, 196, 0.0)) border-box;
     color: var(--muted);
     font-size: 0.72rem;
     font-weight: 800;
     letter-spacing: 0.08em;
     cursor: pointer;
-    transition: border-color 160ms ease, color 160ms ease, background 160ms ease;
+    transition: background 160ms ease, color 160ms ease;
   }
 
   .lang-btn:hover {
-    border-color: var(--accent-strong);
     color: var(--accent-strong);
+    background:
+      rgba(75, 234, 154, 0.06) padding-box,
+      linear-gradient(145deg, rgba(75, 234, 154, 0.18), rgba(191, 236, 200, 0.05) 55%, rgba(143, 255, 196, 0.0)) border-box;
   }
 
   .lang-btn.active {
-    border-color: var(--accent-strong);
     color: #111712;
-    background: var(--accent-strong);
+    background:
+      var(--accent-strong) padding-box,
+      linear-gradient(145deg, rgba(75, 234, 154, 0.25), rgba(191, 236, 200, 0.06) 55%, rgba(143, 255, 196, 0.0)) border-box;
   }
 
   .lang-btn.active:hover {
-    background: var(--accent);
+    background:
+      var(--accent) padding-box,
+      linear-gradient(145deg, rgba(75, 234, 154, 0.22), rgba(191, 236, 200, 0.05) 55%, rgba(143, 255, 196, 0.0)) border-box;
     color: #111712;
   }
 
