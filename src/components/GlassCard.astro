@@ -1,0 +1,83 @@
+---
+export interface Props {
+  as?: string;
+  class?: string;
+  variant?: "default" | "error" | "masthead" | "lead" | "theme" | "danger";
+  radialGlow?: boolean;
+  padding?: string;
+}
+
+const {
+  as: Tag = "section",
+  class: className,
+  variant = "default",
+  radialGlow = false,
+  padding = "clamp(1rem, 2.5vw, 1.65rem)",
+} = Astro.props;
+
+const variantClasses = {
+  default: "",
+  error: "glass-card--error",
+  masthead: "glass-card--masthead",
+  lead: "glass-card--lead",
+  theme: "glass-card--theme",
+  danger: "glass-card--danger",
+};
+---
+
+<Tag
+  class={["glass-card", variantClasses[variant], className].filter(Boolean).join(" ")}
+  style={`padding: ${padding};`}
+>
+  <slot />
+</Tag>
+
+<style>
+  .glass-card {
+    position: relative;
+    overflow: hidden;
+    border: 1px solid transparent;
+    border-radius: var(--radius);
+    background:
+      linear-gradient(180deg, rgba(29, 40, 31, 0.90), rgba(19, 27, 21, 0.92)) padding-box,
+      linear-gradient(145deg, rgba(75, 234, 154, 0.25), rgba(191, 236, 200, 0.05) 55%, rgba(143, 255, 196, 0.0)) border-box;
+  }
+
+  .glass-card > * {
+    position: relative;
+  }
+
+  .glass-card--masthead {
+    background:
+      linear-gradient(180deg, rgba(13, 18, 14, 0.92), rgba(13, 18, 14, 0.88)) padding-box,
+      linear-gradient(145deg, rgba(75, 234, 154, 0.18), rgba(191, 236, 200, 0.03) 55%, rgba(143, 255, 196, 0.0)) border-box;
+  }
+
+  .glass-card--lead {
+    background:
+      radial-gradient(circle at 88% 18%, rgba(75, 234, 154, 0.10), transparent 22rem) padding-box,
+      linear-gradient(145deg, rgba(32, 47, 35, 0.98), rgba(15, 20, 16, 0.98)) padding-box,
+      linear-gradient(145deg, rgba(75, 234, 154, 0.22), rgba(191, 236, 200, 0.04) 55%, rgba(143, 255, 196, 0.0)) border-box;
+  }
+
+  .glass-card--theme {
+    background:
+      linear-gradient(90deg, rgba(75, 234, 154, 0.08), transparent 42%) padding-box,
+      linear-gradient(180deg, rgba(29, 40, 31, 0.92), rgba(13, 18, 14, 0.92)) padding-box,
+      linear-gradient(145deg, rgba(75, 234, 154, 0.18), rgba(191, 236, 200, 0.04) 55%, rgba(143, 255, 196, 0.0)) border-box;
+  }
+
+  .glass-card--error {
+    background:
+      radial-gradient(circle at 72% 12%, rgba(255, 106, 106, 0.08), transparent 14rem) padding-box,
+      linear-gradient(180deg, rgba(29, 40, 31, 0.92), rgba(15, 20, 16, 0.92)) padding-box,
+      linear-gradient(145deg, rgba(255, 106, 106, 0.14), rgba(191, 236, 200, 0.04) 55%, rgba(143, 255, 196, 0.0)) border-box;
+  }
+
+  .glass-card--danger {
+    background:
+      radial-gradient(circle at 72% 12%, rgba(255, 106, 106, 0.08), transparent 14rem) padding-box,
+      linear-gradient(180deg, rgba(29, 40, 31, 0.92), rgba(15, 20, 16, 0.92)) padding-box,
+      linear-gradient(145deg, rgba(255, 106, 106, 0.14), rgba(191, 236, 200, 0.04) 55%, rgba(143, 255, 196, 0.0)) border-box;
+  }
+</style>

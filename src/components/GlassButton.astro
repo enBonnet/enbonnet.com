@@ -1,0 +1,98 @@
+---
+export interface Props {
+  href?: string;
+  target?: string;
+  rel?: string;
+  variant?: "default" | "primary" | "danger";
+  pill?: boolean;
+  as?: "button" | "a";
+  class?: string;
+}
+
+const {
+  href,
+  target,
+  rel,
+  variant = "default",
+  pill = false,
+  as = href ? "a" : "button",
+  class: className,
+} = Astro.props;
+
+const Tag = as;
+---
+
+<Tag
+  class={[
+    "glass-button",
+    `glass-button--${variant}`,
+    pill ? "glass-button--pill" : "",
+    className,
+  ].filter(Boolean).join(" ")}
+  {href}
+  {target}
+  {rel}
+>
+  <slot />
+</Tag>
+
+<style>
+  .glass-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.35rem;
+    padding: 0.45rem 0.75rem;
+    border: 1px solid transparent;
+    border-radius: var(--radius);
+    background:
+      rgba(8, 12, 9, 0.6) padding-box,
+      linear-gradient(145deg, rgba(75, 234, 154, 0.12), rgba(191, 236, 200, 0.03) 55%, rgba(143, 255, 196, 0.0)) border-box;
+    color: var(--muted);
+    font-size: 0.82rem;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    transition: background 160ms ease, color 160ms ease, transform 160ms ease;
+    cursor: pointer;
+  }
+
+  .glass-button:hover {
+    transform: translateY(-2px);
+    color: var(--accent-strong);
+    background:
+      rgba(75, 234, 154, 0.08) padding-box,
+      linear-gradient(145deg, rgba(75, 234, 154, 0.20), rgba(191, 236, 200, 0.05) 55%, rgba(143, 255, 196, 0.0)) border-box;
+  }
+
+  .glass-button--pill {
+    border-radius: 999px;
+    min-height: 2.5rem;
+    padding: 0.68rem 0.9rem;
+  }
+
+  .glass-button--primary {
+    background:
+      var(--accent-strong) padding-box,
+      linear-gradient(145deg, rgba(75, 234, 154, 0.25), rgba(191, 236, 200, 0.06) 55%, rgba(143, 255, 196, 0.0)) border-box;
+    color: #111712;
+  }
+
+  .glass-button--primary:hover {
+    background:
+      var(--accent) padding-box,
+      linear-gradient(145deg, rgba(75, 234, 154, 0.22), rgba(191, 236, 200, 0.05) 55%, rgba(143, 255, 196, 0.0)) border-box;
+  }
+
+  .glass-button--danger {
+    background:
+      rgba(255, 106, 106, 0.08) padding-box,
+      linear-gradient(145deg, rgba(255, 106, 106, 0.14), rgba(191, 236, 200, 0.04) 55%, rgba(143, 255, 196, 0.0)) border-box;
+    color: var(--danger);
+  }
+
+  .glass-button--danger:hover {
+    background:
+      rgba(255, 106, 106, 0.14) padding-box,
+      linear-gradient(145deg, rgba(255, 106, 106, 0.22), rgba(191, 236, 200, 0.05) 55%, rgba(143, 255, 196, 0.0)) border-box;
+  }
+</style>

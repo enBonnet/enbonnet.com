@@ -1,0 +1,49 @@
+---
+export interface Props {
+  href?: string;
+  class?: string;
+  "data-i18n"?: string;
+}
+
+const { href = "/", class: className, "data-i18n": dataI18n = "socialBack" } = Astro.props;
+---
+
+<a class={["back-link", className].filter(Boolean).join(" ")} href={href} data-i18n={dataI18n}>← Back</a>
+
+<style>
+  .back-link {
+    position: fixed;
+    top: 1.25rem;
+    left: 1.25rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.45rem 0.75rem;
+    border: 1px solid transparent;
+    border-radius: 999px;
+    background:
+      rgba(8, 12, 9, 0.6) padding-box,
+      linear-gradient(145deg, rgba(75, 234, 154, 0.12), rgba(191, 236, 200, 0.03) 55%, rgba(143, 255, 196, 0.0)) border-box;
+    color: var(--muted);
+    font-size: 0.82rem;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    transition: background 160ms ease, color 160ms ease, transform 160ms ease;
+    z-index: 10;
+  }
+
+  .back-link:hover {
+    transform: translateY(-2px);
+    color: var(--accent-strong);
+    background:
+      rgba(75, 234, 154, 0.08) padding-box,
+      linear-gradient(145deg, rgba(75, 234, 154, 0.20), rgba(191, 236, 200, 0.05) 55%, rgba(143, 255, 196, 0.0)) border-box;
+  }
+
+  @media (max-width: 520px) {
+    .back-link {
+      position: static;
+      margin-bottom: 1.25rem;
+    }
+  }
+</style>

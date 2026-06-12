@@ -1,0 +1,55 @@
+---
+import LangSwitcher from "./LangSwitcher.astro";
+---
+
+<section class="masthead" data-i18n-attr="aria-label:mastAriaLabel" aria-label="Site masthead">
+  <p class="edition">enbonnet.com</p>
+  <p data-i18n="mastCategory">Software Engineering</p>
+  <p data-i18n="mastLocation">Santiago, Chile</p>
+  <LangSwitcher />
+</section>
+
+<style>
+  .masthead {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr auto;
+    gap: 1rem;
+    align-items: center;
+    padding: 0.75rem 1rem;
+    border: 1px solid transparent;
+    border-radius: var(--radius);
+    background:
+      linear-gradient(180deg, rgba(13, 18, 14, 0.92), rgba(13, 18, 14, 0.88)) padding-box,
+      linear-gradient(145deg, rgba(75, 234, 154, 0.18), rgba(191, 236, 200, 0.03) 55%, rgba(143, 255, 196, 0.0)) border-box;
+    color: var(--muted);
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+
+  .masthead p {
+    margin: 0;
+  }
+
+  .masthead p:last-child {
+    text-align: right;
+  }
+
+  .edition {
+    color: var(--accent-strong);
+  }
+
+  @media (max-width: 720px) {
+    .masthead {
+      grid-template-columns: 1fr;
+      gap: 0.35rem;
+    }
+
+    .masthead p,
+    .masthead p:last-child {
+      text-align: left;
+    }
+  }
+</style>

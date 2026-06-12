@@ -1,0 +1,49 @@
+---
+export interface Props {
+  items: Array<{
+    value: string;
+    label: string;
+    i18nKey: string;
+  }>;
+}
+
+const { items } = Astro.props;
+---
+
+<div class="stat-grid">
+  {
+    items.map((item) => (
+      <div>
+        <strong>{item.value}</strong>
+        <span data-i18n={item.i18nKey}>{item.label}</span>
+      </div>
+    ))
+  }
+</div>
+
+<style>
+  .stat-grid {
+    display: grid;
+    gap: 1rem;
+  }
+
+  .stat-grid div {
+    padding-top: 1rem;
+    border-top: 1px solid var(--line);
+  }
+
+  .stat-grid strong {
+    display: block;
+    font-size: clamp(1.7rem, 3vw, 2.45rem);
+    line-height: 0.95;
+    letter-spacing: -0.06em;
+  }
+
+  .stat-grid span {
+    display: block;
+    margin-top: 0.4rem;
+    color: var(--muted);
+    font-size: 0.9rem;
+    line-height: 1.35;
+  }
+</style>

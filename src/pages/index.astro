@@ -285,8 +285,8 @@ const portfolioJsonLd = {
       </section>
 
       <aside class="paper-block bureau-card" data-i18n-attr="aria-label:bureauAriaLabel" aria-label="Portfolio highlights">
-        <div class="glitch-logo" role="img" data-i18n-attr="aria-label:logoAriaLabel" aria-label="Ender Bonnet logo">
-          <img class="glitch-logo-base" src="/600-green.svg" alt="" width="320" height="320" aria-hidden="true" />
+        <div class="site-logo" role="img" data-i18n-attr="aria-label:logoAriaLabel" aria-label="Ender Bonnet logo">
+          <img src="/600-green.svg" alt="" width="320" height="320" aria-hidden="true" />
         </div>
         <div class="stat-grid">
           <div>
@@ -744,25 +744,15 @@ const portfolioJsonLd = {
     gap: 1.5rem;
   }
 
-  .glitch-logo {
-    position: relative;
-    isolation: isolate;
-    overflow: hidden;
+  .site-logo {
     width: 100%;
     aspect-ratio: 1;
   }
 
-  .glitch-logo img {
-    position: absolute;
-    inset: 0;
+  .site-logo img {
     width: 100%;
     height: auto;
     object-fit: contain;
-  }
-
-  .glitch-logo-base {
-    position: relative;
-    z-index: 1;
     filter: drop-shadow(0 0 1.1rem rgba(75, 234, 154, 0.14));
   }
 
@@ -791,9 +781,6 @@ const portfolioJsonLd = {
   }
 
   .company-link {
-    position: relative;
-    isolation: isolate;
-    overflow: hidden;
     display: inline-flex;
     align-items: center;
     padding: 0.16rem 0.38rem;
@@ -806,8 +793,6 @@ const portfolioJsonLd = {
   }
 
   .company-link img {
-    position: relative;
-    z-index: 2;
     width: 5.8rem;
     height: auto;
     filter: saturate(1.08) contrast(1.04);
@@ -1180,11 +1165,9 @@ const portfolioJsonLd = {
     display: grid;
     gap: 0.7rem;
     padding: 1rem;
-    border: 1px solid transparent;
+    border: 1px solid var(--line-strong);
     border-radius: 0.4rem;
-    background:
-      #090d0a padding-box,
-      linear-gradient(145deg, rgba(75, 234, 154, 0.15), rgba(191, 236, 200, 0.04) 55%, rgba(143, 255, 196, 0.0)) border-box;
+    background: #090d0a;
     color: var(--muted);
     font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
     font-size: 0.86rem;
@@ -1203,17 +1186,13 @@ const portfolioJsonLd = {
   .mail-row {
     display: block;
     height: 2.5rem;
-    border: 1px solid transparent;
+    border: 1px solid var(--line);
     border-radius: 0.35rem;
-    background:
-      linear-gradient(90deg, var(--line-strong) 0 18%, rgba(143, 255, 196, 0.05) 18%) padding-box,
-      linear-gradient(145deg, rgba(75, 234, 154, 0.12), rgba(191, 236, 200, 0.03) 55%, rgba(143, 255, 196, 0.0)) border-box;
+    background: linear-gradient(90deg, var(--line-strong) 0 18%, rgba(143, 255, 196, 0.05) 18%);
   }
 
   .mail-row.checked {
-    background:
-      linear-gradient(90deg, var(--accent-strong) 0 18%, rgba(143, 255, 196, 0.08) 18%) padding-box,
-      linear-gradient(145deg, rgba(75, 234, 154, 0.22), rgba(191, 236, 200, 0.05) 55%, rgba(143, 255, 196, 0.0)) border-box;
+    border-color: var(--accent-strong);
   }
 
   .mail-row.delete {
@@ -1234,10 +1213,8 @@ const portfolioJsonLd = {
     display: grid;
     min-height: 3rem;
     place-items: center;
-    border: 1px solid transparent;
-    background:
-      rgba(143, 255, 196, 0.07) padding-box,
-      linear-gradient(145deg, rgba(75, 234, 154, 0.12), rgba(191, 236, 200, 0.03) 55%, rgba(143, 255, 196, 0.0)) border-box;
+    border: 1px solid var(--line);
+    background: rgba(143, 255, 196, 0.07);
     color: var(--accent-strong);
     font-weight: 900;
   }
@@ -1247,10 +1224,8 @@ const portfolioJsonLd = {
     gap: 0.4rem;
     place-items: center;
     padding: 1.5rem;
-    border: 1px solid transparent;
-    background:
-      rgba(240, 166, 74, 0.1) padding-box,
-      linear-gradient(145deg, rgba(240, 166, 74, 0.22), rgba(191, 236, 200, 0.04) 55%, rgba(143, 255, 196, 0.0)) border-box;
+    border: 1px solid var(--line-strong);
+    background: rgba(240, 166, 74, 0.1);
     text-align: center;
   }
 
@@ -1634,37 +1609,30 @@ const portfolioJsonLd = {
     justify-content: center;
     min-height: 1.6rem;
     padding: 0.2rem 0.5rem;
-    border: 1px solid transparent;
+    border: 1px solid var(--line);
     border-radius: 0.25rem;
-    background:
-      transparent padding-box,
-      linear-gradient(145deg, rgba(75, 234, 154, 0.10), rgba(191, 236, 200, 0.03) 55%, rgba(143, 255, 196, 0.0)) border-box;
+    background: transparent;
     color: var(--muted);
     font-size: 0.72rem;
     font-weight: 800;
     letter-spacing: 0.08em;
     cursor: pointer;
-    transition: background 160ms ease, color 160ms ease;
+    transition: border-color 160ms ease, color 160ms ease, background 160ms ease;
   }
 
   .lang-btn:hover {
+    border-color: var(--accent-strong);
     color: var(--accent-strong);
-    background:
-      rgba(75, 234, 154, 0.06) padding-box,
-      linear-gradient(145deg, rgba(75, 234, 154, 0.18), rgba(191, 236, 200, 0.05) 55%, rgba(143, 255, 196, 0.0)) border-box;
   }
 
   .lang-btn.active {
+    border-color: var(--accent-strong);
     color: #111712;
-    background:
-      var(--accent-strong) padding-box,
-      linear-gradient(145deg, rgba(75, 234, 154, 0.25), rgba(191, 236, 200, 0.06) 55%, rgba(143, 255, 196, 0.0)) border-box;
+    background: var(--accent-strong);
   }
 
   .lang-btn.active:hover {
-    background:
-      var(--accent) padding-box,
-      linear-gradient(145deg, rgba(75, 234, 154, 0.22), rgba(191, 236, 200, 0.05) 55%, rgba(143, 255, 196, 0.0)) border-box;
+    background: var(--accent);
     color: #111712;
   }
 

@@ -1,0 +1,79 @@
+---
+export interface Props {
+  name: string;
+  installs: string;
+  marketplace: string;
+  openVsx: string;
+  href: string;
+  color: string;
+  featured?: boolean;
+}
+
+const { name, installs, marketplace, openVsx, href, color, featured = false } = Astro.props;
+---
+
+<a class={`theme-row${featured ? " theme-row-featured" : ""}`} href={href} target="_blank" rel="noreferrer" style={`--theme-accent: ${color}`}>
+  <span class="theme-dot" aria-hidden="true"></span>
+  <span class="theme-name">{name}</span>
+  <span class="theme-count">{installs}</span>
+  <span class="theme-detail">Marketplace {marketplace} / Open VSX {openVsx}</span>
+</a>
+
+<style>
+  .theme-row {
+    position: relative;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 0.75rem;
+    align-items: center;
+    padding: 0.75rem 0.85rem;
+    border: 1px solid transparent;
+    border-radius: 0.25rem;
+    background:
+      rgba(8, 12, 9, 0.42) padding-box,
+      linear-gradient(145deg, rgba(75, 234, 154, 0.12), rgba(191, 236, 200, 0.03) 55%, rgba(143, 255, 196, 0.0)) border-box;
+    transition: transform 160ms ease, background 160ms ease;
+  }
+
+  .theme-row:hover {
+    background:
+      rgba(75, 234, 154, 0.07) padding-box,
+      linear-gradient(145deg, rgba(75, 234, 154, 0.22), rgba(191, 236, 200, 0.05) 55%, rgba(143, 255, 196, 0.0)) border-box;
+  }
+
+  .theme-row-featured {
+    border: 1px solid transparent;
+    background:
+      linear-gradient(90deg, rgba(75, 234, 154, 0.10), transparent 54%) padding-box,
+      linear-gradient(145deg, rgba(75, 234, 154, 0.28), rgba(191, 236, 200, 0.06) 55%, rgba(143, 255, 196, 0.0)) border-box;
+  }
+
+  .theme-row-featured:hover {
+    background:
+      linear-gradient(90deg, rgba(75, 234, 154, 0.16), transparent 58%) padding-box,
+      linear-gradient(145deg, rgba(75, 234, 154, 0.32), rgba(191, 236, 200, 0.08) 55%, rgba(143, 255, 196, 0.0)) border-box;
+  }
+
+  .theme-dot {
+    width: 0.85rem;
+    height: 0.85rem;
+    border-radius: 50%;
+    background: var(--theme-accent);
+  }
+
+  .theme-name, .theme-count { font-weight: 900; }
+  .theme-row-featured .theme-name { color: var(--accent-strong); }
+
+  .theme-detail {
+    grid-column: 2 / -1;
+    color: var(--muted);
+    font-size: 0.82rem;
+  }
+
+  @media (max-width: 720px) {
+    .theme-row { grid-template-columns: auto 1fr; }
+    .theme-count { grid-column: 2; }
+    .theme-detail { grid-column: 1 / -1; }
+  }
+</style>

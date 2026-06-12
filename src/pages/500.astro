@@ -101,34 +101,6 @@ const pageDescription = "Something went wrong on the server. Try again later.";
     outline-offset: 4px;
   }
 
-  .back-link {
-    position: fixed;
-    top: 1.25rem;
-    left: 1.25rem;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.35rem;
-    padding: 0.45rem 0.75rem;
-    border: 1px solid transparent;
-    border-radius: 999px;
-    background:
-      rgba(8, 12, 9, 0.6) padding-box,
-      linear-gradient(145deg, rgba(75, 234, 154, 0.12), rgba(191, 236, 200, 0.03) 55%, rgba(143, 255, 196, 0.0)) border-box;
-    color: var(--muted);
-    font-size: 0.82rem;
-    font-weight: 800;
-    letter-spacing: 0.04em;
-    transition: border-color 160ms ease, color 160ms ease, background 160ms ease;
-    z-index: 10;
-  }
-
-  .back-link:hover {
-    color: var(--accent-strong);
-    background:
-      rgba(75, 234, 154, 0.08) padding-box,
-      linear-gradient(145deg, rgba(75, 234, 154, 0.20), rgba(191, 236, 200, 0.05) 55%, rgba(143, 255, 196, 0.0)) border-box;
-  }
-
   .error-page {
     width: min(520px, calc(100% - 32px));
     padding: 2rem 0;
@@ -224,16 +196,3 @@ const pageDescription = "Something went wrong on the server. Try again later.";
     }
   }
 </style>
-
-<script is:inline>
-  (function() {
-    var ascii = document.querySelector('.error-ascii');
-    if (ascii) {
-      ascii.setAttribute('data-content', ascii.textContent);
-    }
-    var title = document.querySelector('h1');
-    if (title) {
-      title.setAttribute('data-text', title.textContent);
-    }
-  })();
-</script>

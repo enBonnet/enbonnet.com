@@ -1,0 +1,74 @@
+---
+export interface Props {
+  repo: string;
+  title: string;
+  type: string;
+  year: string;
+  href: string;
+  index: number;
+}
+
+const { repo, title, type, year, href, index } = Astro.props;
+---
+
+<a class="oss-card" href={href} target="_blank" rel="noreferrer">
+  <div class="oss-card-topline">
+    <span>{repo}</span>
+    <strong>{year}</strong>
+  </div>
+  <h3 data-i18n={`ossTitle${index}`}>{title}</h3>
+  <p>
+    <span data-i18n={type === "Code" ? "ossTypeCode" : "ossTypeDocs"}>{type}</span>
+    <span data-i18n="ossContribSuffix">contribution</span>
+  </p>
+</a>
+
+<style>
+  .oss-card {
+    min-height: 8.625rem;
+    border: 1px solid transparent;
+    border-radius: var(--radius);
+    background:
+      linear-gradient(180deg, rgba(29, 40, 31, 0.96), rgba(19, 27, 21, 0.96)) padding-box,
+      linear-gradient(145deg, rgba(75, 234, 154, 0.12), rgba(191, 236, 200, 0.03) 55%, rgba(143, 255, 196, 0.0)) border-box;
+    padding: clamp(1rem, 2.5vw, 1.65rem);
+    transition: transform 160ms ease, background 160ms ease;
+  }
+
+  .oss-card:hover {
+    transform: translateY(-2px);
+    background:
+      linear-gradient(90deg, rgba(75, 234, 154, 0.08), transparent 58%) padding-box,
+      linear-gradient(180deg, rgba(29, 40, 31, 0.96), rgba(19, 27, 21, 0.96)) padding-box,
+      linear-gradient(145deg, rgba(75, 234, 154, 0.22), rgba(191, 236, 200, 0.05) 55%, rgba(143, 255, 196, 0.0)) border-box;
+  }
+
+  .oss-card h3 {
+    margin-bottom: 0.55rem;
+    font-size: clamp(1.15rem, 1.7vw, 1.45rem);
+    line-height: 1.08;
+  }
+
+  .oss-card p {
+    margin-bottom: 0;
+    font-size: 0.9rem;
+    color: var(--muted);
+    line-height: 1.62;
+  }
+
+  .oss-card-topline {
+    display: flex;
+    justify-content: space-between;
+    gap: 0.75rem;
+    margin-bottom: 0.85rem;
+    color: var(--accent);
+    font-size: 0.72rem;
+    font-weight: 900;
+    letter-spacing: 0.11em;
+    text-transform: uppercase;
+  }
+
+  .oss-card-topline strong {
+    color: var(--faint);
+  }
+</style>

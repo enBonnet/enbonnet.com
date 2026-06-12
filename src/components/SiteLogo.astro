@@ -1,0 +1,33 @@
+---
+export interface Props {
+  src?: string;
+  alt?: string;
+  width?: number;
+  height?: number;
+}
+
+const {
+  src = "/600-green.svg",
+  alt = "",
+  width = 320,
+  height = 320,
+} = Astro.props;
+---
+
+<div class="site-logo" role="img" data-i18n-attr="aria-label:logoAriaLabel" aria-label="Ender Bonnet logo">
+  <img src={src} alt={alt} width={width} height={height} aria-hidden="true" />
+</div>
+
+<style>
+  .site-logo {
+    width: 100%;
+    aspect-ratio: 1;
+  }
+
+  .site-logo img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 0 1.1rem rgba(75, 234, 154, 0.14));
+  }
+</style>

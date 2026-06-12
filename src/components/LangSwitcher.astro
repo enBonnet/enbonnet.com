@@ -1,0 +1,73 @@
+---
+const languages = [
+  { code: "en", label: "EN" },
+  { code: "es", label: "ES" },
+];
+---
+
+<div class="lang-switcher" aria-label="Language selector">
+  {
+    languages.map((lang) => (
+      <button
+        type="button"
+        class="lang-btn"
+        data-lang={lang.code}
+        aria-pressed="false"
+      >
+        {lang.label}
+      </button>
+    ))
+  }
+</div>
+
+<style>
+  .lang-switcher {
+    display: flex;
+    gap: 0.3rem;
+  }
+
+  .lang-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 1.6rem;
+    padding: 0.2rem 0.5rem;
+    border: 1px solid transparent;
+    border-radius: 0.25rem;
+    background:
+      transparent padding-box,
+      linear-gradient(145deg, rgba(75, 234, 154, 0.10), rgba(191, 236, 200, 0.03) 55%, rgba(143, 255, 196, 0.0)) border-box;
+    color: var(--muted);
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    cursor: pointer;
+    transition: background 160ms ease, color 160ms ease;
+  }
+
+  .lang-btn:hover {
+    color: var(--accent-strong);
+    background:
+      rgba(75, 234, 154, 0.06) padding-box,
+      linear-gradient(145deg, rgba(75, 234, 154, 0.18), rgba(191, 236, 200, 0.05) 55%, rgba(143, 255, 196, 0.0)) border-box;
+  }
+
+  .lang-btn.active {
+    color: #111712;
+    background:
+      var(--accent-strong) padding-box,
+      linear-gradient(145deg, rgba(75, 234, 154, 0.25), rgba(191, 236, 200, 0.06) 55%, rgba(143, 255, 196, 0.0)) border-box;
+  }
+
+  .lang-btn.active:hover {
+    background:
+      var(--accent) padding-box,
+      linear-gradient(145deg, rgba(75, 234, 154, 0.22), rgba(191, 236, 200, 0.05) 55%, rgba(143, 255, 196, 0.0)) border-box;
+    color: #111712;
+  }
+
+  .lang-btn:focus-visible {
+    outline: 3px solid rgba(143, 255, 196, 0.7);
+    outline-offset: 4px;
+  }
+</style>

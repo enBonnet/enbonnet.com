@@ -120,10 +120,9 @@ const pageDescription = "This page doesn't exist. Find Ender Bonnet elsewhere on
   }
 
   .back-link:hover {
+    border-color: var(--accent-strong);
     color: var(--accent-strong);
-    background:
-      rgba(75, 234, 154, 0.08) padding-box,
-      linear-gradient(145deg, rgba(75, 234, 154, 0.20), rgba(191, 236, 200, 0.05) 55%, rgba(143, 255, 196, 0.0)) border-box;
+    background: rgba(75, 234, 154, 0.08);
   }
 
   .error-page {
@@ -138,9 +137,9 @@ const pageDescription = "This page doesn't exist. Find Ender Bonnet elsewhere on
     border: 1px solid transparent;
     border-radius: var(--radius);
     background:
-      radial-gradient(circle at 72% 12%, rgba(75, 234, 154, 0.10), transparent 14rem) padding-box,
-      linear-gradient(180deg, rgba(29, 40, 31, 0.92), rgba(15, 20, 16, 0.92)) padding-box,
-      linear-gradient(145deg, rgba(75, 234, 154, 0.18), rgba(191, 236, 200, 0.04) 55%, rgba(143, 255, 196, 0.0)) border-box;
+      radial-gradient(circle at 72% 12%, rgba(75, 234, 154, 0.16), transparent 14rem) padding-box,
+      linear-gradient(180deg, rgba(29, 40, 31, 0.98), rgba(15, 20, 16, 0.98)) padding-box,
+      linear-gradient(145deg, rgba(75, 234, 154, 0.25), rgba(191, 236, 200, 0.05) 55%, rgba(143, 255, 196, 0.0)) border-box;
   }
 
   .kicker {
@@ -162,7 +161,6 @@ const pageDescription = "This page doesn't exist. Find Ender Bonnet elsewhere on
   }
 
   .error-ascii {
-    position: relative;
     margin: 0 0 1.5rem;
     color: var(--accent);
     font-size: clamp(0.45rem, 1.1vw, 0.72rem);
@@ -188,24 +186,21 @@ const pageDescription = "This page doesn't exist. Find Ender Bonnet elsewhere on
     align-items: center;
     gap: 0.5rem;
     padding: 0.65rem 1.3rem;
-    border: 1px solid transparent;
+    border: 1px solid var(--accent);
     border-radius: var(--radius);
-    background:
-      rgba(75, 234, 154, 0.08) padding-box,
-      linear-gradient(145deg, rgba(75, 234, 154, 0.14), rgba(191, 236, 200, 0.03) 55%, rgba(143, 255, 196, 0.0)) border-box;
+    background: rgba(75, 234, 154, 0.08);
     color: var(--accent-strong);
     font-size: 0.95rem;
     font-weight: 850;
     letter-spacing: -0.01em;
-    transition: transform 160ms ease, background 160ms ease;
+    transition: transform 160ms ease, border-color 160ms ease, background 160ms ease;
     position: relative;
   }
 
   .error-link:hover {
     transform: translateY(-2px);
-    background:
-      rgba(75, 234, 154, 0.14) padding-box,
-      linear-gradient(145deg, rgba(75, 234, 154, 0.22), rgba(191, 236, 200, 0.05) 55%, rgba(143, 255, 196, 0.0)) border-box;
+    border-color: var(--accent-strong);
+    background: rgba(75, 234, 154, 0.14);
   }
 
   @media (max-width: 520px) {

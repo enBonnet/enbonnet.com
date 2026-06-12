@@ -1,0 +1,120 @@
+---
+export interface Props {
+  socials: Array<{
+    label: string;
+    href: string;
+    icon?: string;
+  }>;
+  layout?: "grid" | "list";
+}
+
+const { socials, layout = "grid" } = Astro.props;
+---
+
+{
+  layout === "list" ? (
+    <ul class="social-list">
+      {
+        socials.map((social) => (
+          <li>
+            <a class="social-link" href={social.href} target={social.label === "Email" ? undefined : "_blank"} rel={social.label === "Email" ? undefined : "noreferrer"}>
+              {social.icon && <span class="social-icon" set:html={social.icon} />}
+              <span class="social-label">{social.label === "Email" ? "ender@enbonnet.com" : social.label}</span>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  ) : (
+    <div class="socials">
+      {
+        socials.map((social) => (
+          <a href={social.href} target="_blank" rel="noreferrer">{social.label}</a>
+        ))
+      }
+    </div>
+  )
+}
+
+<style>
+  .social-list {
+    display: grid;
+    gap: 0.65rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .social-link {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    padding: 0.85rem 1.1rem;
+    border: 1px solid transparent;
+    border-radius: var(--radius);
+    background:
+      rgba(8, 12, 9, 0.45) padding-box,
+      linear-gradient(145deg, rgba(75, 234, 154, 0.10), rgba(191, 236, 200, 0.03) 55%, rgba(143, 255, 196, 0.0)) border-box;
+    transition: transform 160ms ease, background 160ms ease;
+  }
+
+  .social-link:hover {
+    transform: translateY(-2px);
+    background:
+      rgba(75, 234, 154, 0.07) padding-box,
+      linear-gradient(145deg, rgba(75, 234, 154, 0.18), rgba(191, 236, 200, 0.05) 55%, rgba(143, 255, 196, 0.0)) border-box;
+  }
+
+  .social-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.65rem;
+    height: 1.65rem;
+    flex-shrink: 0;
+    color: var(--accent-strong);
+    filter: drop-shadow(0 0 0.45rem rgba(75, 234, 154, 0.28));
+  }
+
+  .social-icon :global(svg) {
+    width: 100%;
+    height: 100%;
+  }
+
+  .social-label {
+    color: var(--ink);
+    font-size: 0.95rem;
+    font-weight: 850;
+    letter-spacing: -0.01em;
+  }
+
+  .social-link:hover .social-label {
+    color: var(--accent-strong);
+  }
+
+  .socials {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.55rem;
+  }
+
+  .socials a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 2.5rem;
+    padding: 0.68rem 0.9rem;
+    border: 1px solid transparent;
+    border-radius: 999px;
+    background:
+      rgba(8, 12, 9, 0.5) padding-box,
+      linear-gradient(145deg, rgba(75, 234, 154, 0.14), rgba(191, 236, 200, 0.04) 55%, rgba(143, 255, 196, 0.0)) border-box;
+    transition: background 160ms ease, transform 160ms ease;
+  }
+
+  .socials a:hover {
+    transform: translateY(-2px);
+    background:
+      rgba(75, 234, 154, 0.08) padding-box,
+      linear-gradient(145deg, rgba(75, 234, 154, 0.22), rgba(191, 236, 200, 0.05) 55%, rgba(143, 255, 196, 0.0)) border-box;
+  }
+</style>

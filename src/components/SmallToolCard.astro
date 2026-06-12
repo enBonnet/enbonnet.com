@@ -1,0 +1,55 @@
+---
+export interface Props {
+  name: string;
+  description: string;
+  href: string;
+  index: number;
+}
+
+const { name, description, href, index } = Astro.props;
+---
+
+<a class="small-card" href={href} target="_blank" rel="noreferrer">
+  <h3>{name}</h3>
+  <p data-i18n={`smallDesc${index}`}>{description}</p>
+</a>
+
+<style>
+  .small-card {
+    grid-column: span 3;
+    min-height: 12rem;
+    border: 1px solid transparent;
+    border-radius: var(--radius);
+    background:
+      linear-gradient(180deg, rgba(29, 40, 31, 0.96), rgba(19, 27, 21, 0.96)) padding-box,
+      linear-gradient(145deg, rgba(75, 234, 154, 0.12), rgba(191, 236, 200, 0.03) 55%, rgba(143, 255, 196, 0.0)) border-box;
+    padding: clamp(1rem, 2.5vw, 1.65rem);
+    transition: transform 160ms ease, background 160ms ease;
+  }
+
+  .small-card:hover {
+    transform: translateY(-2px);
+    background:
+      linear-gradient(180deg, rgba(29, 40, 31, 0.96), rgba(19, 27, 21, 0.96)) padding-box,
+      linear-gradient(145deg, rgba(75, 234, 154, 0.22), rgba(191, 236, 200, 0.05) 55%, rgba(143, 255, 196, 0.0)) border-box;
+  }
+
+  .small-card h3 {
+    font-size: 1.35rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .small-card p {
+    margin-bottom: 0;
+    color: var(--muted);
+    line-height: 1.62;
+  }
+
+  @media (max-width: 980px) {
+    .small-card { grid-column: span 6; }
+  }
+
+  @media (max-width: 720px) {
+    .small-card { grid-column: 1; }
+  }
+</style>
